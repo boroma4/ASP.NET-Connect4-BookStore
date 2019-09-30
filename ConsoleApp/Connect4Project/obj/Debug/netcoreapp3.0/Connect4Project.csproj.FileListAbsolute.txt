@@ -1,0 +1,11 @@
+D:\C#\ics0016-2019f\ConsoleApp\Connect4Project\bin\Debug\netcoreapp3.0\Connect4Project.exe
+D:\C#\ics0016-2019f\ConsoleApp\Connect4Project\bin\Debug\netcoreapp3.0\Connect4Project.deps.json
+D:\C#\ics0016-2019f\ConsoleApp\Connect4Project\bin\Debug\netcoreapp3.0\Connect4Project.runtimeconfig.json
+D:\C#\ics0016-2019f\ConsoleApp\Connect4Project\bin\Debug\netcoreapp3.0\Connect4Project.runtimeconfig.dev.json
+D:\C#\ics0016-2019f\ConsoleApp\Connect4Project\bin\Debug\netcoreapp3.0\Connect4Project.dll
+D:\C#\ics0016-2019f\ConsoleApp\Connect4Project\bin\Debug\netcoreapp3.0\Connect4Project.pdb
+D:\C#\ics0016-2019f\ConsoleApp\Connect4Project\obj\Debug\netcoreapp3.0\Connect4Project.csprojAssemblyReference.cache
+D:\C#\ics0016-2019f\ConsoleApp\Connect4Project\obj\Debug\netcoreapp3.0\Connect4Project.AssemblyInfoInputs.cache
+D:\C#\ics0016-2019f\ConsoleApp\Connect4Project\obj\Debug\netcoreapp3.0\Connect4Project.AssemblyInfo.cs
+D:\C#\ics0016-2019f\ConsoleApp\Connect4Project\obj\Debug\netcoreapp3.0\Connect4Project.dll
+D:\C#\ics0016-2019f\ConsoleApp\Connect4Project\obj\Debug\netcoreapp3.0\Connect4Project.pdb
