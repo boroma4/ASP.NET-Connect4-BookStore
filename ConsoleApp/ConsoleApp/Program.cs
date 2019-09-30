@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using GameEngine;
 using MenuSystem;
+using ConsoleUI;
 
 namespace ConsoleApp
 {
@@ -9,6 +11,32 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             Console.Clear();
+            
+            var startMenu = new Menu(2)
+            {
+                Title = "Select board size",
+                MenuItems = new List<MenuItem>()
+                {
+                    new MenuItem()
+                    {
+                        Command = "1",
+                        Title = "Small",
+                        CommandToExecute = TestGame
+                    },
+                    new MenuItem()
+                    {
+                        Command = "2",
+                        Title = "Medium",
+                        CommandToExecute = null
+                    },
+                    new MenuItem()
+                    {
+                        Command = "3",
+                        Title = "Big",
+                        CommandToExecute = null
+                    },
+                }
+            };
 
             var gameMenu = new Menu(1)
             {
@@ -19,7 +47,7 @@ namespace ConsoleApp
                     {
                         Command = "1",
                         Title = "Computer starts",
-                        CommandToExecute = null
+                        CommandToExecute = startMenu.Run
                     },
                     new MenuItem()
                     {
@@ -52,9 +80,10 @@ namespace ConsoleApp
             menu0.Run();
         }
 
-        /* static string TestGame()
+        
+         static string TestGame()
           {
-              var game = new Game(3, 3);
+              var game = new Game(3,3);
               var done = false;
   
               do
@@ -91,6 +120,5 @@ namespace ConsoleApp
               } while (!done);
               return "GAME OVER";
           }
-      }*/
     }
 }

@@ -38,6 +38,7 @@ namespace MenuSystem
                 {
                     Console.WriteLine(menuItem);
                 }
+                Console.WriteLine("========================");
 
                 if (_menuLevel >= 2)
                 {

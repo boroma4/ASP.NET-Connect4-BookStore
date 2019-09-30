@@ -1,0 +1,13 @@
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleUI\bin\Debug\netstandard2.1\ConsoleUI.deps.json
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleUI\bin\Debug\netstandard2.1\ConsoleUI.dll
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleUI\bin\Debug\netstandard2.1\ConsoleUI.pdb
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleUI\bin\Debug\netstandard2.1\GameEngine.dll
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleUI\bin\Debug\netstandard2.1\GameEngine.pdb
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleUI\obj\Debug\netstandard2.1\ConsoleUI.csprojAssemblyReference.cache
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleUI\obj\Debug\netstandard2.1\ConsoleUI.AssemblyInfoInputs.cache
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleUI\obj\Debug\netstandard2.1\ConsoleUI.AssemblyInfo.cs
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleUI\obj\Debug\netstandard2.1\ConsoleUI.csproj.CopyComplete
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleUI\obj\Debug\netstandard2.1\ConsoleUI.dll
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleUI\obj\Debug\netstandard2.1\ConsoleUI.pdb
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleUI\bin\Debug\netstandard2.1\MenuSystem.dll
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleUI\bin\Debug\netstandard2.1\MenuSystem.pdb

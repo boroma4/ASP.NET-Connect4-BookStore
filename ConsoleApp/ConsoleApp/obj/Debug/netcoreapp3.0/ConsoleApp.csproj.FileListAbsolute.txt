@@ -12,3 +12,7 @@ D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\obj\Debug\netcoreapp3.0\ConsoleApp.Ass
 D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\obj\Debug\netcoreapp3.0\ConsoleApp.csproj.CopyComplete
 D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\obj\Debug\netcoreapp3.0\ConsoleApp.dll
 D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\obj\Debug\netcoreapp3.0\ConsoleApp.pdb
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\ConsoleUI.dll
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\GameEngine.dll
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\ConsoleUI.pdb
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\GameEngine.pdb

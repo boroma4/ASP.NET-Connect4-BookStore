@@ -1,0 +1,11 @@
+D:\C#\ics0016-2019f\ConsoleApp\GameEngine\bin\Debug\netstandard2.1\GameEngine.deps.json
+D:\C#\ics0016-2019f\ConsoleApp\GameEngine\bin\Debug\netstandard2.1\GameEngine.dll
+D:\C#\ics0016-2019f\ConsoleApp\GameEngine\bin\Debug\netstandard2.1\GameEngine.pdb
+D:\C#\ics0016-2019f\ConsoleApp\GameEngine\obj\Debug\netstandard2.1\GameEngine.csprojAssemblyReference.cache
+D:\C#\ics0016-2019f\ConsoleApp\GameEngine\obj\Debug\netstandard2.1\GameEngine.AssemblyInfoInputs.cache
+D:\C#\ics0016-2019f\ConsoleApp\GameEngine\obj\Debug\netstandard2.1\GameEngine.AssemblyInfo.cs
+D:\C#\ics0016-2019f\ConsoleApp\GameEngine\obj\Debug\netstandard2.1\GameEngine.dll
+D:\C#\ics0016-2019f\ConsoleApp\GameEngine\obj\Debug\netstandard2.1\GameEngine.pdb
+D:\C#\ics0016-2019f\ConsoleApp\GameEngine\bin\Debug\netstandard2.1\MenuSystem.dll
+D:\C#\ics0016-2019f\ConsoleApp\GameEngine\bin\Debug\netstandard2.1\MenuSystem.pdb
+D:\C#\ics0016-2019f\ConsoleApp\GameEngine\obj\Debug\netstandard2.1\GameEngine.csproj.CopyComplete
