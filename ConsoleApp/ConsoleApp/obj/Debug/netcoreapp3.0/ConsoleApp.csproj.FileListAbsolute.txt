@@ -1,0 +1,14 @@
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\ConsoleApp.exe
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\ConsoleApp.deps.json
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\ConsoleApp.runtimeconfig.json
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\ConsoleApp.runtimeconfig.dev.json
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\ConsoleApp.dll
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\ConsoleApp.pdb
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\MenuSystem.dll
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\MenuSystem.pdb
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\obj\Debug\netcoreapp3.0\ConsoleApp.csprojAssemblyReference.cache
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\obj\Debug\netcoreapp3.0\ConsoleApp.AssemblyInfoInputs.cache
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\obj\Debug\netcoreapp3.0\ConsoleApp.AssemblyInfo.cs
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\obj\Debug\netcoreapp3.0\ConsoleApp.csproj.CopyComplete
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\obj\Debug\netcoreapp3.0\ConsoleApp.dll
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\obj\Debug\netcoreapp3.0\ConsoleApp.pdb

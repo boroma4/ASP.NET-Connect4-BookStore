@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\6430u\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\6430u\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_ConsoleApp.-2054414961.00" t="ExcludeRecursive" />
+    <e p="C:\Users\6430u\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Connect4.1078022191.00" t="ExcludeRecursive" />
     <e p="D:\C#\ics0016-2019f\ConsoleApp" t="IncludeFlat">
+      <e p="Connect4.sln" t="IncludeFlat" />
       <e p="ConsoleApp" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="ConsoleApp.csproj" t="IncludeRecursive" />
@@ -16,10 +17,10 @@
         </e>
         <e p="Program.cs" t="Include" />
       </e>
-      <e p="ConsoleApp.sln" t="IncludeFlat" />
       <e p="MenuSystem" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Class1.cs" t="Include" />
+        <e p="Menu.cs" t="Include" />
+        <e p="MenuItem.cs" t="Include" />
         <e p="MenuSystem.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
