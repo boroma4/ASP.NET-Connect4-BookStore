@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace GameEngine
 {
@@ -13,7 +14,7 @@ namespace GameEngine
 
 
         
-        public Game(int width = 7, int height = 6)
+        public Game(int height, int width)
         {
             if (width < 3 || height < 3)
             {
@@ -34,51 +35,15 @@ namespace GameEngine
 
         public void Move(int posY, int posX)
         {
+            if (posX > Width - 1) posX = Width - 1;
+            if (posY > Heigth - 1) posY = Heigth - 1;
+            
             if (Board[posY, posX] != CellState.Empty)
             {
                 return;
             }
             Board[posY, posX] = _playerZeroMove ? CellState.X : CellState.O ;
             _playerZeroMove = !_playerZeroMove;
-        }
-
-        private void setBoardSize( ref int width, ref int heigth)
-        {
-            Console.WriteLine("Select board size :\n 1 - tiny, 2 - Small, 3 - Medium, 4 - Big, 5- Large");
-             var size  = Console.ReadLine();
-             Int32.TryParse(size, out int j);
-            
-            switch (j)
-            {
-                case 0 :
-                    heigth = 4;
-                    width = 5;
-                    break;
-                    
-                case 1 :
-                    heigth = 5;
-                    width = 6;
-                    break;
-                
-                case 2 :
-                    heigth = 7;
-                    width = 8;
-                    break;
-                
-                case 3 :
-                    heigth = 7;
-                    width = 9;
-                    break;
-                
-                case 4 :
-                    heigth = 7;
-                    width = 10;
-                    break;
-                default: 
-                    throw new ArgumentException("Invalid board size");
-                    break;
-            }
-            
         }
     }
 

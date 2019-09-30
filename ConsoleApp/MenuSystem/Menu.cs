@@ -56,12 +56,10 @@ namespace MenuSystem
                 Console.Write(">");
 
                 command = Console.ReadLine()?.Trim().ToUpper() ?? "";
-
-
                 var returnCommand = "";
                 foreach (var menuItem in MenuItems)
                 {
-                    if (menuItem.Command == command && menuItem.CommandToExecute != null)
+                    if (menuItem.Command == command && menuItem.CommandToExecute != null )
                     {
                         returnCommand = menuItem.CommandToExecute(); // menu level 2
                         break;
@@ -80,13 +78,9 @@ namespace MenuSystem
                         command = MenuItemReturnToMain.Command;
                     }
                 }
-
-
-
             } while (command != MenuItemExit.Command && 
                      command != MenuItemReturnToMain.Command && 
                      command != MenuItemReturnToPrevious.Command);
-
             
             return command;
         }

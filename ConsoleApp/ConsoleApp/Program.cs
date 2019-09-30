@@ -11,32 +11,6 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             Console.Clear();
-            
-            var startMenu = new Menu(2)
-            {
-                Title = "Select board size",
-                MenuItems = new List<MenuItem>()
-                {
-                    new MenuItem()
-                    {
-                        Command = "1",
-                        Title = "Small",
-                        CommandToExecute = TestGame
-                    },
-                    new MenuItem()
-                    {
-                        Command = "2",
-                        Title = "Medium",
-                        CommandToExecute = null
-                    },
-                    new MenuItem()
-                    {
-                        Command = "3",
-                        Title = "Big",
-                        CommandToExecute = null
-                    },
-                }
-            };
 
             var gameMenu = new Menu(1)
             {
@@ -47,7 +21,7 @@ namespace ConsoleApp
                     {
                         Command = "1",
                         Title = "Computer starts",
-                        CommandToExecute = startMenu.Run
+                        CommandToExecute = TestGame
                     },
                     new MenuItem()
                     {
@@ -82,17 +56,27 @@ namespace ConsoleApp
 
         
          static string TestGame()
-          {
-              var game = new Game(3,3);
+         {
+             Console.Clear();
+             Console.WriteLine("Enter height of the board");
+             Console.Write(">");
+             var height = Console.ReadLine();
+             Console.WriteLine("Enter width of the board");
+             Console.Write(">");
+             var width = Console.ReadLine();
+             int.TryParse(height, out int h);
+             int.TryParse(width, out int w);
+             var game = new Game(h,w);
+             Console.Clear();
+             Console.WriteLine("Press any key to start");
+             Console.ReadKey();
               var done = false;
-  
               do
               {
                   Console.Clear();
                   GameUi.PrintBoard(game);
                   var userXint = -1;
                   var userYint = -1;
-  
                   do
                   {
                       Console.WriteLine("Give me X value");
@@ -118,7 +102,7 @@ namespace ConsoleApp
                   game.Move(userYint,userXint);
                   done = userXint == 0 && userYint == 0;
               } while (!done);
-              return "GAME OVER";
-          }
+              return "a";
+         }
     }
 }
