@@ -37,6 +37,8 @@ namespace GameEngine
         {
             if (posX > Width - 1) posX = Width - 1;
             if (posY > Heigth - 1) posY = Heigth - 1;
+            if (posX < 0) posX = 0;
+            if (posY < 0) posY = 0;
             
             if (Board[posY, posX] != CellState.Empty)
             {
