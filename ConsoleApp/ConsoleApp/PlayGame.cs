@@ -41,6 +41,11 @@ namespace ConsoleApp
         {
             int turn = 0;
             var game = new Game(h,w);
+            int[] Yint= new int [w];
+            for (int i = 0; i < w; i++)
+            {
+                Yint[i] = h-1;
+            }
             Console.Clear();
             var done = false;
             do
@@ -48,35 +53,31 @@ namespace ConsoleApp
                 Console.Clear();
                 GameUI.PrintBoard(game);
                 var userXint = -1;
-                var userYint = -1;
                 do
                 {
-                    Console.WriteLine("Give me X value");
+                    Console.WriteLine("Enter column number");
                     Console.Write(">");
                     var userX = Console.ReadLine();
+                    if(Yint[userXint] < 0) Console.WriteLine("This column is full!");
                     if (!int.TryParse(userX, out userXint))
                     {
                         Console.WriteLine($"{userX} is not a number!");
+                        userXint = -1;
                     }
-                } while (userXint < 0);
+                    else if (userXint > w) userXint = -1;
+                } while (userXint < 0 || Yint[userXint] < 0);
                 
-                do
+                if (game.Move(Yint[userXint], userXint) == "Ok")
                 {
-                    Console.WriteLine("Give me Y value");
-                    Console.Write(">");
-                    var userY = Console.ReadLine();
-                    if (!int.TryParse(userY, out userYint))
-                    {
-                        Console.WriteLine($"{userY} is not a number!");
-                    }
-                } while (userYint < 0);
-  
-                game.Move(userYint,userXint);
-                turn++;
+                    turn++;
+                    Yint[userXint]--;
+                }
+                
                 done = turn == h*w;
             } while (!done);
             GameUI.PrintBoard(game);
-            return "a";
+            Console.WriteLine("Game Over");
+            return "";
         }
     }
 }

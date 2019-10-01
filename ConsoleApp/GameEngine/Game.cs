@@ -33,19 +33,15 @@ namespace GameEngine
             return result;
         }
 
-        public void Move(int posY, int posX)
+        public string Move(int posY, int posX)
         {
-            if (posX > Width - 1) posX = Width - 1;
-            if (posY > Heigth - 1) posY = Heigth - 1;
-            if (posX < 0) posX = 0;
-            if (posY < 0) posY = 0;
-            
             if (Board[posY, posX] != CellState.Empty)
             {
-                return;
+                return "Copy";
             }
             Board[posY, posX] = _playerZeroMove ? CellState.X : CellState.O ;
             _playerZeroMove = !_playerZeroMove;
+            return "Ok";
         }
     }
 
