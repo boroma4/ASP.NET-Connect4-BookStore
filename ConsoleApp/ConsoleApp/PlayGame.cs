@@ -58,7 +58,7 @@ namespace ConsoleApp
                     Console.WriteLine("Enter column number");
                     Console.Write(">");
                     var userX = Console.ReadLine();
-                    if(Yint[userXint] < 0) Console.WriteLine("This column is full!");
+                    //if(Yint[userXint] < 0) Console.WriteLine("This column is full!");
                     if (!int.TryParse(userX, out userXint))
                     {
                         Console.WriteLine($"{userX} is not a number!");
@@ -77,6 +77,9 @@ namespace ConsoleApp
             } while (!done);
             GameUI.PrintBoard(game);
             Console.WriteLine("Game Over");
+            Console.WriteLine("Press any key to go back to menu");
+            Console.ReadKey();
+            Console.Clear();
             return "";
         }
     }

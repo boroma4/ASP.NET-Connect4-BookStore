@@ -53,7 +53,7 @@ namespace ConsoleApp
                     {
                         Command = "1",
                         Title = "Computer starts",
-                        CommandToExecute = startMenu.Run
+                        CommandToExecute = null
                     },
                     new MenuItem()
                     {
@@ -65,7 +65,7 @@ namespace ConsoleApp
                     {
                         Command = "3",
                         Title = "Human against Human",
-                        CommandToExecute = null
+                        CommandToExecute = startMenu.Run
                     },
                 }
             };
