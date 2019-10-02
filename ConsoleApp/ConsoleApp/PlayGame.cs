@@ -4,7 +4,7 @@ using GameEngine;
 
 namespace ConsoleApp
 {
-    public class PlayGame
+    public  static class PlayGame
     {
         public static string SmallBoard()
         {
@@ -29,22 +29,25 @@ namespace ConsoleApp
             Console.WriteLine("Enter height of the board");
             Console.Write(">");
             var height = Console.ReadLine();
+            
             Console.WriteLine("Enter width of the board");
             Console.Write(">");
             var width = Console.ReadLine();
-            int.TryParse(height, out int h);
-            int.TryParse(width, out int w);
+            
+            int.TryParse(height, out var h);
+            int.TryParse(width, out var w);
             StartGame(h, w);
             return "";
         }
         private static string StartGame(int h, int w)
         {
-            int turn = 0;
+            var turn = 0;
+            var isPlayerOne = true;
             var game = new Game(h,w);
-            int[] Yint= new int [w];
-            for (int i = 0; i < w; i++)
+            var yCoordinate= new int [w];
+            for (var i = 0; i < w; i++)
             {
-                Yint[i] = h-1;
+                yCoordinate[i] = h-1;
             }
             Console.Clear();
             var done = false;
@@ -55,29 +58,28 @@ namespace ConsoleApp
                 var userXint = -1;
                 do
                 {
-                    Console.WriteLine("Enter column number");
+                    Console.WriteLine ("Enter column number, Player " + (isPlayerOne ? "One" : "Two" ));
                     Console.Write(">");
                     var userX = Console.ReadLine();
-                    //if(Yint[userXint] < 0) Console.WriteLine("This column is full!");
                     if (!int.TryParse(userX, out userXint))
                     {
                         Console.WriteLine($"{userX} is not a number!");
                         userXint = -1;
                     }
                     else if (userXint > w) userXint = -1;
-                } while (userXint < 0 || Yint[userXint] < 0);
+                } while (userXint < 0 || yCoordinate[userXint] < 0);
                 
-                if (game.Move(Yint[userXint], userXint) == "Ok")
+                if (game.Move(yCoordinate[userXint], userXint) == "Ok")
                 {
                     turn++;
-                    Yint[userXint]--;
+                    yCoordinate[userXint]--;
+                    isPlayerOne = !isPlayerOne;
                 }
-                
                 done = turn == h*w;
             } while (!done);
+            
             GameUI.PrintBoard(game);
-            Console.WriteLine("Game Over");
-            Console.WriteLine("Press any key to go back to menu");
+            Console.WriteLine("Game Over\n" + "Press any key to go back to menu");
             Console.ReadKey();
             Console.Clear();
             return "";

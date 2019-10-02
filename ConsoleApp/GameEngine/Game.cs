@@ -16,11 +16,11 @@ namespace GameEngine
         
         public Game(int height, int width)
         {
-            if (width < 3 || height < 3)
+            if (width < 4 || height < 4)
             {
-                throw new ArgumentException("Board size has to be at least 3x3");
+                
+                 throw new ArgumentException("Board size has to be at least 4x4");
             }
-            //setBoardSize(ref width,ref height );
             Heigth = height;
             Width = width;
             Board = new CellState[height,width];

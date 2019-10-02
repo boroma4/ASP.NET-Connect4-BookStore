@@ -5,7 +5,7 @@ namespace MenuSystem
 {
     public class Menu
     {
-        private int _menuLevel;
+        private readonly int _menuLevel;
 
         public Menu(int menuLevel = 0)
         {

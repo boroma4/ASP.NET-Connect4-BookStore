@@ -13,15 +13,15 @@ namespace ConsoleUI
         {
             Console.Clear();
             var board = game.GetBoardCopy();
-            for (int yIndex = 0; yIndex < game.Heigth; yIndex++)
+            for (var yIndex = 0; yIndex < game.Heigth; yIndex++)
             {
                 var line = "";
-                for (int xIndex = 0; xIndex < game.Width; xIndex++)
+                for (var xIndex = 0; xIndex < game.Width; xIndex++)
                 {
-                    line = line + GetSingleState(board[yIndex, xIndex]);
+                    line += GetSingleState(board[yIndex, xIndex]);
                     if (xIndex < game.Width - 1)
                     {
-                        line = line + _verticalSeparator;
+                        line += _verticalSeparator;
                     }
                     
 
@@ -31,16 +31,15 @@ namespace ConsoleUI
                 if (yIndex < (game.Heigth-1))
                 {
                     line = "";
-                    for (int xIndex = 0; xIndex < game.Width; xIndex++)
+                    for (var xIndex = 0; xIndex < game.Width; xIndex++)
                     {
-                        line = line + _horizontalSeparator;
+                        line += _horizontalSeparator;
                         line += " ";
                         if (xIndex < game.Width - 1)
                         {
-                            line = line + _centerSeparator;
+                            line += _centerSeparator;
                             line += " ";
                         }
-                    
 
                     }
                     Console.WriteLine(line);
