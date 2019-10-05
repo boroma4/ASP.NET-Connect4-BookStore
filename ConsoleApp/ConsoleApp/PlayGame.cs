@@ -66,7 +66,7 @@ namespace ConsoleApp
                         Console.WriteLine($"{userX} is not a number!");
                         userXint = -1;
                     }
-                    else if (userXint > w) userXint = -1;
+                    else if (userXint >= w) userXint = -1;
                 } while (userXint < 0 || yCoordinate[userXint] < 0);
                 
                 if (game.Move(yCoordinate[userXint], userXint) == "Ok")
