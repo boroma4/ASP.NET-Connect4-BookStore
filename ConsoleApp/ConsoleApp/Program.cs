@@ -15,31 +15,35 @@ namespace ConsoleApp
             var startMenu = new Menu(2)
             {
                 Title = "Select Board Size",
-                MenuItems = new List<MenuItem>()
+                MenuItemsDictionary = new Dictionary<string, MenuItem>()
                 {
-                    new MenuItem()
                     {
-                        Command = "1",
-                        Title = "Small board",
-                        CommandToExecute = PlayGame.SmallBoard
+                        "1", new MenuItem()
+                        {
+                            Title = "Small board",
+                            CommandToExecute = PlayGame.SmallBoard
+                        }
                     },
-                    new MenuItem()
                     {
-                        Command = "2",
-                        Title = "Medium board",
-                        CommandToExecute = PlayGame.MediumBoard
+                        "2", new MenuItem()
+                        {
+                            Title = "Medium board",
+                            CommandToExecute = PlayGame.MediumBoard
+                        }
                     },
-                    new MenuItem()
                     {
-                        Command = "3",
-                        Title = "Big board",
-                        CommandToExecute = PlayGame.LargeBoard
+                        "3", new MenuItem()
+                        {
+                            Title = "Large board",
+                            CommandToExecute = PlayGame.LargeBoard
+                        }
                     },
-                    new MenuItem()
                     {
-                        Command = "4",
-                        Title = "Custom board",
-                        CommandToExecute = PlayGame.CustomSizeBoard
+                        "4", new MenuItem()
+                        {
+                            Title = "Custom size board",
+                            CommandToExecute = PlayGame.CustomSizeBoard
+                        }
                     },
                 }
             };
@@ -47,25 +51,28 @@ namespace ConsoleApp
             var gameMenu = new Menu(1)
             {
                 Title = "Start a new game of Connect4",
-                MenuItems = new List<MenuItem>()
+                MenuItemsDictionary = new Dictionary<string, MenuItem>()
                 {
-                    new MenuItem()
                     {
-                        Command = "1",
-                        Title = "Computer starts",
-                        CommandToExecute = null
+                        "1", new MenuItem()
+                        {
+                            Title = "Computer starts",
+                            CommandToExecute = null
+                        }
                     },
-                    new MenuItem()
                     {
-                        Command = "2",
-                        Title = "Human starts",
-                        CommandToExecute = null
+                        "2", new MenuItem()
+                        {
+                            Title = "Human starts",
+                            CommandToExecute = null
+                        }
                     },
-                    new MenuItem()
                     {
-                        Command = "3",
-                        Title = "Human against Human",
-                        CommandToExecute = startMenu.Run
+                        "3", new MenuItem()
+                        {
+                            Title = "Human against Human",
+                            CommandToExecute = startMenu.Run
+                        }
                     },
                 }
             };
@@ -73,14 +80,15 @@ namespace ConsoleApp
             var menu0 = new Menu(0)
             {
                 Title = "Connect4 Main Menu",
-                MenuItems = new List<MenuItem>()
+                MenuItemsDictionary = new Dictionary<string, MenuItem>()
                 {
-                    new MenuItem()
                     {
-                        Command = "S",
-                        Title = "Start game",
-                        CommandToExecute = gameMenu.Run
-                    },
+                        "S", new MenuItem()
+                        {
+                            Title = "Start game",
+                            CommandToExecute = gameMenu.Run
+                        }
+                    }
                 }
             };
             menu0.Run();
