@@ -79,7 +79,7 @@ namespace ConsoleApp
             } while (!done);
             
             GameUI.PrintBoard(game);
-            Console.WriteLine("Game Over\n" + "Press any key to go back to menu");
+            Console.WriteLine("Game Over.\n" + "Press any key to go back to menu");
             Console.ReadKey();
             Console.Clear();
             return "";

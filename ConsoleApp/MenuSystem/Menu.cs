@@ -69,8 +69,7 @@ namespace MenuSystem
                     var menuItem = MenuItemsDictionary[command];
                     if (menuItem.CommandToExecute != null)
                     {
-                        returnCommand = menuItem.CommandToExecute(); // run the command 
-                        break;
+                        returnCommand = menuItem.CommandToExecute(); 
                     }
                 }
                 
@@ -86,9 +85,7 @@ namespace MenuSystem
                         command = MenuCommandReturnToMain;
                     }
                 }
-
-
-
+                
             } while (command != MenuCommandExit && 
                      command != MenuCommandReturnToMain && 
                      command != MenuCommandReturnToPrevious);
