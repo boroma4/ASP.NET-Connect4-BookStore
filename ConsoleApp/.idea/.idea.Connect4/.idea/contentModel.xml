@@ -1,9 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\6430u\.Rider2019.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\6430u\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Connect4.1078022191.00" t="ExcludeRecursive" />
     <e p="D:\C#\ics0016-2019f\ConsoleApp" t="IncludeFlat">
+      <e p=".gitignore" t="Include" />
       <e p="Connect4.sln" t="IncludeFlat" />
       <e p="ConsoleApp" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
@@ -57,6 +58,7 @@
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
+      <e p="SolutionFiles" t="Include" />
     </e>
   </component>
 </project>
