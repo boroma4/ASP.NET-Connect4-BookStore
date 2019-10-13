@@ -26,17 +26,12 @@ namespace ConsoleApp
         public static string CustomSizeBoard()
         {
             Console.Clear();
-            Console.WriteLine("Enter height of the board");
-            Console.Write(">");
-            var height = Console.ReadLine();
-            
-            Console.WriteLine("Enter width of the board");
-            Console.Write(">");
-            var width = Console.ReadLine();
-            
-            int.TryParse(height, out var h);
-            int.TryParse(width, out var w);
-            StartGame(h, w);
+            var userH =  BoardSideInput();
+            Console.Clear();
+            var userW = BoardSideInput(false);
+            Console.Clear();
+
+            StartGame(userH, userW);
             return "";
         }
         private static string StartGame(int h, int w)
@@ -83,6 +78,30 @@ namespace ConsoleApp
             Console.ReadKey();
             Console.Clear();
             return "";
+        }
+
+        private static int BoardSideInput( bool heightMode = true)
+        {
+            var userInput = -1;
+            do
+            {
+                Console.Write("Enter board ");
+                Console.WriteLine(heightMode==true?"height: ":"width: ");
+                Console.Write(">");
+                var height = Console.ReadLine();
+                if (!int.TryParse(height, out  userInput))
+                {
+                    Console.WriteLine("Enter a number!");
+                    userInput = -1;
+                }
+                else if (userInput < 4)
+                {
+                    Console.WriteLine("Side length has to be at least 4!");
+                    userInput = -1;
+                }
+            } while (userInput < 0);
+
+            return userInput;
         }
     }
 }
