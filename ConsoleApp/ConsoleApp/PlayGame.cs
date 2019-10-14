@@ -27,7 +27,8 @@ namespace ConsoleApp
                 var userXint = -1;
                 do
                 {
-                    Console.WriteLine ("Enter column number, Player " + (settings.IsPlayerOne ? "One" : "Two" ));
+                    Console.WriteLine ("Enter column number, " 
+                                       + (settings.IsPlayerOne ? $"{settings.FirstPlayerName}" : $"{settings.SecondPlayerName}" ));
                     Console.Write(">");
                     var userX = Console.ReadLine();
                     if (!int.TryParse(userX, out userXint))

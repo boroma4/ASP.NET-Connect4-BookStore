@@ -3,7 +3,7 @@ using GameEngine;
 
 namespace ConsoleApp
 {
-    public  static class StartNewGame
+    public  static class StartGame
     {
 
         public static string SmallBoard()
@@ -38,6 +38,12 @@ namespace ConsoleApp
             PlayGame.PlayTheGame(settings);
             return "";
         }
+        public static string StartFromAutosave ()
+        {
+            var settings = GameConfigHandler.LoadConfig();
+            PlayGame.PlayTheGame(settings,true);
+            return "";
+        }
         
         private static int BoardSideInput( bool heightMode = true)
         {
@@ -63,10 +69,10 @@ namespace ConsoleApp
             return userInput;
         }
 
-        private static string UserName()
+        private static string UserName(bool firstPlayer = true)
         {
             Console.Clear();
-            Console.WriteLine("Enter your Username please");
+            Console.WriteLine("Enter " + (firstPlayer?"first":"second")+" player's name");
             Console.Write(">");
             var name = Console.ReadLine();
             Console.Clear();
@@ -79,13 +85,15 @@ namespace ConsoleApp
             {
                 BoardHeight = height,
                 BoardWidth = width,
-                PlayerName = UserName(),
+                FirstPlayerName = UserName(),
+                SecondPlayerName = UserName(false),
                 Board = new CellState[height, width]
             };
             settings.YCoordinate = new int[settings.BoardWidth];
             
             return settings;
         }
+        
     }
 }
 //TODO Ask for two names when Human vs Human

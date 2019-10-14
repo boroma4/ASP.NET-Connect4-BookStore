@@ -21,28 +21,28 @@ namespace ConsoleApp
                         "1", new MenuItem()
                         {
                             Title = "Small board",
-                            CommandToExecute = StartNewGame.SmallBoard
+                            CommandToExecute = StartGame.SmallBoard
                         }
                     },
                     {
                         "2", new MenuItem()
                         {
                             Title = "Medium board",
-                            CommandToExecute = StartNewGame.MediumBoard
+                            CommandToExecute = StartGame.MediumBoard
                         }
                     },
                     {
                         "3", new MenuItem()
                         {
                             Title = "Large board",
-                            CommandToExecute = StartNewGame.LargeBoard
+                            CommandToExecute = StartGame.LargeBoard
                         }
                     },
                     {
                         "4", new MenuItem()
                         {
                             Title = "Custom size board",
-                            CommandToExecute = StartNewGame.CustomSizeBoard
+                            CommandToExecute = StartGame.CustomSizeBoard
                         }
                     },
                 }
@@ -76,6 +76,34 @@ namespace ConsoleApp
                     },
                 }
             };
+            var LoadMenu = new Menu(1)
+            {
+                Title = "Select a save to load",
+                MenuItemsDictionary = new Dictionary<string, MenuItem>()
+                {
+                    {
+                        "1", new MenuItem()
+                        {
+                            Title = "Autosave",
+                            CommandToExecute = StartGame.StartFromAutosave
+                        }
+                    },
+                    {
+                        "2", new MenuItem()
+                        {
+                            Title = "Save 1",
+                            CommandToExecute = null
+                        }
+                    },
+                    {
+                        "3", new MenuItem()
+                        {
+                            Title = "Save 2",
+                            CommandToExecute = startMenu.Run
+                        }
+                    },
+                }
+            };
 
             var menu0 = new Menu(0)
             {
@@ -93,7 +121,7 @@ namespace ConsoleApp
                         "L", new MenuItem()
                         {
                             Title = "Load game",
-                            CommandToExecute = StartLoadedGame.StartFromAutosave
+                            CommandToExecute = LoadMenu.Run
                         }
                     }
                 }
