@@ -9,21 +9,8 @@ namespace GameEngine
         private CellState[,] Board { get; set; }
         public int Width { get; }
         public int Heigth { get; }
-
-        private bool _playerZeroMove = false;
-
-
         
-        public Game(int height, int width)
-        {
-            if (width < 4 || height < 4)
-            {
-                throw new ArgumentException("Board size has to be at least 4x4");
-            }
-            Heigth = height;
-            Width = width;
-            Board = new CellState[Heigth,Width];
-        }
+        
         public Game(GameSettings settings)
         {
             if (settings.BoardWidth < 4 || settings.BoardHeight < 4)
@@ -43,14 +30,13 @@ namespace GameEngine
             return result;
         }
 
-        public string Move(int posY, int posX)
+        public string Move(int posY, int posX,GameSettings settings)
         {
             if (Board[posY, posX] != CellState.Empty)
             {
                 return "Copy";
             }
-            Board[posY, posX] = _playerZeroMove ? CellState.X : CellState.O ;
-            _playerZeroMove = !_playerZeroMove;
+            Board[posY, posX] = settings.IsPlayerOne ? CellState.X : CellState.O ;
             return "Ok";
         }
     }

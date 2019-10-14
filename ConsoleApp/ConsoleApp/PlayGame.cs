@@ -18,7 +18,6 @@ namespace ConsoleApp
                 }
             }
 
-            //TODO Save Board state after each turn
             Console.Clear();
             var done = false;
             do
@@ -39,7 +38,7 @@ namespace ConsoleApp
                     else if (userXint > settings.BoardWidth) userXint = -1;
                 } while (userXint < 1 || settings.YCoordinate[userXint-1] < 0);
                 
-                if (game.Move(settings.YCoordinate[userXint-1], userXint-1) == "Ok")
+                if (game.Move(settings.YCoordinate[userXint-1], userXint-1,settings) == "Ok")
                 {
                     turn++;
                     settings.YCoordinate[userXint-1]--;
@@ -59,4 +58,3 @@ namespace ConsoleApp
 //TODO Add Exit/Manual Save conditions
     }
 }
-//TODO loaded columns are not working

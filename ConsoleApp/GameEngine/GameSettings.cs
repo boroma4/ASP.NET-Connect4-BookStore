@@ -12,4 +12,3 @@
         public CellState [,] Board { get; set; } = new CellState[4,5];
     }
 }
-//TODO Somehow Add Board State 

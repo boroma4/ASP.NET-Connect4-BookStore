@@ -3,7 +3,6 @@ using GameEngine;
 
 namespace ConsoleApp
 {
-    //TODO Ask for UserName
     public  static class StartNewGame
     {
 
