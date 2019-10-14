@@ -6,20 +6,16 @@ namespace SaveLoader
 {
     public static class GameLoadingMenu
     {
+        private static readonly int MAXSAVES = 4;
 
-        public static GameSettings DisplaySaveOptions()
+        public static GameSettings LoadAGame()
         {
-            Console.WriteLine("Select a save for loading");
-            Console.WriteLine("===========================");
-            foreach (var Pair in PreLoadSaves())
-            {
-                Console.WriteLine(Pair.Key+ ") " + Pair.Value.SaveName +" " +Pair.Value.SaveTime);
-            }
-           
+            DisplaySaveOptions();
             var res = -1;
+            var saves = PreLoadSaves();
             do
             {
-                Console.WriteLine("Please select save number");
+                Console.WriteLine("Please select a slot number");
                 Console.Write(">");
                 var choice = Console.ReadLine();
                 if (!int.TryParse(choice, out res))
@@ -27,19 +23,30 @@ namespace SaveLoader
                     Console.WriteLine("Enter a number please");
                     res = -1;
                 }
-                else if (res > 5)
+                else if (res > 3)
                 {
                     res = -1;
                 }
-            } while (res<1 || PreLoadSaves()[res].SaveName == "Empty");
+            } while (res<0 || saves[res].SaveName == "Empty");
 
-            return PreLoadSaves()[res];
+            return saves[res];
         }
-        private static Dictionary<int,GameSettings> PreLoadSaves()
+
+        internal static void DisplaySaveOptions()
+        {
+            Console.WriteLine("Select a slot");
+            Console.WriteLine("===========================");
+            var saves = PreLoadSaves();
+            foreach (var Pair in saves)
+            {
+                Console.WriteLine(Pair.Key+ ") " + Pair.Value.SaveName +" " +Pair.Value.SaveTime);
+            }
+        }
+        internal static Dictionary<int,GameSettings> PreLoadSaves()
         {
             var saves = new Dictionary<int,GameSettings>(4);
-            saves.Add(1,GameConfigHandler.LoadConfig());
-            for (var i = 2; i < 5; i++)
+            saves.Add(0,GameConfigHandler.LoadConfig());
+            for (var i = 1; i < MAXSAVES; i++)
             {
                 saves.Add(i,GameConfigHandler.LoadConfig($"{i}.json"));
             }

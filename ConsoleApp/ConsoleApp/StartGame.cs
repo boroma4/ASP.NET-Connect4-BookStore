@@ -42,7 +42,7 @@ namespace ConsoleApp
         }
         public static string StartFromSave ()
         {
-            var settings = GameLoadingMenu.DisplaySaveOptions();
+            var settings = GameLoadingMenu.LoadAGame();
             PlayGame.PlayTheGame(settings,true);
             return "";
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using ConsoleUI;
 using GameEngine;
+using SaveLoader;
 
 namespace ConsoleApp
 {
@@ -8,7 +9,6 @@ namespace ConsoleApp
     {
         internal static string PlayTheGame(GameSettings settings, bool loaded = false)
         {
-            var turn = 0;
             var game = new Game(settings);
             if (!loaded)
             {
@@ -21,47 +21,47 @@ namespace ConsoleApp
             var done = false;
             do
             {
+                Saver.SaveGame(settings);
                 Console.Clear();
                 GameUI.PrintBoard(game);
                 var userXint = -1;
+                bool usedLetter = false;
                 do
                 {
-                    Console.WriteLine("Press 0 to exit the game.");
+                    Console.WriteLine("Press X to exit to main menu. Press S to save the game");
                     Console.WriteLine ("Enter column number, " 
                                        + (settings.IsPlayerOne ? $"{settings.FirstPlayerName}" : $"{settings.SecondPlayerName}" ));
                     Console.Write(">");
-                    var userX = Console.ReadLine();
-                    if (!int.TryParse(userX, out userXint))
+                    var userInput = Console.ReadLine() ?? "null";
+                    if (userInput.ToUpper() == "S")
                     {
-                        Console.WriteLine($"{userX} is not a number!");
+                        var name = settings.FirstPlayerName + "-" + settings.SecondPlayerName;
+                        Saver.SaveGame(settings,false,name);
+                        usedLetter = true;
+                    }
+                    else if (userInput.ToUpper() == "X")
+                    {
+                        Saver.SaveGame(settings);
+                        return "";
+                    }
+
+                    if (!int.TryParse(userInput, out userXint) && !usedLetter)
+                    {
+                        Console.WriteLine($"{userInput} is not a number!");
                         userXint = -1;
                     }
                     else if (userXint > settings.BoardWidth) userXint = -1;
-                    else if(userXint == 0)
-                    {
-                        GameConfigHandler.SaveConfig(settings);
-                        return "";
-                    }
-                    else if(userXint == 69)
-                    {
-                        var name = settings.FirstPlayerName +"-" +settings.SecondPlayerName;
-                        settings.SaveName = name;
-                        settings.SaveTime = DateTime.Now.ToString("MM/dd/yyyy H:mm");
-                        GameConfigHandler.SaveConfig(settings,"1.json");
-                    }
-//TODO Maybe create a new class where I pass this name, So i Can use it in Menu
+                    usedLetter = false;
+                    
                 } while (userXint < 1 || settings.YCoordinate[userXint-1] < 0);
+                
                 
                 if (game.Move(settings.YCoordinate[userXint-1], userXint-1,settings) == "Ok")
                 {
-                    turn++;
-                    settings.YCoordinate[userXint-1]--;
-                    settings.IsPlayerOne = !settings.IsPlayerOne;
-                    settings.Board = game.GetBoardCopy();
-                    settings.SaveTime = DateTime.Now.ToString("MM/dd/yyyy H:mm");
-                    GameConfigHandler.SaveConfig(settings);
+                    MakeAMove(settings,userXint,game);
                 }
-                done = turn == settings.BoardHeight*settings.BoardWidth;
+                
+                done = settings.NumTurns == settings.BoardHeight*settings.BoardWidth;
                  
             } while (!done);
             
@@ -71,7 +71,15 @@ namespace ConsoleApp
             Console.Clear();
             return "";
         }
-//TODO Add Manual Save 
+
+        private static void MakeAMove(GameSettings settings,int userXint,Game game)
+        {
+            settings.NumTurns++;
+            settings.YCoordinate[userXint - 1]--;
+            settings.IsPlayerOne = !settings.IsPlayerOne;
+            settings.Board = game.GetBoardCopy();
+        }
+        
 //TODO Refactor this
     }
 }
