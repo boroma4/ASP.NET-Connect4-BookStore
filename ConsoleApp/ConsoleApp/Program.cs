@@ -21,28 +21,28 @@ namespace ConsoleApp
                         "1", new MenuItem()
                         {
                             Title = "Small board",
-                            CommandToExecute = StartGame.SmallBoard
+                            CommandToExecute = StartNewGame.SmallBoard
                         }
                     },
                     {
                         "2", new MenuItem()
                         {
                             Title = "Medium board",
-                            CommandToExecute = StartGame.MediumBoard
+                            CommandToExecute = StartNewGame.MediumBoard
                         }
                     },
                     {
                         "3", new MenuItem()
                         {
                             Title = "Large board",
-                            CommandToExecute = StartGame.LargeBoard
+                            CommandToExecute = StartNewGame.LargeBoard
                         }
                     },
                     {
                         "4", new MenuItem()
                         {
                             Title = "Custom size board",
-                            CommandToExecute = StartGame.CustomSizeBoard
+                            CommandToExecute = StartNewGame.CustomSizeBoard
                         }
                     },
                 }

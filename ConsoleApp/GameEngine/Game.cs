@@ -33,7 +33,7 @@ namespace GameEngine
 
             Heigth = settings.BoardHeight;
             Width = settings.BoardWidth;
-            Board = new CellState[Heigth,Width];
+            Board = settings.Board;
         }
 
         public CellState[,] GetBoardCopy()

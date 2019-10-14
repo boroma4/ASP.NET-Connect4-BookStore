@@ -18,8 +18,8 @@
         </e>
         <e p="PlayGame.cs" t="Include" />
         <e p="Program.cs" t="Include" />
-        <e p="StartGame.cs" t="Include" />
         <e p="StartLoadedGame.cs" t="Include" />
+        <e p="StartNewGame.cs" t="Include" />
       </e>
       <e p="ConsoleUI" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />

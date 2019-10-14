@@ -6,19 +6,19 @@ namespace ConsoleApp
 {
     public  static class PlayGame
     {
-       
-        
-        internal static string PlayTheGame(GameSettings settings)
+        internal static string PlayTheGame(GameSettings settings, bool loaded = false)
         {
             var turn = 0;
-            var isPlayerOne = true;
             var game = new Game(settings);
-            var yCoordinate= new int [settings.BoardWidth];
-            for (var i = 0; i < settings.BoardWidth; i++)
+            if (!loaded)
             {
-                yCoordinate[i] = settings.BoardHeight-1;
+                for (var i = 0; i < settings.BoardWidth; i++)
+                {
+                    settings.YCoordinate[i] = settings.BoardHeight - 1;
+                }
             }
-            GameConfigHandler.SaveConfig(settings);
+
+            //TODO Save Board state after each turn
             Console.Clear();
             var done = false;
             do
@@ -28,7 +28,7 @@ namespace ConsoleApp
                 var userXint = -1;
                 do
                 {
-                    Console.WriteLine ("Enter column number, Player " + (isPlayerOne ? "One" : "Two" ));
+                    Console.WriteLine ("Enter column number, Player " + (settings.IsPlayerOne ? "One" : "Two" ));
                     Console.Write(">");
                     var userX = Console.ReadLine();
                     if (!int.TryParse(userX, out userXint))
@@ -37,13 +37,15 @@ namespace ConsoleApp
                         userXint = -1;
                     }
                     else if (userXint > settings.BoardWidth) userXint = -1;
-                } while (userXint < 1 || yCoordinate[userXint-1] < 0);
+                } while (userXint < 1 || settings.YCoordinate[userXint-1] < 0);
                 
-                if (game.Move(yCoordinate[userXint-1], userXint-1) == "Ok")
+                if (game.Move(settings.YCoordinate[userXint-1], userXint-1) == "Ok")
                 {
                     turn++;
-                    yCoordinate[userXint-1]--;
-                    isPlayerOne = !isPlayerOne;
+                    settings.YCoordinate[userXint-1]--;
+                    settings.IsPlayerOne = !settings.IsPlayerOne;
+                    settings.Board = game.GetBoardCopy();
+                    GameConfigHandler.SaveConfig(settings);
                 }
                 done = turn == settings.BoardHeight*settings.BoardWidth;
             } while (!done);
@@ -54,6 +56,7 @@ namespace ConsoleApp
             Console.Clear();
             return "";
         }
-
+//TODO Add Exit/Manual Save conditions
     }
 }
+//TODO loaded columns are not working

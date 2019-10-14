@@ -16,3 +16,4 @@ D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\ConsoleUI.dll
 D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\GameEngine.dll
 D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\ConsoleUI.pdb
 D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\GameEngine.pdb
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll

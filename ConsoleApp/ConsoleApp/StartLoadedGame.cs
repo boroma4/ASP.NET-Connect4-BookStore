@@ -1,4 +1,5 @@
-﻿using GameEngine;
+﻿using System;
+using GameEngine;
 
 namespace ConsoleApp
 {
@@ -7,7 +8,7 @@ namespace ConsoleApp
         public static string StartFromAutosave ()
         {
             var settings = GameConfigHandler.LoadConfig();
-            PlayGame.PlayTheGame(settings);
+            PlayGame.PlayTheGame(settings,true);
             return "";
         }
     }

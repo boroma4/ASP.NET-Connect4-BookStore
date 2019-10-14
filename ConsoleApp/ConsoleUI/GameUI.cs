@@ -40,7 +40,6 @@ namespace ConsoleUI
                             line += _centerSeparator;
                             line += " ";
                         }
-
                     }
                     Console.WriteLine(line);
                 }

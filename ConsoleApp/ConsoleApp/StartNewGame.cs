@@ -3,32 +3,27 @@ using GameEngine;
 
 namespace ConsoleApp
 {
-    public class StartGame
+    //TODO Ask for UserName
+    public  static class StartNewGame
     {
-        
+
         public static string SmallBoard()
         {
-            GameSettings settings = new GameSettings();
-            settings.BoardHeight = 4;
-            settings.BoardWidth = 5;
+            var settings = SettingsSetup(4, 5);
             PlayGame.PlayTheGame(settings);
             return "";
         }
 
         public static string MediumBoard()
         {
-            GameSettings settings = new GameSettings();
-            settings.BoardHeight = 7;
-            settings.BoardWidth = 8;
+            var settings = SettingsSetup(7, 8);
             PlayGame.PlayTheGame(settings);
             return "";
         }
 
         public static string LargeBoard()
         {
-            GameSettings settings = new GameSettings();
-            settings.BoardHeight = 7;
-            settings.BoardWidth = 10;
+            var settings = SettingsSetup(7, 10);
             PlayGame.PlayTheGame(settings);
             return "";
         }
@@ -39,10 +34,8 @@ namespace ConsoleApp
             Console.Clear();
             var userW = BoardSideInput(false);
             Console.Clear();
+            var settings = SettingsSetup(userH, userW); 
 
-            GameSettings settings = new GameSettings();
-            settings.BoardHeight = userH;
-            settings.BoardWidth = userW;
             PlayGame.PlayTheGame(settings);
             return "";
         }
@@ -70,5 +63,30 @@ namespace ConsoleApp
 
             return userInput;
         }
+
+        private static string UserName()
+        {
+            Console.Clear();
+            Console.WriteLine("Enter your Username please");
+            Console.Write(">");
+            var name = Console.ReadLine();
+            Console.Clear();
+            return name;
+        }
+
+        private static GameSettings SettingsSetup(int height, int width)
+        {
+            var settings = new GameSettings
+            {
+                BoardHeight = height,
+                BoardWidth = width,
+                PlayerName = UserName(),
+                Board = new CellState[height, width]
+            };
+            settings.YCoordinate = new int[settings.BoardWidth];
+            
+            return settings;
+        }
     }
 }
+//TODO Ask for two names when Human vs Human
