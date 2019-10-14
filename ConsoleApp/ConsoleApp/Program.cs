@@ -21,28 +21,28 @@ namespace ConsoleApp
                         "1", new MenuItem()
                         {
                             Title = "Small board",
-                            CommandToExecute = PlayGame.SmallBoard
+                            CommandToExecute = StartGame.SmallBoard
                         }
                     },
                     {
                         "2", new MenuItem()
                         {
                             Title = "Medium board",
-                            CommandToExecute = PlayGame.MediumBoard
+                            CommandToExecute = StartGame.MediumBoard
                         }
                     },
                     {
                         "3", new MenuItem()
                         {
                             Title = "Large board",
-                            CommandToExecute = PlayGame.LargeBoard
+                            CommandToExecute = StartGame.LargeBoard
                         }
                     },
                     {
                         "4", new MenuItem()
                         {
                             Title = "Custom size board",
-                            CommandToExecute = PlayGame.CustomSizeBoard
+                            CommandToExecute = StartGame.CustomSizeBoard
                         }
                     },
                 }
@@ -87,6 +87,13 @@ namespace ConsoleApp
                         {
                             Title = "Start game",
                             CommandToExecute = gameMenu.Run
+                        }
+                    },
+                    {
+                        "L", new MenuItem()
+                        {
+                            Title = "Load game",
+                            CommandToExecute = StartLoadedGame.StartFromAutosave
                         }
                     }
                 }

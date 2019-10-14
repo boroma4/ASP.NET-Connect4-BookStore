@@ -6,44 +6,19 @@ namespace ConsoleApp
 {
     public  static class PlayGame
     {
-        public static string SmallBoard()
-        {
-            StartGame(4, 5);
-            return "";
-        }
-
-        public static string MediumBoard()
-        {
-            StartGame(7, 8);
-            return "";
-        }
-
-        public static string LargeBoard()
-        {
-            StartGame(7, 10);
-            return "";
-        }
-        public static string CustomSizeBoard()
-        {
-            Console.Clear();
-            var userH =  BoardSideInput();
-            Console.Clear();
-            var userW = BoardSideInput(false);
-            Console.Clear();
-
-            StartGame(userH, userW);
-            return "";
-        }
-        private static string StartGame(int h, int w)
+       
+        
+        internal static string PlayTheGame(GameSettings settings)
         {
             var turn = 0;
             var isPlayerOne = true;
-            var game = new Game(h,w);
-            var yCoordinate= new int [w];
-            for (var i = 0; i < w; i++)
+            var game = new Game(settings);
+            var yCoordinate= new int [settings.BoardWidth];
+            for (var i = 0; i < settings.BoardWidth; i++)
             {
-                yCoordinate[i] = h-1;
+                yCoordinate[i] = settings.BoardHeight-1;
             }
+            GameConfigHandler.SaveConfig(settings);
             Console.Clear();
             var done = false;
             do
@@ -61,7 +36,7 @@ namespace ConsoleApp
                         Console.WriteLine($"{userX} is not a number!");
                         userXint = -1;
                     }
-                    else if (userXint > w) userXint = -1;
+                    else if (userXint > settings.BoardWidth) userXint = -1;
                 } while (userXint < 1 || yCoordinate[userXint-1] < 0);
                 
                 if (game.Move(yCoordinate[userXint-1], userXint-1) == "Ok")
@@ -70,7 +45,7 @@ namespace ConsoleApp
                     yCoordinate[userXint-1]--;
                     isPlayerOne = !isPlayerOne;
                 }
-                done = turn == h*w;
+                done = turn == settings.BoardHeight*settings.BoardWidth;
             } while (!done);
             
             GameUI.PrintBoard(game);
@@ -80,28 +55,5 @@ namespace ConsoleApp
             return "";
         }
 
-        private static int BoardSideInput( bool heightMode = true)
-        {
-            var userInput = -1;
-            do
-            {
-                Console.Write("Enter board ");
-                Console.WriteLine(heightMode?"height: ":"width: ");
-                Console.Write(">");
-                var height = Console.ReadLine();
-                if (!int.TryParse(height, out  userInput))
-                {
-                    Console.WriteLine("Enter a number!");
-                    userInput = -1;
-                }
-                else if (userInput < 4)
-                {
-                    Console.WriteLine("Side length has to be at least 4!");
-                    userInput = -1;
-                }
-            } while (userInput < 0);
-
-            return userInput;
-        }
     }
 }

@@ -18,12 +18,22 @@ namespace GameEngine
         {
             if (width < 4 || height < 4)
             {
-                
-                 throw new ArgumentException("Board size has to be at least 4x4");
+                throw new ArgumentException("Board size has to be at least 4x4");
             }
             Heigth = height;
             Width = width;
-            Board = new CellState[height,width];
+            Board = new CellState[Heigth,Width];
+        }
+        public Game(GameSettings settings)
+        {
+            if (settings.BoardWidth < 4 || settings.BoardHeight < 4)
+            {
+                throw new ArgumentException("Board size has to be at least 4x4");
+            }
+
+            Heigth = settings.BoardHeight;
+            Width = settings.BoardWidth;
+            Board = new CellState[Heigth,Width];
         }
 
         public CellState[,] GetBoardCopy()

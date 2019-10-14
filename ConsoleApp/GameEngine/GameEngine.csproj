@@ -8,4 +8,8 @@
       <ProjectReference Include="..\MenuSystem\MenuSystem.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="System.Text.Json" Version="4.6.0" />
+    </ItemGroup>
+
 </Project>
