@@ -3,10 +3,26 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-# User-specific files
-*.rsuser
+#rider
+*.cache
+*.dll
+*.exe
+*.pdb
+/build/
 *.suo
 *.user
+_ReSharper.*/
+*.sdf
+*.opensdf
+*.tlog
+*.log
+TestResult.xml
+*.VisualState.xml
+Version.cs
+Version.h
+Version.cpp
+# User-specific files
+*.rsuser
 *.userosscache
 *.sln.docstates
 
@@ -101,8 +117,6 @@ ipch/
 *.aps
 *.ncb
 *.opendb
-*.opensdf
-*.sdf
 *.cachefile
 *.VC.db
 *.VC.VC.opendb
