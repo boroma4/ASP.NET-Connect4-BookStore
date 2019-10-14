@@ -61,13 +61,13 @@ namespace ConsoleApp
                         Console.WriteLine($"{userX} is not a number!");
                         userXint = -1;
                     }
-                    else if (userXint >= w) userXint = -1;
-                } while (userXint < 0 || yCoordinate[userXint] < 0);
+                    else if (userXint > w) userXint = -1;
+                } while (userXint < 1 || yCoordinate[userXint-1] < 0);
                 
-                if (game.Move(yCoordinate[userXint], userXint) == "Ok")
+                if (game.Move(yCoordinate[userXint-1], userXint-1) == "Ok")
                 {
                     turn++;
-                    yCoordinate[userXint]--;
+                    yCoordinate[userXint-1]--;
                     isPlayerOne = !isPlayerOne;
                 }
                 done = turn == h*w;
@@ -86,7 +86,7 @@ namespace ConsoleApp
             do
             {
                 Console.Write("Enter board ");
-                Console.WriteLine(heightMode==true?"height: ":"width: ");
+                Console.WriteLine(heightMode?"height: ":"width: ");
                 Console.Write(">");
                 var height = Console.ReadLine();
                 if (!int.TryParse(height, out  userInput))
