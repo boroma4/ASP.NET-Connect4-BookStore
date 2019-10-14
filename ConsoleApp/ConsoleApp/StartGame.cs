@@ -1,5 +1,7 @@
 ﻿using System;
+using ConsoleUI;
 using GameEngine;
+using SaveLoader;
 
 namespace ConsoleApp
 {
@@ -38,9 +40,9 @@ namespace ConsoleApp
             PlayGame.PlayTheGame(settings);
             return "";
         }
-        public static string StartFromAutosave ()
+        public static string StartFromSave ()
         {
-            var settings = GameConfigHandler.LoadConfig();
+            var settings = GameLoadingMenu.DisplaySaveOptions();
             PlayGame.PlayTheGame(settings,true);
             return "";
         }
@@ -96,4 +98,3 @@ namespace ConsoleApp
         
     }
 }
-//TODO Ask for two names when Human vs Human

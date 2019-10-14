@@ -57,6 +57,19 @@
         "runtime": {
           "bin/placeholder/MenuSystem.dll": {}
         }
+      },
+      "SaveLoader/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "GameEngine": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SaveLoader.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SaveLoader.dll": {}
+        }
       }
     }
   },
@@ -126,13 +139,19 @@
       "type": "project",
       "path": "../MenuSystem/MenuSystem.csproj",
       "msbuildProject": "../MenuSystem/MenuSystem.csproj"
+    },
+    "SaveLoader/1.0.0": {
+      "type": "project",
+      "path": "../SaveLoader/SaveLoader.csproj",
+      "msbuildProject": "../SaveLoader/SaveLoader.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
       "ConsoleUI >= 1.0.0",
       "GameEngine >= 1.0.0",
-      "MenuSystem >= 1.0.0"
+      "MenuSystem >= 1.0.0",
+      "SaveLoader >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -173,6 +192,9 @@
             },
             "D:\\C#\\ics0016-2019f\\ConsoleApp\\MenuSystem\\MenuSystem.csproj": {
               "projectPath": "D:\\C#\\ics0016-2019f\\ConsoleApp\\MenuSystem\\MenuSystem.csproj"
+            },
+            "D:\\C#\\ics0016-2019f\\ConsoleApp\\SaveLoader\\SaveLoader.csproj": {
+              "projectPath": "D:\\C#\\ics0016-2019f\\ConsoleApp\\SaveLoader\\SaveLoader.csproj"
             }
           }
         }

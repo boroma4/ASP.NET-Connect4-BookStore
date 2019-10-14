@@ -10,6 +10,7 @@
       <ProjectReference Include="..\ConsoleUI\ConsoleUI.csproj" />
       <ProjectReference Include="..\GameEngine\GameEngine.csproj" />
         <ProjectReference Include="..\MenuSystem\MenuSystem.csproj" />
+        <ProjectReference Include="..\SaveLoader\SaveLoader.csproj" />
     </ItemGroup>
 
 </Project>

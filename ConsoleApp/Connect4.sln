@@ -13,6 +13,8 @@ ProjectSection(SolutionItems) = preProject
 	.gitignore = .gitignore
 EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaveLoader", "SaveLoader\SaveLoader.csproj", "{330AD5FC-93D3-4560-BDD3-87CF9873B830}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,5 +37,9 @@ Global
 		{4E66B698-932C-4AA9-B077-D0BA11C3E163}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E66B698-932C-4AA9-B077-D0BA11C3E163}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E66B698-932C-4AA9-B077-D0BA11C3E163}.Release|Any CPU.Build.0 = Release|Any CPU
+		{330AD5FC-93D3-4560-BDD3-87CF9873B830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{330AD5FC-93D3-4560-BDD3-87CF9873B830}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{330AD5FC-93D3-4560-BDD3-87CF9873B830}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{330AD5FC-93D3-4560-BDD3-87CF9873B830}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -16,7 +16,6 @@ namespace GameEngine
                 {
                     var jsonString = JsonConvert.SerializeObject(settings);
                     writer.Write(jsonString);
-                    Console.WriteLine(jsonString);
                 }
             }
 

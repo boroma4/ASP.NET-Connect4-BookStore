@@ -2,6 +2,8 @@
 {
     public class GameSettings
     {
+        public string SaveName { get; set; } = "Empty";
+        public string SaveTime { get; set; } = "N/A";
         public string FirstPlayerName { get; set; } = "Player one";
         public string SecondPlayerName { get; set; } = "Player two";
         public int BoardHeight { get; set; } = 4;

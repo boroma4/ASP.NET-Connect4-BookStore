@@ -76,35 +76,7 @@ namespace ConsoleApp
                     },
                 }
             };
-            var LoadMenu = new Menu(1)
-            {
-                Title = "Select a save to load",
-                MenuItemsDictionary = new Dictionary<string, MenuItem>()
-                {
-                    {
-                        "1", new MenuItem()
-                        {
-                            Title = "Autosave",
-                            CommandToExecute = StartGame.StartFromAutosave
-                        }
-                    },
-                    {
-                        "2", new MenuItem()
-                        {
-                            Title = "Save 1",
-                            CommandToExecute = null
-                        }
-                    },
-                    {
-                        "3", new MenuItem()
-                        {
-                            Title = "Save 2",
-                            CommandToExecute = startMenu.Run
-                        }
-                    },
-                }
-            };
-
+            
             var menu0 = new Menu(0)
             {
                 Title = "Connect4 Main Menu",
@@ -113,7 +85,7 @@ namespace ConsoleApp
                     {
                         "S", new MenuItem()
                         {
-                            Title = "Start game",
+                            Title = "Start new game",
                             CommandToExecute = gameMenu.Run
                         }
                     },
@@ -121,7 +93,7 @@ namespace ConsoleApp
                         "L", new MenuItem()
                         {
                             Title = "Load game",
-                            CommandToExecute = LoadMenu.Run
+                            CommandToExecute = StartGame.StartFromSave
                         }
                     }
                 }
