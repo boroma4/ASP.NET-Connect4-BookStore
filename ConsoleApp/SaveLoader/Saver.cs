@@ -5,7 +5,7 @@ namespace SaveLoader
 {
     public static class Saver
     {
-        public static void SaveGame(GameSettings settings,bool autoSave = true,string saveName = "Autosave")
+        public static void SaveGame(GameSettings settings,string saveName,bool autoSave = true)
         {
             if (autoSave)
             {
@@ -65,4 +65,4 @@ namespace SaveLoader
         }
     }
 }
-//TODO Integrate MenuSystem.Menu here, so I can nicely move from save to save
+//TODO Integrate MenuSystem.Menu here, or create something new so I can nicely move back while loading/saving + refactor

@@ -21,11 +21,12 @@ namespace ConsoleApp
             var done = false;
             do
             {
-                Saver.SaveGame(settings);
+                var name = "Autosave" +"("+settings.FirstPlayerName + "-" + settings.SecondPlayerName+")";
+                Saver.SaveGame(settings,saveName:name);
                 Console.Clear();
                 GameUI.PrintBoard(game);
                 var userXint = -1;
-                bool usedLetter = false;
+                var usedLetter = false;
                 do
                 {
                     Console.WriteLine("Press X to exit to main menu. Press S to save the game");
@@ -35,13 +36,15 @@ namespace ConsoleApp
                     var userInput = Console.ReadLine() ?? "null";
                     if (userInput.ToUpper() == "S")
                     {
-                        var name = settings.FirstPlayerName + "-" + settings.SecondPlayerName;
-                        Saver.SaveGame(settings,false,name);
+                         name = settings.FirstPlayerName + "-" + settings.SecondPlayerName;
+                        Saver.SaveGame(settings,name,false);
+                        GameUI.PrintBoard(game);
                         usedLetter = true;
                     }
                     else if (userInput.ToUpper() == "X")
-                    {
-                        Saver.SaveGame(settings);
+                    {  
+                        name = "Autosave" +"("+settings.FirstPlayerName + "-" + settings.SecondPlayerName+")";
+                        Saver.SaveGame(settings,saveName:name);
                         return "";
                     }
 
@@ -80,6 +83,5 @@ namespace ConsoleApp
             settings.Board = game.GetBoardCopy();
         }
         
-//TODO Refactor this
     }
 }
