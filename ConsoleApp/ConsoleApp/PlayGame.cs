@@ -9,6 +9,7 @@ namespace ConsoleApp
     {
         internal static string PlayTheGame(GameSettings settings, bool loaded = false)
         {
+            if (settings == null) return "";
             var game = new Game(settings);
             if (!loaded)
             {

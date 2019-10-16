@@ -76,7 +76,6 @@ namespace ConsoleApp
                     },
                 }
             };
-            
             var menu0 = new Menu(0)
             {
                 Title = "Connect4 Main Menu",
