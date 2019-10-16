@@ -2,7 +2,7 @@
 
 namespace GameEngine
 {
-    public class SaveMenu
+    public class SaveSubMenu
     {
         internal const int BackCommand = 44;
         public static int Menu()

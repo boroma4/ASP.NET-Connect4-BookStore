@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace GameEngine
 {
@@ -22,7 +21,7 @@ namespace GameEngine
             else
             {
                 var slot = SlotSelector(settings);
-                if (slot == SaveMenu.BackCommand) return;
+                if (slot == SaveSubMenu.BackCommand) return;
                 var name = settings.FirstPlayerName + "-" + settings.SecondPlayerName;
                 settings.SaveName = name;
                 settings.SaveTime = DateTime.Now.ToString("MM/dd/yyyy H:mm:ss");
@@ -32,8 +31,8 @@ namespace GameEngine
         }
         private static int SlotSelector(GameSettings settings)
         {
-            SaveMenu.DisplaySaveOptions();
-            var res = SaveMenu.Menu();
+            SaveSubMenu.DisplaySaveOptions();
+            var res = SaveSubMenu.Menu();
             return res;
         }
     }

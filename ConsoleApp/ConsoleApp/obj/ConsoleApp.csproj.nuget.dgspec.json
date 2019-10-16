@@ -41,9 +41,6 @@
               },
               "D:\\C#\\ics0016-2019f\\ConsoleApp\\MenuSystem\\MenuSystem.csproj": {
                 "projectPath": "D:\\C#\\ics0016-2019f\\ConsoleApp\\MenuSystem\\MenuSystem.csproj"
-              },
-              "D:\\C#\\ics0016-2019f\\ConsoleApp\\SaveLoader\\SaveLoader.csproj": {
-                "projectPath": "D:\\C#\\ics0016-2019f\\ConsoleApp\\SaveLoader\\SaveLoader.csproj"
               }
             }
           }
@@ -265,59 +262,6 @@
               },
               "D:\\C#\\ics0016-2019f\\ConsoleApp\\GamePlay\\GamePlay.csproj": {
                 "projectPath": "D:\\C#\\ics0016-2019f\\ConsoleApp\\GamePlay\\GamePlay.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netstandard2.1": {
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true
-        }
-      }
-    },
-    "D:\\C#\\ics0016-2019f\\ConsoleApp\\SaveLoader\\SaveLoader.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\C#\\ics0016-2019f\\ConsoleApp\\SaveLoader\\SaveLoader.csproj",
-        "projectName": "SaveLoader",
-        "projectPath": "D:\\C#\\ics0016-2019f\\ConsoleApp\\SaveLoader\\SaveLoader.csproj",
-        "packagesPath": "C:\\Users\\6430u\\.nuget\\packages\\",
-        "outputPath": "D:\\C#\\ics0016-2019f\\ConsoleApp\\SaveLoader\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\6430u\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "netstandard2.1"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netstandard2.1": {
-            "projectReferences": {
-              "D:\\C#\\ics0016-2019f\\ConsoleApp\\GameEngine\\GameEngine.csproj": {
-                "projectPath": "D:\\C#\\ics0016-2019f\\ConsoleApp\\GameEngine\\GameEngine.csproj"
               }
             }
           }
