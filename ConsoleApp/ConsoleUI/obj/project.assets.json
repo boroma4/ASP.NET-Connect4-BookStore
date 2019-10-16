@@ -110,7 +110,6 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
-          "MenuSystem": "1.0.0",
           "Newtonsoft.Json": "12.0.2",
           "System.Text.Json": "4.6.0"
         },
@@ -119,16 +118,6 @@
         },
         "runtime": {
           "bin/placeholder/GameEngine.dll": {}
-        }
-      },
-      "MenuSystem/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "compile": {
-          "bin/placeholder/MenuSystem.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/MenuSystem.dll": {}
         }
       }
     }
@@ -391,11 +380,6 @@
       "type": "project",
       "path": "../GameEngine/GameEngine.csproj",
       "msbuildProject": "../GameEngine/GameEngine.csproj"
-    },
-    "MenuSystem/1.0.0": {
-      "type": "project",
-      "path": "../MenuSystem/MenuSystem.csproj",
-      "msbuildProject": "../MenuSystem/MenuSystem.csproj"
     }
   },
   "projectFileDependencyGroups": {

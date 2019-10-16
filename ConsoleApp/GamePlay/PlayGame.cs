@@ -1,7 +1,6 @@
 ﻿using System;
 using ConsoleUI;
 using GameEngine;
-using SaveLoader;
 
 namespace GamePlay
 {
@@ -22,8 +21,8 @@ namespace GamePlay
             bool done;
             do
             {
-                var name = "Autosave" +"("+settings.FirstPlayerName + "-" + settings.SecondPlayerName+")";
-                Saver.SaveGame(settings,saveName:name);
+                
+                Saver.SaveGame(settings,true);
                 Console.Clear();
                 GameUI.PrintBoard(game);
                 var userXint = -1;
@@ -37,15 +36,14 @@ namespace GamePlay
                     var userInput = Console.ReadLine() ?? "null";
                     if (userInput.ToUpper() == "S")
                     {
-                         name = settings.FirstPlayerName + "-" + settings.SecondPlayerName;
-                        Saver.SaveGame(settings,name,false);
+                        Console.WriteLine(AvailableSaves.Saves);
+                        Saver.SaveGame(settings,false);
                         GameUI.PrintBoard(game);
                         usedLetter = true;
                     }
                     else if (userInput.ToUpper() == "X")
-                    {  
-                        name = "Autosave" +"("+settings.FirstPlayerName + "-" + settings.SecondPlayerName+")";
-                        Saver.SaveGame(settings,saveName:name);
+                    {
+                        //Saver.SaveGame(settings,true);
                         return "";
                     }
 
@@ -83,7 +81,7 @@ namespace GamePlay
             settings.IsPlayerOne = !settings.IsPlayerOne;
             settings.Board = game.GetBoardCopy();
         }
-        
+
         private static void DeclareWinner()
         {
       

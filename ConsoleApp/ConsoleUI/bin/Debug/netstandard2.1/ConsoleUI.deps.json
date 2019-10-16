@@ -112,17 +112,11 @@
       },
       "GameEngine/1.0.0": {
         "dependencies": {
-          "MenuSystem": "1.0.0",
           "Newtonsoft.Json": "12.0.2",
           "System.Text.Json": "4.6.0"
         },
         "runtime": {
           "GameEngine.dll": {}
-        }
-      },
-      "MenuSystem/1.0.0": {
-        "runtime": {
-          "MenuSystem.dll": {}
         }
       }
     }
@@ -197,11 +191,6 @@
       "hashPath": "system.threading.tasks.extensions.4.5.2.nupkg.sha512"
     },
     "GameEngine/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "MenuSystem/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

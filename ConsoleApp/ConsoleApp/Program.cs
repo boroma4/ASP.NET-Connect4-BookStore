@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using GameEngine;
 using MenuSystem;
 using ConsoleUI;
+using GamePlay;
 
 namespace ConsoleApp
 {
@@ -11,7 +12,7 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             Console.Clear();
-            
+            AvailableSaves.PreLoadSaves();
             var startMenu = new Menu(2)
             {
                 Title = "Select Board Size",
@@ -76,6 +77,42 @@ namespace ConsoleApp
                     },
                 }
             };
+            var saveMenu = new Menu(1)
+            {
+                Title = "Select a save to load",
+                MenuItemsDictionary = new Dictionary<string, MenuItem>()
+                {
+                    {
+                        "1", new MenuItem()
+                        {
+                            Title = AvailableSaves.Saves[0],
+                            CommandToExecute =()=> StartGame.StartFromSave(0)
+                        }
+                    },
+                    {
+                        "2", new MenuItem()
+                        {
+                            Title = AvailableSaves.Saves[1],
+                            CommandToExecute =()=> StartGame.StartFromSave(1)
+                        }
+                    },
+                    {
+                    "3", new MenuItem()
+                    {
+                        Title = AvailableSaves.Saves[2],
+                        CommandToExecute =()=> StartGame.StartFromSave(2)
+                    }
+                },
+                {
+                    "4", new MenuItem()
+                    {
+                        Title = AvailableSaves.Saves[3],
+                        CommandToExecute =()=> StartGame.StartFromSave(3)
+                    }
+                }
+                
+                }
+            };
             var menu0 = new Menu(0)
             {
                 Title = "Connect4 Main Menu",
@@ -92,7 +129,7 @@ namespace ConsoleApp
                         "L", new MenuItem()
                         {
                             Title = "Load game",
-                            CommandToExecute = StartGame.StartFromSave
+                            CommandToExecute =saveMenu.Run
                         }
                     }
                 }

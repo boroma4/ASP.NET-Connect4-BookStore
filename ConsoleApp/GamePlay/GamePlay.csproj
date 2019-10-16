@@ -6,7 +6,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\ConsoleUI\ConsoleUI.csproj" />
-      <ProjectReference Include="..\SaveLoader\SaveLoader.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,34 +1,39 @@
 ﻿using System;
-using GameEngine;
+using System.Linq;
 
-namespace SaveLoader
+namespace GameEngine
 {
     public static class Saver
     {
-        public static  void SaveGame(GameSettings settings,string saveName,bool autoSave = true)
+        public static  void SaveGame(GameSettings settings,bool autoSave)
         {
             if (autoSave)
             {
-                settings.SaveName = saveName;
+                var name = "Autosave" +"("+settings.FirstPlayerName + "-" + settings.SecondPlayerName+")";
+                settings.SaveName = name;
                 settings.SaveTime = DateTime.Now.ToString("MM/dd/yyyy H:mm:ss");
                 if (settings.NumTurns != (settings.BoardHeight * settings.BoardWidth ))
-                { 
+                {
+
+                    AvailableSaves.Saves[0] = settings.SaveName + " " +settings.SaveTime;
                     GameConfigHandler.SaveConfig(settings);
                 }
             }
             else
             {
                 var slot = SlotSelector(settings);
-                if (slot == SaveMenu.backCommand) return;
-                settings.SaveName = saveName;
-                settings.SaveTime = DateTime.Now.ToString("MM/dd/yyyy H:mm");
+                if (slot == SaveMenu.BackCommand) return;
+                var name = settings.FirstPlayerName + "-" + settings.SecondPlayerName;
+                settings.SaveName = name;
+                settings.SaveTime = DateTime.Now.ToString("MM/dd/yyyy H:mm:ss");
+                AvailableSaves.Saves[slot] = settings.SaveName + " " +settings.SaveTime;
                 GameConfigHandler.SaveConfig(settings, slot+".json");
             }
         }
         private static int SlotSelector(GameSettings settings)
         {
             SaveMenu.DisplaySaveOptions();
-            var res = SaveMenu.Menu(false);
+            var res = SaveMenu.Menu();
             return res;
         }
     }

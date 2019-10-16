@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using GameEngine;
+using GamePlay;
 
 namespace MenuSystem
 {
@@ -43,6 +45,42 @@ namespace MenuSystem
 
         public string Run()
         {
+            
+            if (Title == "Select a save to load")
+            {
+                MenuItemsDictionary.Clear();
+                MenuItemsDictionary = new Dictionary<string, MenuItem>()
+                {
+                    {
+                        "1", new MenuItem()
+                        {
+                            Title = AvailableSaves.Saves[0],
+                            CommandToExecute = () => StartGame.StartFromSave(0)
+                        }
+                    },
+                    {
+                        "2", new MenuItem()
+                        {
+                            Title = AvailableSaves.Saves[1],
+                            CommandToExecute = () => StartGame.StartFromSave(1)
+                        }
+                    },
+                    {
+                        "3", new MenuItem()
+                        {
+                            Title = AvailableSaves.Saves[2],
+                            CommandToExecute = () => StartGame.StartFromSave(2)
+                        }
+                    },
+                    {
+                        "4", new MenuItem()
+                        {
+                            Title = AvailableSaves.Saves[3],
+                            CommandToExecute = () => StartGame.StartFromSave(3)
+                        }
+                    },
+                };
+            }
             var command = "";
             do
             {
@@ -93,5 +131,9 @@ namespace MenuSystem
             
             return command;
         }
+
+        
+        
+     
     }
 }

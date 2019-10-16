@@ -1,10 +1,7 @@
 ﻿using System;
 using GameEngine;
-using GamePlay;
-using SaveLoader;
 
-
-namespace ConsoleApp
+namespace GamePlay
 {
     public  static class StartGame
     {
@@ -41,10 +38,13 @@ namespace ConsoleApp
             PlayGame.PlayTheGame(settings);
             return "";
         }
-        public static string StartFromSave ()
+        public static string StartFromSave (int slot )
         {
-            var settings = Loader.LoadAGame();
-            PlayGame.PlayTheGame(settings,true);
+            if (AvailableSaves.Saves[slot] != "Empty")
+            {
+                PlayGame.PlayTheGame(GameConfigHandler.LoadConfig($"{slot}.json"), true);
+            }
+
             return "";
         }
         

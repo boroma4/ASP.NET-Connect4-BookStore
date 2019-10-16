@@ -18,11 +18,7 @@
     },
     "frameworks": {
       "netstandard2.1": {
-        "projectReferences": {
-          "D:\\C#\\ics0016-2019f\\ConsoleApp\\MenuSystem\\MenuSystem.csproj": {
-            "projectPath": "D:\\C#\\ics0016-2019f\\ConsoleApp\\MenuSystem\\MenuSystem.csproj"
-          }
-        }
+        "projectReferences": {}
       }
     },
     "warningProperties": {

@@ -10,6 +10,7 @@
         "dependencies": {
           "ConsoleUI": "1.0.0",
           "GameEngine": "1.0.0",
+          "GamePlay": "1.0.0",
           "MenuSystem": "1.0.0",
           "SaveLoader": "1.0.0"
         },
@@ -36,7 +37,6 @@
       },
       "GameEngine/1.0.0": {
         "dependencies": {
-          "MenuSystem": "1.0.0",
           "Newtonsoft.Json": "12.0.2",
           "System.Text.Json": "4.6.0"
         },
@@ -44,7 +44,19 @@
           "GameEngine.dll": {}
         }
       },
+      "GamePlay/1.0.0": {
+        "dependencies": {
+          "ConsoleUI": "1.0.0"
+        },
+        "runtime": {
+          "GamePlay.dll": {}
+        }
+      },
       "MenuSystem/1.0.0": {
+        "dependencies": {
+          "GameEngine": "1.0.0",
+          "GamePlay": "1.0.0"
+        },
         "runtime": {
           "MenuSystem.dll": {}
         }
@@ -85,6 +97,11 @@
       "sha512": ""
     },
     "GameEngine/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GamePlay/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
