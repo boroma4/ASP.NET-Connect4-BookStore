@@ -16,9 +16,7 @@
             </e>
           </e>
         </e>
-        <e p="PlayGame.cs" t="Include" />
         <e p="Program.cs" t="Include" />
-        <e p="StartGame.cs" t="Include" />
       </e>
       <e p="ConsoleUI" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
@@ -46,6 +44,20 @@
             </e>
           </e>
         </e>
+      </e>
+      <e p="GamePlay" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="EndGame.cs" t="Include" />
+        <e p="GamePlay.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="GamePlay.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="PlayGame.cs" t="Include" />
+        <e p="StartGame.cs" t="Include" />
       </e>
       <e p="MenuSystem" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />

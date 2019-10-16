@@ -8,12 +8,12 @@ namespace SaveLoader
         internal static int Menu(bool loading)
         {
             var res = -1;
-            Console.WriteLine("C Cancel");
+            Console.WriteLine(!loading?"C Cancel":"M Return to Main Menu");
             do
             {
                 Console.Write(">");
                 var choice = Console.ReadLine()??"null";
-                if (choice.ToUpper() == "C")
+                if ((choice.ToUpper() == "C" && ! loading) ||(choice.ToUpper() == "M" && loading) )
                 {
                     res = backCommand;
                     break;

@@ -3,9 +3,9 @@ using ConsoleUI;
 using GameEngine;
 using SaveLoader;
 
-namespace ConsoleApp
+namespace GamePlay
 {
-    public  static class PlayGame
+      static class PlayGame
     {
         internal static string PlayTheGame(GameSettings settings, bool loaded = false)
         {
@@ -19,7 +19,7 @@ namespace ConsoleApp
                 }
             }
             Console.Clear();
-            var done = false;
+            bool done;
             do
             {
                 var name = "Autosave" +"("+settings.FirstPlayerName + "-" + settings.SecondPlayerName+")";
@@ -30,7 +30,7 @@ namespace ConsoleApp
                 var usedLetter = false;
                 do
                 {
-                    Console.WriteLine("Press X to exit to main menu. Press S to save the game");
+                    Console.WriteLine("Press X to exit current game. Press S to save the game");
                     Console.WriteLine ("Enter column number, " 
                                        + (settings.IsPlayerOne ? $"{settings.FirstPlayerName}" : $"{settings.SecondPlayerName}" ));
                     Console.Write(">");
@@ -84,5 +84,11 @@ namespace ConsoleApp
             settings.Board = game.GetBoardCopy();
         }
         
+        private static void DeclareWinner()
+        {
+      
+        }
+        
     }
+      
 }
