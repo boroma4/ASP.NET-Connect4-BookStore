@@ -19,12 +19,12 @@ namespace GamePlay
             }
             Console.Clear();
             bool done;
-            var finished = false;
+           // var finished = false;
             do
             {
                 
                 Saver.SaveGame(settings,true);
-                //Console.Clear();
+                Console.Clear();
                 GameUI.PrintBoard(game);
                 var userXint = -1;
                 var usedLetter = false;
@@ -45,7 +45,6 @@ namespace GamePlay
                     }
                     else if (userInput.ToUpper() == "X")
                     {
-                        //Saver.SaveGame(settings,true);
                         return "";
                     }
 
@@ -64,7 +63,6 @@ namespace GamePlay
                 {
                     MakeAMove(settings,userXint,game);
                     //finished = EndGame.GameOver(userXint, settings);
-                   
                 }
                 done = settings.NumTurns == settings.BoardHeight*settings.BoardWidth ;
 

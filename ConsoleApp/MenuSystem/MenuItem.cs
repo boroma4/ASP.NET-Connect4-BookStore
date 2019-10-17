@@ -4,16 +4,16 @@ namespace MenuSystem
 {
     public class MenuItem
     {
-        private string _title;
+        private string? _title;
 
         public string Title
         {
-            get => _title;
+            get => _title ?? "No Title";
             set => _title = Validate(value, 1, 100, false);
         }
         
 
-        public Func<string> CommandToExecute { get; set; }
+        public Func<string>? CommandToExecute { get; set; }
 
         private static string Validate(string item, int minLength, int maxLength, bool toUpper)
         {
