@@ -32,7 +32,7 @@ namespace GameEngine
         private static int SlotSelector(GameSettings settings)
         {
             SaveSubMenu.DisplaySaveOptions();
-            var res = SaveSubMenu.UserInput();
+            var res = SaveSubMenu.Menu();
             return res;
         }
     }

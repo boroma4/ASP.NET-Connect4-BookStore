@@ -41,7 +41,6 @@ namespace GamePlay
                     xCoordinate--;
                 }
                 count++;
-                 
             }
             return _inLine == 4;
         }

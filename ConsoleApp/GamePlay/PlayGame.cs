@@ -19,6 +19,7 @@ namespace GamePlay
             }
             Console.Clear();
             bool done;
+            var finished = false;
             do
             {
                 
@@ -27,6 +28,7 @@ namespace GamePlay
                 GameUI.PrintBoard(game);
                 var userXint = -1;
                 var usedLetter = false;
+                
                 do
                 {
                     Console.WriteLine("Press X to exit current game. Press S to save the game");
@@ -56,17 +58,17 @@ namespace GamePlay
                     usedLetter = false;
                     
                 } while (userXint < 1 || settings.YCoordinate[userXint-1] < 0);
-                
+
                 
                 if (game.Move(settings.YCoordinate[userXint-1], userXint-1,settings) == "Ok")
                 {
                     MakeAMove(settings,userXint,game);
+                    //finished = EndGame.GameOver(userXint, settings);
+                   
                 }
-                
-                done = settings.NumTurns == settings.BoardHeight*settings.BoardWidth ||EndGame.GameOver(userXint, settings);
-                
-                 
-            } while ( !done);
+                done = settings.NumTurns == settings.BoardHeight*settings.BoardWidth ;
+
+            } while (!done);
             
             GameUI.PrintBoard(game);
             Console.WriteLine("Game Over\n" + "Press any key to go back to menu");
