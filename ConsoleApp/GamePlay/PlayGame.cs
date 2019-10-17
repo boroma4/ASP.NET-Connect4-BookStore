@@ -14,7 +14,7 @@ namespace GamePlay
             {
                 for (var i = 0; i < settings.BoardWidth; i++)
                 {
-                    settings.YCoordinate[i] = settings.BoardHeight - 1;
+                    settings.YCoordinate[i] = settings.BoardHeight-1;
                 }
             }
             Console.Clear();
@@ -23,7 +23,7 @@ namespace GamePlay
             {
                 
                 Saver.SaveGame(settings,true);
-                Console.Clear();
+                //Console.Clear();
                 GameUI.PrintBoard(game);
                 var userXint = -1;
                 var usedLetter = false;
@@ -63,9 +63,10 @@ namespace GamePlay
                     MakeAMove(settings,userXint,game);
                 }
                 
-                done = settings.NumTurns == settings.BoardHeight*settings.BoardWidth;
+                done = settings.NumTurns == settings.BoardHeight*settings.BoardWidth ||EndGame.GameOver(userXint, settings);
+                
                  
-            } while (!done);
+            } while ( !done);
             
             GameUI.PrintBoard(game);
             Console.WriteLine("Game Over\n" + "Press any key to go back to menu");

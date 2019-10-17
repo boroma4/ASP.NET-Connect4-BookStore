@@ -11,8 +11,7 @@
           "ConsoleUI": "1.0.0",
           "GameEngine": "1.0.0",
           "GamePlay": "1.0.0",
-          "MenuSystem": "1.0.0",
-          "SaveLoader": "1.0.0"
+          "MenuSystem": "1.0.0"
         },
         "runtime": {
           "ConsoleApp.dll": {}
@@ -60,14 +59,6 @@
         "runtime": {
           "MenuSystem.dll": {}
         }
-      },
-      "SaveLoader/1.0.0": {
-        "dependencies": {
-          "GameEngine": "1.0.0"
-        },
-        "runtime": {
-          "SaveLoader.dll": {}
-        }
       }
     }
   },
@@ -107,11 +98,6 @@
       "sha512": ""
     },
     "MenuSystem/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "SaveLoader/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

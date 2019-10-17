@@ -5,7 +5,7 @@ namespace GameEngine
     public class SaveSubMenu
     {
         internal const int BackCommand = 44;
-        public static int Menu()
+        public static int UserInput()
         {
             var res = -1;
             do

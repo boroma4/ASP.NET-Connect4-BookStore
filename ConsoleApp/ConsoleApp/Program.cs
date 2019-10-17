@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using GameEngine;
 using MenuSystem;
 using ConsoleUI;
@@ -11,8 +12,10 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.Clear();
+            Console.WriteLine("Loading game...");
+            Thread.Sleep(2000);
             AvailableSaves.PreLoadSaves();
+            Console.Clear();
             var startMenu = new Menu(2)
             {
                 Title = "Select Board Size",
@@ -57,14 +60,14 @@ namespace ConsoleApp
                     {
                         "1", new MenuItem()
                         {
-                            Title = "Computer starts",
+                            Title = "Computer starts(Not available yet)",
                             CommandToExecute = null
                         }
                     },
                     {
                         "2", new MenuItem()
                         {
-                            Title = "Human starts",
+                            Title = "Human starts(Not available yet)",
                             CommandToExecute = null
                         }
                     },
