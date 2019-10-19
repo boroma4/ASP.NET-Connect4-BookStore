@@ -4,6 +4,7 @@ namespace GameEngine
 {
     public static class Saver
     {
+        private const int BackCommand = 44;
         public static  void SaveGame(GameSettings settings,bool autoSave)
         {
             if (autoSave)
@@ -20,8 +21,8 @@ namespace GameEngine
             }
             else
             {
-                var slot = SlotSelector(settings);
-                if (slot == SaveSubMenu.BackCommand) return;
+                var slot = SlotSelector();
+                if (slot == BackCommand) return;
                 var name = settings.FirstPlayerName + "-" + settings.SecondPlayerName;
                 settings.SaveName = name;
                 settings.SaveTime = DateTime.Now.ToString("MM/dd/yyyy H:mm:ss");
@@ -29,11 +30,74 @@ namespace GameEngine
                 GameConfigHandler.SaveConfig(settings, slot+".json");
             }
         }
-        private static int SlotSelector(GameSettings settings)
+        private static int SlotSelector()
         {
-            SaveSubMenu.DisplaySaveOptions();
-            var res = SaveSubMenu.Menu();
+            DisplaySaveOptions();
+            var res = Menu();
             return res;
+        }
+        
+        private static int Menu()
+        {
+            var res = -1;
+            do
+            {
+                Console.WriteLine("C-Cancel");
+                Console.Write(">");
+                var choice = Console.ReadLine()?.Trim()??"null";
+                if (choice.ToUpper() == "C")
+                {
+                    res = BackCommand;
+                    break;
+                }
+                if (!int.TryParse(choice, out res))
+                {
+                    Console.WriteLine("Enter a number please");
+                    res = -1;
+                }
+                else if (res > 3 || res < 0)
+                {
+                    res = -1;
+                }
+                else if (res == 0)
+                {
+                    Console.WriteLine("You cannot overwrite an autosave!");
+                    res = -1;
+                }
+                else if (AvailableSaves.Saves[res] != "Empty N/A")
+                {
+                    var escape = false;
+                    do
+                    {
+                        Console.WriteLine("Are you sure you want to overwrite this save?");
+                        Console.WriteLine("Y - Yes\nN - No");
+                        Console.Write(">");
+                        var approval = Console.ReadLine()?.Trim() ?? "null";
+                        switch (approval.ToUpper())
+                        {
+                            case "Y":
+                                return res;
+                            case "N":
+                                escape = true;
+                                res = BackCommand;
+                                break;
+                        }
+
+                    } while (!escape);
+                }
+            } while (res < 0 );
+            return res;
+        }
+        
+        private static void DisplaySaveOptions()
+        {
+            Console.WriteLine("Select a slot");
+            Console.WriteLine("===========================");
+            var saves = AvailableSaves.Saves;
+            for (var i = 0; i<4; i++)
+            {
+                Console.WriteLine(i+") " +saves[i]);
+            }
         }
     }
 }

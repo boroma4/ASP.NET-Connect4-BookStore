@@ -86,7 +86,7 @@ namespace MenuSystem
             {
                 var returnCommand = "";
                
-                Console.Clear();;
+                Console.Clear();
                 Console.WriteLine(Title);
                 Console.WriteLine("========================");
 
@@ -132,13 +132,8 @@ namespace MenuSystem
             } while (command != MenuCommandExit && 
                      command != MenuCommandReturnToMain && 
                      command != MenuCommandReturnToPrevious);
-
             
             return command;
         }
-
-        
-        
-     
     }
 }
