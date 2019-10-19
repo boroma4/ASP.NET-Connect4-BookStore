@@ -38,14 +38,13 @@ namespace GamePlay
                     var userInput = Console.ReadLine() ?? "null";
                     if (userInput.ToUpper() == "S")
                     {
-                        Console.WriteLine(AvailableSaves.Saves);
                         Saver.SaveGame(settings,false);
                         GameUI.PrintBoard(game);
                         usedLetter = true;
                     }
                     else if (userInput.ToUpper() == "X")
                     {
-                        return "";
+                        return "Exit";
                     }
 
                     if (!int.TryParse(userInput, out userXint) && !usedLetter)

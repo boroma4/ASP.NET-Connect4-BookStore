@@ -84,6 +84,9 @@ namespace MenuSystem
             var command = "";
             do
             {
+                var returnCommand = "";
+               
+             
                 Console.WriteLine(Title);
                 Console.WriteLine("========================");
 
@@ -98,16 +101,18 @@ namespace MenuSystem
                 Console.Write(">");
 
                 command = Console.ReadLine()?.Trim().ToUpper() ?? "";
-
-
-                var returnCommand = "";
-
+             
                 if (MenuItemsDictionary.ContainsKey(command))
                 {
                     var menuItem = MenuItemsDictionary[command];
                     if (menuItem.CommandToExecute != null)
                     {
                         returnCommand = menuItem.CommandToExecute(); 
+                    }
+                    if ((Title == "Select a save to load" && menuItem.Title != "Empty N/A")||
+                        (Title == "Select Board Size" && menuItem.Title.Contains("board")) ) 
+                    {
+                        returnCommand = MenuCommandReturnToMain;
                     }
                 }
                 
