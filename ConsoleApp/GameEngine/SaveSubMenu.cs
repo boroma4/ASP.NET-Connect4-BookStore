@@ -12,7 +12,7 @@ namespace GameEngine
             {
                 Console.WriteLine("C-Cancel");
                 Console.Write(">");
-                var choice = Console.ReadLine()??"null";
+                var choice = Console.ReadLine()?.Trim()??"null";
                 if (choice.ToUpper() == "C")
                 {
                     res = BackCommand;

@@ -74,10 +74,17 @@ namespace GamePlay
 
         private static string UserName(bool firstPlayer = true)
         {
+            var name = "";
             Console.Clear();
-            Console.WriteLine("Enter " + (firstPlayer?"first":"second")+" player's name");
-            Console.Write(">");
-            var name = Console.ReadLine();
+            do
+            {
+                Console.WriteLine("Enter " + (firstPlayer?"first":"second")+" player's name");
+                Console.Write(">");
+                name = Console.ReadLine()?.Trim()??"";
+                if(name.Length == 0) { Console.WriteLine("Name can't be empty!");}
+                if(name.Length >= 15) { Console.WriteLine("Name has to be 15 characters max!");}
+            } while (name.Length == 0 || name.Length > 15);
+            
             Console.Clear();
             return name;
         }
