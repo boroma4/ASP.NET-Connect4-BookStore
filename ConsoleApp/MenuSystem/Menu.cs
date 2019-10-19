@@ -86,7 +86,7 @@ namespace MenuSystem
             {
                 var returnCommand = "";
                
-             
+                Console.Clear();;
                 Console.WriteLine(Title);
                 Console.WriteLine("========================");
 
@@ -109,7 +109,7 @@ namespace MenuSystem
                     {
                         returnCommand = menuItem.CommandToExecute(); 
                     }
-                    if ((Title == "Select a save to load" && menuItem.Title != "Empty N/A")||
+                    if ((Title == "Select a save to load" && (menuItem.Title != "Empty N/A")&&(menuItem.Title != "Exit"))||
                         (Title == "Select Board Size" && menuItem.Title.Contains("board")) ) 
                     {
                         returnCommand = MenuCommandReturnToMain;
