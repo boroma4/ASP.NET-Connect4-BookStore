@@ -9,7 +9,7 @@ namespace GamePlay
 
         public static bool GameOver(int x, GameSettings settings)
         {
-            return LineCrossed(x,settings) || ColumnCrossed(x,settings);
+            return LineCrossed(x,settings) || ColumnCrossed(x,settings) || DiagonalCrossed(x,settings);
         }
         private static bool LineCrossed(int x, GameSettings settings)
         {
@@ -65,10 +65,53 @@ namespace GamePlay
             }
             return inLine >= 4;
         }
-        private static bool DiagonalCrossed()
+        private static bool DiagonalCrossed( int x,GameSettings settings)
         {
+            var inLine = 1;
+            var y = 0;
+            var count = 0;
+            var board = settings.Board;
+            var cellstate = settings.IsPlayerOne ? CellState.X : CellState.O; 
+            
+            var xCoordinate = x;  //x one square to the right of input
+            
+            if (xCoordinate < settings.BoardWidth) // might be redundant
+            {
+                 y = settings.YCoordinate[xCoordinate-1] - 1; // y one square above
+                // Diagonally check 3 squares to the right of the input one 
+                while (count < LegalMoves && y >= 0 && xCoordinate  < settings.BoardWidth && y < settings.BoardHeight)
+                {
+                    if (board[y, xCoordinate] == cellstate)
+                    {
+                        inLine++;
+                        xCoordinate++;
+                        y--;
+                    }
 
-            return true;
+                    count++;
+                }
+            }
+
+            count = 0;
+            xCoordinate = x-2;  //x one square to the left of input
+            if (xCoordinate >= 0)
+            {
+                y = settings.YCoordinate[xCoordinate+1] +1 ; // y one square below
+
+                // Diagonally check 3 squares to the left of the input one 
+                while (count < LegalMoves && y < settings.BoardHeight && y >= 0 && xCoordinate >= 0)
+                {
+                    if (board[y, xCoordinate] == cellstate)
+                    {
+                        inLine++;
+                        xCoordinate--;
+                        y++;
+                    }
+                    count++;
+                }
+            }
+
+            return inLine>=4;
         }
     }
 }
