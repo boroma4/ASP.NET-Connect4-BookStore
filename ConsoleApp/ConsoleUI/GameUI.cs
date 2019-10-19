@@ -24,11 +24,10 @@ namespace ConsoleUI
                         line += _verticalSeparator;
                     }
                     
-
                 }
                 Console.WriteLine(line);
 
-                if (yIndex < (game.Heigth-1))
+                if (yIndex < (game.Heigth))
                 {
                     line = "";
                     for (var xIndex = 0; xIndex < game.Width; xIndex++)
@@ -43,10 +42,19 @@ namespace ConsoleUI
                     }
                     Console.WriteLine(line);
                 }
-                
-                
+                if (yIndex == (game.Heigth-1))
+                {
+                    line = "";
+                    for (var xIndex = 0; xIndex < game.Width; xIndex++)
+                    {
+                        line += xIndex + 1;
+                        line += "   ";
+                    }
+
+                    line += "\n";
+                    Console.WriteLine(line);
+                }
             }
-            
         }
 
         public static string GetSingleState(CellState state)

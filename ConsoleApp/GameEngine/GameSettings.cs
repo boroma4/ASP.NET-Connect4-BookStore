@@ -10,7 +10,7 @@
         public int BoardWidth { get; set; } = 5;
         public bool IsPlayerOne { get; set; } = true;
 
-        public int[] YCoordinate { get; set; }
+        public int[]? YCoordinate { get; set; }
 
         public CellState [,] Board { get; set; } = new CellState[4,5];
         public int NumTurns { get; set; } = 0;

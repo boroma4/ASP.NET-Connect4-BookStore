@@ -32,7 +32,7 @@ namespace GameEngine
                     Console.WriteLine("You cannot overwrite an autosave!");
                     res = -1;
                 }
-                else if (AvailableSaves.Saves[res] != "Empty")
+                else if (AvailableSaves.Saves[res] != "Empty N/A")
                 {
                     Console.WriteLine("Are you sure you want to overwrite this save?");
                     Console.WriteLine("Y - Yes\nN - No");
@@ -58,7 +58,7 @@ namespace GameEngine
             var saves = AvailableSaves.Saves;
             for (var i = 0; i<4; i++)
             {
-                Console.WriteLine(i+") "+saves[i]);
+                Console.WriteLine(i+") " +saves[i]);
             }
         }
     }
