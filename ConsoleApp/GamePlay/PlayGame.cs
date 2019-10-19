@@ -30,7 +30,7 @@ namespace GamePlay
                 
                 do
                 {
-                    Console.WriteLine("Press X to exit current game. Press S to save the game");
+                    Console.WriteLine("Press X to go back to main menu. Press S to save the game");
                     Console.WriteLine ("Enter column number, " 
                                        + (settings.IsPlayerOne ? $"{settings.FirstPlayerName}" : $"{settings.SecondPlayerName}" ));
                     Console.Write(">");
@@ -78,7 +78,7 @@ namespace GamePlay
             {
                 Console.WriteLine("Board is full!");
             }
-            Console.WriteLine("\nPress any key to go back to menu");
+            Console.WriteLine("Press any key to go back to main menu");
             Console.ReadKey();
             Console.Clear();
             return "";

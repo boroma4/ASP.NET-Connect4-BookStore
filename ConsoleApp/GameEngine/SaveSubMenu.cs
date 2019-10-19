@@ -34,18 +34,24 @@ namespace GameEngine
                 }
                 else if (AvailableSaves.Saves[res] != "Empty N/A")
                 {
-                    Console.WriteLine("Are you sure you want to overwrite this save?");
-                    Console.WriteLine("Y - Yes\nN - No");
-                    Console.Write(">");
-                    var approval = Console.ReadLine() ?? "null";
-                    switch (approval.ToUpper())
+                    var escape = false;
+                    do
                     {
-                        case "Y":
-                            return res;
-                        case "N":
-                            res = BackCommand;
-                            break;
-                    }
+                        Console.WriteLine("Are you sure you want to overwrite this save?");
+                        Console.WriteLine("Y - Yes\nN - No");
+                        Console.Write(">");
+                        var approval = Console.ReadLine()?.Trim() ?? "null";
+                        switch (approval.ToUpper())
+                        {
+                            case "Y":
+                                return res;
+                            case "N":
+                                escape = true;
+                                res = BackCommand;
+                                break;
+                        }
+
+                    } while (!escape);
                 }
             } while (res < 0 );
             return res;
