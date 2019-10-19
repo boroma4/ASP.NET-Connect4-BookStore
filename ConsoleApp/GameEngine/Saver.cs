@@ -37,4 +37,3 @@ namespace GameEngine
         }
     }
 }
-//TODO Integrate MenuSystem.Menu here, or create something new so I can nicely move back while loading/saving + refactor

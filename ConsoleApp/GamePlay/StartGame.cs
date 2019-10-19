@@ -40,7 +40,7 @@ namespace GamePlay
         }
         public static string StartFromSave (int slot )
         {
-            if (AvailableSaves.Saves[slot] != "Empty")
+            if (AvailableSaves.Saves[slot] != "Empty N/A")
             {
                 PlayGame.PlayTheGame(GameConfigHandler.LoadConfig($"{slot}.json"), true);
             }
