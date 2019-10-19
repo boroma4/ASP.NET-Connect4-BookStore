@@ -13,7 +13,7 @@ namespace GamePlay
             if (!loaded)
             {
                 for (var i = 0; i < settings.BoardWidth; i++)
-                {
+                { 
                     settings.YCoordinate[i] = settings.BoardHeight-1;
                 }
             }

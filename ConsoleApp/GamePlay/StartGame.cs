@@ -90,9 +90,9 @@ namespace GamePlay
                 BoardWidth = width,
                 FirstPlayerName = UserName(),
                 SecondPlayerName = UserName(false),
-                Board = new CellState[height, width]
+                Board = new CellState[height, width],
+                YCoordinate = new int[width]
             };
-            settings.YCoordinate = new int[settings.BoardWidth];
             
             return settings;
         }
