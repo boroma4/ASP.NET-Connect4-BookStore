@@ -18,8 +18,7 @@ namespace GamePlay
                 }
             }
             Console.Clear();
-            bool done;
-           // var finished = false;
+            bool done,playerWon;
             do
             {
                 
@@ -35,7 +34,7 @@ namespace GamePlay
                     Console.WriteLine ("Enter column number, " 
                                        + (settings.IsPlayerOne ? $"{settings.FirstPlayerName}" : $"{settings.SecondPlayerName}" ));
                     Console.Write(">");
-                    var userInput = Console.ReadLine() ?? "null";
+                    var userInput = Console.ReadLine()?.Trim() ?? "null";
                     if (userInput.ToUpper() == "S")
                     {
                         Console.WriteLine(AvailableSaves.Saves);
@@ -58,18 +57,29 @@ namespace GamePlay
                     
                 } while (userXint < 1 || settings.YCoordinate[userXint-1] < 0);
 
+                playerWon = EndGame.GameOver(userXint, settings);
                 
                 if (game.Move(settings.YCoordinate[userXint-1], userXint-1,settings) == "Ok")
                 {
                     MakeAMove(settings,userXint,game);
-                    //finished = EndGame.GameOver(userXint, settings);
                 }
-                done = settings.NumTurns == settings.BoardHeight*settings.BoardWidth ;
+                // if no space or player has won
+                done = (settings.NumTurns == settings.BoardHeight*settings.BoardWidth) || playerWon ; 
 
             } while (!done);
             
             GameUI.PrintBoard(game);
-            Console.WriteLine("Game Over\n" + "Press any key to go back to menu");
+            Console.Write("Game Over! ");
+            if (playerWon)
+            {
+                Console.Write("Player ");
+                Console.WriteLine(settings.IsPlayerOne ? settings.SecondPlayerName : settings.FirstPlayerName +" has won!");
+            }
+            else
+            {
+                Console.WriteLine("Board is full!");
+            }
+            Console.WriteLine("\nPress any key to go back to menu");
             Console.ReadKey();
             Console.Clear();
             return "";
@@ -83,11 +93,6 @@ namespace GamePlay
             settings.Board = game.GetBoardCopy();
         }
 
-        private static void DeclareWinner()
-        {
-      
-        }
-        
     }
       
 }
