@@ -5,6 +5,7 @@ namespace GamePlay
 {
     public  static class StartGame
     {
+        public static readonly string EmptySaveName = "Empty N/A";
 
         public static string SmallBoard()
         {
@@ -40,7 +41,7 @@ namespace GamePlay
         }
         public static string StartFromSave (int slot )
         {
-            if (AvailableSaves.Saves[slot] != "Empty N/A")
+            if (AvailableSaves.Saves[slot] != EmptySaveName)
             {
                 PlayGame.PlayTheGame(GameConfigHandler.LoadConfig($"{slot}.json"), true);
             }

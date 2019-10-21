@@ -15,7 +15,7 @@ namespace GameEngine
             for ( var i = 0; i < MAXSAVES; i++)
             {
                  save.Add(GameConfigHandler.LoadConfig($"{i}.json"));
-                 Saves[i] = save[i].SaveName + " " + save[i].SaveTime;
+                 Saves[i] = save[i].ToString();
             }
         }
     }

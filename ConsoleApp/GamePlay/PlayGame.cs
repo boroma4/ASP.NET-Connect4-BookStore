@@ -4,11 +4,11 @@ using GameEngine;
 
 namespace GamePlay
 {
-      static class PlayGame
+      internal static class PlayGame
     {
-        internal static string PlayTheGame(GameSettings settings, bool loaded = false)
+        internal static void PlayTheGame(GameSettings settings, bool loaded = false)
         {
-            if (settings == null) return "";
+            if (settings == null) return ;
             var game = new Game(settings);
             if (!loaded)
             {
@@ -43,7 +43,7 @@ namespace GamePlay
                     }
                     else if (userInput.ToUpper() == "X")
                     {
-                        return "Exit";
+                        return ;
                     }
 
                     if (!int.TryParse(userInput, out userXint) && !usedLetter)
@@ -72,7 +72,7 @@ namespace GamePlay
             if (playerWon)
             {
                 Console.Write("Player ");
-                Console.WriteLine(settings.IsPlayerOne ? settings.SecondPlayerName : settings.FirstPlayerName +" has won!");
+                Console.WriteLine((settings.IsPlayerOne ? settings.SecondPlayerName : settings.FirstPlayerName) +" has won!");
             }
             else
             {
@@ -81,7 +81,6 @@ namespace GamePlay
             Console.WriteLine("Press any key to go back to main menu");
             Console.ReadKey();
             Console.Clear();
-            return "";
         }
 
         private static void MakeAMove(GameSettings settings,int userXint,Game game)

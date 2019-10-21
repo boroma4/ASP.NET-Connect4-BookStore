@@ -109,7 +109,7 @@ namespace MenuSystem
                     {
                         returnCommand = menuItem.CommandToExecute(); 
                     }
-                    if ((Title == "Select a save to load" && (menuItem.Title != "Empty N/A")&&(menuItem.Title != "Exit"))||
+                    if ((Title == "Select a save to load" && (menuItem.Title != StartGame.EmptySaveName)&&(menuItem.Title != "Exit"))||
                         (Title == "Select Board Size" && menuItem.Title.Contains("board")) ) 
                     {
                         returnCommand = MenuCommandReturnToMain;
