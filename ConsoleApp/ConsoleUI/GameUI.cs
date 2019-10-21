@@ -6,9 +6,10 @@ namespace ConsoleUI
 {
     public static class GameUI
     {
-        private static readonly string _verticalSeparator = " | ";
-        private static readonly string _horizontalSeparator = "-";
-        private static readonly string _centerSeparator = "+";
+        private const string VerticalSeparator = " | ";
+        private const string HorizontalSeparator = "-";
+        private const string CenterSeparator = "+";
+
         public static void PrintBoard(Game game)
         {
             Console.Clear();
@@ -16,41 +17,38 @@ namespace ConsoleUI
             for (var yIndex = 0; yIndex < game.Heigth; yIndex++)
             {
                 var line = "";
+                
                 for (var xIndex = 0; xIndex < game.Width; xIndex++)
                 {
-                    line += GetSingleState(board[yIndex, xIndex]);
-                    if (xIndex < game.Width - 1)
+                    if (xIndex < game.Width )
                     {
-                        line += _verticalSeparator;
+                        line += VerticalSeparator;
                     }
-                    
+                    line += GetSingleState(board[yIndex, xIndex]);
                 }
+                line += VerticalSeparator;
                 Console.WriteLine(line);
 
                 if (yIndex < (game.Heigth))
                 {
                     line = "";
-                    for (var xIndex = 0; xIndex < game.Width; xIndex++)
+                    for (var xIndex = 0; xIndex <= game.Width; xIndex++)
                     {
-                        line += _horizontalSeparator;
+                        if(xIndex>0){ line += HorizontalSeparator;}
                         line += " ";
-                        if (xIndex < game.Width - 1)
-                        {
-                            line += _centerSeparator;
-                            line += " ";
-                        }
+                        line += CenterSeparator;
+                        line += " ";
                     }
                     Console.WriteLine(line);
                 }
                 if (yIndex == (game.Heigth-1))
                 {
-                    line = "";
+                    line = "   ";
                     for (var xIndex = 0; xIndex < game.Width; xIndex++)
                     {
                         line += xIndex + 1;
                         line += "   ";
                     }
-
                     line += "\n";
                     Console.WriteLine(line);
                 }

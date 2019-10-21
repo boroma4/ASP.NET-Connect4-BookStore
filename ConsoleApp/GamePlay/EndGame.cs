@@ -123,7 +123,6 @@ namespace GamePlay
             if (xCoordinate < settings.BoardWidth) 
             {
                 y = settings.YCoordinate[xCoordinate - 1] + 1; // y one square below
-                //TODO Haven't changed anything below
                 // Diagonally check 3 squares to the right of the input one 
                 while (count < LegalMoves && y >= 0 && xCoordinate < settings.BoardWidth && y < settings.BoardHeight)
                 {
