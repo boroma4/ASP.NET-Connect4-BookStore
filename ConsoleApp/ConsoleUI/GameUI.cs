@@ -47,7 +47,7 @@ namespace ConsoleUI
                     for (var xIndex = 0; xIndex < game.Width; xIndex++)
                     {
                         line += xIndex + 1;
-                        line += "   ";
+                        var s = xIndex >= 9 ? line += "  " : line += "   ";
                     }
                     line += "\n";
                     Console.WriteLine(line);

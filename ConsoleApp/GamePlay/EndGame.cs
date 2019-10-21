@@ -4,7 +4,7 @@ namespace GamePlay
 {
     public static class EndGame
     {
-        const int LegalMoves = 3;
+       private const int LegalMoves = 3;
 
         public static bool GameOver(int x, GameSettings settings)
         {

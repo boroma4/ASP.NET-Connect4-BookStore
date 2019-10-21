@@ -13,7 +13,7 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             Console.WriteLine("Loading game...");
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             AvailableSaves.PreLoadSaves();
             Console.Clear();
             MenuInitializer.Run();
