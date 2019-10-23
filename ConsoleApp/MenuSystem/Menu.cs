@@ -45,42 +45,8 @@ namespace MenuSystem
 
         public string Run()
         {
+            UpdateLoadingMenu();
             
-            if (Title == "Select a save to load")
-            {
-                MenuItemsDictionary.Clear();
-                MenuItemsDictionary = new Dictionary<string, MenuItem>()
-                {
-                    {
-                        "1", new MenuItem()
-                        {
-                            Title = AvailableSaves.Saves[0],
-                            CommandToExecute = () => StartGame.StartFromSave(0)
-                        }
-                    },
-                    {
-                        "2", new MenuItem()
-                        {
-                            Title = AvailableSaves.Saves[1],
-                            CommandToExecute = () => StartGame.StartFromSave(1)
-                        }
-                    },
-                    {
-                        "3", new MenuItem()
-                        {
-                            Title = AvailableSaves.Saves[2],
-                            CommandToExecute = () => StartGame.StartFromSave(2)
-                        }
-                    },
-                    {
-                        "4", new MenuItem()
-                        {
-                            Title = AvailableSaves.Saves[3],
-                            CommandToExecute = () => StartGame.StartFromSave(3)
-                        }
-                    },
-                };
-            }
             var command = "";
             do
             {
@@ -134,6 +100,17 @@ namespace MenuSystem
                      command != MenuCommandReturnToPrevious);
             
             return command;
+        }
+
+        private void UpdateLoadingMenu()
+        {
+            if (Title == "Select a save to load")
+            {
+                MenuItemsDictionary["1"].Title = AvailableSaves.Saves[0];
+                MenuItemsDictionary["2"].Title = AvailableSaves.Saves[1];
+                MenuItemsDictionary["3"].Title = AvailableSaves.Saves[2];
+                MenuItemsDictionary["4"].Title = AvailableSaves.Saves[3];
+            }
         }
     }
 }
