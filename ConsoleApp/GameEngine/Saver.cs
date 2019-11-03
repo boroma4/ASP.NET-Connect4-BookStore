@@ -17,6 +17,7 @@ namespace GameEngine
 
                     AvailableSaves.Saves[0] = settings.SaveName + " " +settings.SaveTime;
                     GameConfigHandler.SaveConfig(settings);
+              
                 }
             }
             else

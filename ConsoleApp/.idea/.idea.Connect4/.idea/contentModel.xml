@@ -30,6 +30,23 @@
           </e>
         </e>
       </e>
+      <e p="DAL" t="IncludeRecursive">
+        <e p="AppDbContext.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DAL.csproj" t="IncludeRecursive" />
+        <e p="Migrations" t="Include">
+          <e p="20191103211930_InitialDbCreation.cs" t="Include" />
+          <e p="20191103211930_InitialDbCreation.Designer.cs" t="Include" />
+          <e p="AppDbContextModelSnapshot.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="DAL.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
       <e p="GameEngine" t="IncludeRecursive">
         <e p="AvailableSaves.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
