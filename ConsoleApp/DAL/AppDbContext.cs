@@ -1,5 +1,4 @@
-﻿using System;
-using GameEngine;
+﻿using Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace DAL

@@ -1,4 +1,5 @@
-﻿using GameEngine;
+﻿using Domain;
+using GameEngine;
 
 namespace GamePlay
 {

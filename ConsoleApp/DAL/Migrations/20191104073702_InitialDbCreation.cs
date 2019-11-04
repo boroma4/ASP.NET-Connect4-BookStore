@@ -10,18 +10,17 @@ namespace DAL.Migrations
                 name: "Settings",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    SaveName = table.Column<string>(nullable: false),
-                    SaveTime = table.Column<string>(nullable: false),
-                    FirstPlayerName = table.Column<string>(nullable: false),
-                    SecondPlayerName = table.Column<string>(nullable: false),
+                    Id = table.Column<int>(nullable: false),
+                    SaveName = table.Column<string>(nullable: true),
+                    SaveTime = table.Column<string>(nullable: true),
+                    FirstPlayerName = table.Column<string>(nullable: true),
+                    SecondPlayerName = table.Column<string>(nullable: true),
                     BoardHeight = table.Column<int>(nullable: false),
                     BoardWidth = table.Column<int>(nullable: false),
                     IsPlayerOne = table.Column<bool>(nullable: false),
                     NumTurns = table.Column<int>(nullable: false),
-                    Ycoord = table.Column<string>(nullable: true),
-                    GameBoard = table.Column<string>(nullable: true)
+                    YCoordinateString = table.Column<string>(nullable: true),
+                    BoardString = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

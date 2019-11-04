@@ -1,4 +1,5 @@
 ﻿using System;
+using Domain;
 
 namespace GameEngine
 {
@@ -14,10 +15,8 @@ namespace GameEngine
                 settings.SaveTime = DateTime.Now.ToString("MM/dd/yyyy H:mm:ss");
                 if (settings.NumTurns != (settings.BoardHeight * settings.BoardWidth ))
                 {
-
                     AvailableSaves.Saves[0] = settings.SaveName + " " +settings.SaveTime;
                     GameConfigHandler.SaveConfig(settings);
-              
                 }
             }
             else
@@ -28,7 +27,7 @@ namespace GameEngine
                 settings.SaveName = name;
                 settings.SaveTime = DateTime.Now.ToString("MM/dd/yyyy H:mm:ss");
                 AvailableSaves.Saves[slot] = settings.SaveName + " " +settings.SaveTime;
-                GameConfigHandler.SaveConfig(settings, slot+".json");
+                GameConfigHandler.SaveConfig(settings, slot);
             }
         }
         private static int SlotSelector()

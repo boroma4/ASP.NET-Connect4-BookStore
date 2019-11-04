@@ -1,11 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace GameEngine
+namespace Domain
 {
     public class GameSettings
     {
-        [Key] 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+
         public int Id { get; set; } = 0;
         public string SaveName { get; set; } = "Empty";
         public string SaveTime { get; set; } = "N/A";
@@ -23,9 +25,9 @@ namespace GameEngine
         public CellState [,] Board { get; set; } = new CellState[4,5];
         public int NumTurns { get; set; } = 0;
 
-        public string? Ycoord { get; set; }
+        public string? YCoordinateString { get; set; }
         
-        public string? GameBoard { get; set; }
+        public string? BoardString { get; set; }
 
 
         public override string ToString()

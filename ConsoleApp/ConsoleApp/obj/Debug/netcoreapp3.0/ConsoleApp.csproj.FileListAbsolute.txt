@@ -56,3 +56,5 @@ D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\runtimes\win-a
 D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\runtimes\win-arm64\native\e_sqlite3.dll
 D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\runtimes\win-x64\native\e_sqlite3.dll
 D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\runtimes\win-x86\native\e_sqlite3.dll
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\Domain.dll
+D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\Domain.pdb

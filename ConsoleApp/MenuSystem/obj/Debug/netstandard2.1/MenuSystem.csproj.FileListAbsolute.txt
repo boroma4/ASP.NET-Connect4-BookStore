@@ -13,3 +13,7 @@ D:\C#\ics0016-2019f\ConsoleApp\MenuSystem\bin\Debug\netstandard2.1\GameEngine.pd
 D:\C#\ics0016-2019f\ConsoleApp\MenuSystem\bin\Debug\netstandard2.1\GamePlay.pdb
 D:\C#\ics0016-2019f\ConsoleApp\MenuSystem\bin\Debug\netstandard2.1\ConsoleUI.pdb
 D:\C#\ics0016-2019f\ConsoleApp\MenuSystem\obj\Debug\netstandard2.1\MenuSystem.csproj.CopyComplete
+D:\C#\ics0016-2019f\ConsoleApp\MenuSystem\bin\Debug\netstandard2.1\Domain.dll
+D:\C#\ics0016-2019f\ConsoleApp\MenuSystem\bin\Debug\netstandard2.1\Domain.pdb
+D:\C#\ics0016-2019f\ConsoleApp\MenuSystem\bin\Debug\netstandard2.1\DAL.dll
+D:\C#\ics0016-2019f\ConsoleApp\MenuSystem\bin\Debug\netstandard2.1\DAL.pdb

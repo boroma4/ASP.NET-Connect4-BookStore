@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Domain;
 
 namespace GameEngine
 {
@@ -14,7 +15,7 @@ namespace GameEngine
             var save = new List<GameSettings>(4);
             for ( var i = 0; i < MAXSAVES; i++)
             {
-                 save.Add(GameConfigHandler.LoadConfig($"{i}.json"));
+                 save.Add(GameConfigHandler.LoadConfig(i));
                  Saves[i] = save[i].ToString();
             }
         }

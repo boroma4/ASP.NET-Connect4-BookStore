@@ -35,8 +35,8 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="DAL.csproj" t="IncludeRecursive" />
         <e p="Migrations" t="Include">
-          <e p="20191103211930_InitialDbCreation.cs" t="Include" />
-          <e p="20191103211930_InitialDbCreation.Designer.cs" t="Include" />
+          <e p="20191104073702_InitialDbCreation.cs" t="Include" />
+          <e p="20191104073702_InitialDbCreation.Designer.cs" t="Include" />
           <e p="AppDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -47,14 +47,25 @@
           </e>
         </e>
       </e>
+      <e p="Domain" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CellState.cs" t="Include" />
+        <e p="Domain.csproj" t="IncludeRecursive" />
+        <e p="GameSettings.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="Domain.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
       <e p="GameEngine" t="IncludeRecursive">
         <e p="AvailableSaves.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
-        <e p="CellState.cs" t="Include" />
         <e p="Game.cs" t="Include" />
         <e p="GameConfigHandler.cs" t="Include" />
         <e p="GameEngine.csproj" t="IncludeRecursive" />
-        <e p="GameSettings.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netstandard2.1" t="Include">

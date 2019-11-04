@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20191103211930_InitialDbCreation")]
+    [Migration("20191104073702_InitialDbCreation")]
     partial class InitialDbCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -17,23 +17,21 @@ namespace DAL.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.0.0");
 
-            modelBuilder.Entity("GameEngine.GameSettings", b =>
+            modelBuilder.Entity("Domain.GameSettings", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("BoardHeight")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("BoardString")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("BoardWidth")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("FirstPlayerName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("GameBoard")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("IsPlayerOne")
@@ -43,18 +41,15 @@ namespace DAL.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("SaveName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SaveTime")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SecondPlayerName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Ycoord")
+                    b.Property<string>("YCoordinateString")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

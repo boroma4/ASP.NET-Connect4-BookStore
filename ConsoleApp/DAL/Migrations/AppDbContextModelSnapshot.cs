@@ -15,23 +15,21 @@ namespace DAL.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.0.0");
 
-            modelBuilder.Entity("GameEngine.GameSettings", b =>
+            modelBuilder.Entity("Domain.GameSettings", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("BoardHeight")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("BoardString")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("BoardWidth")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("FirstPlayerName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("GameBoard")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("IsPlayerOne")
@@ -41,18 +39,15 @@ namespace DAL.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("SaveName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SaveTime")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SecondPlayerName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Ycoord")
+                    b.Property<string>("YCoordinateString")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

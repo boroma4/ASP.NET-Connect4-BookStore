@@ -1,4 +1,5 @@
 ﻿using System;
+using Domain;
 using GameEngine;
 
 namespace GamePlay
@@ -43,7 +44,7 @@ namespace GamePlay
         {
             if (AvailableSaves.Saves[slot] != EmptySaveName)
             {
-                PlayGame.PlayTheGame(GameConfigHandler.LoadConfig($"{slot}.json"), true);
+                PlayGame.PlayTheGame(GameConfigHandler.LoadConfig(slot), true);
             }
 
             return "";

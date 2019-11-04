@@ -1,5 +1,6 @@
 ﻿using System;
 using ConsoleUI;
+using Domain;
 using GameEngine;
 
 namespace GamePlay

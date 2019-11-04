@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamePlay", "GamePlay\GamePl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{B0225F93-A246-4829-B5C2-A3EAD86B84F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{E33FF248-CA67-4D79-B508-3C85BB972B1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,5 +49,9 @@ Global
 		{B0225F93-A246-4829-B5C2-A3EAD86B84F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0225F93-A246-4829-B5C2-A3EAD86B84F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0225F93-A246-4829-B5C2-A3EAD86B84F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E33FF248-CA67-4D79-B508-3C85BB972B1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E33FF248-CA67-4D79-B508-3C85BB972B1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E33FF248-CA67-4D79-B508-3C85BB972B1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E33FF248-CA67-4D79-B508-3C85BB972B1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
