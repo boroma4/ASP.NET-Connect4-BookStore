@@ -7,8 +7,6 @@ namespace GameEngine
 {
     public static class GameConfigHandler
     {
-        
-       
         public static int SaveConfig(GameSettings settings, int id = 0)
         {
                 settings.Id = id;
