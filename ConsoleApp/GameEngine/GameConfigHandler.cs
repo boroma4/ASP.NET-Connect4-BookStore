@@ -7,7 +7,7 @@ namespace GameEngine
 {
     public static class GameConfigHandler
     {
-        public static int SaveConfig(GameSettings settings, int id = 0)
+        public static void SaveConfig(GameSettings settings, int id = 0)
         {
                 settings.Id = id;
                 settings.YCoordinateString = JsonConvert.SerializeObject(settings.YCoordinate);
@@ -23,11 +23,9 @@ namespace GameEngine
                     {
                         db.Settings.Add(settings);
                     }
-                    var count = db.SaveChanges();
-                    
+                    db.SaveChanges();
                 }
-                return 0;
-            }
+        }
 
         public static GameSettings LoadConfig(int id = 0)
         {
@@ -39,13 +37,10 @@ namespace GameEngine
                    res = db.Settings.Find(id);
                    res.Board = JsonConvert.DeserializeObject<CellState[,]>(res.BoardString);
                    res.YCoordinate = JsonConvert.DeserializeObject<int[]>(res.YCoordinateString);
-                   return res;
                 }
             }
 
             return res;
         }
-
-
     }
 }
