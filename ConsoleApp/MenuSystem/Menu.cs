@@ -75,8 +75,9 @@ namespace MenuSystem
                     {
                         returnCommand = menuItem.CommandToExecute(); 
                     }
-                    if ((Title == "Select a save to load" && (menuItem.Title != StartGame.EmptySaveName)&&(menuItem.Title != "Exit"))||
-                        (Title == "Select Board Size" && menuItem.Title.Contains("board")) ) 
+                    if ((Title == MenuInitializer.SaveSelectionMenuTitle && (menuItem.Title != StartGame.EmptySaveName) 
+                                                                         && (menuItem.Title != _menuItemsDictionary[MenuCommandExit].Title))||
+                        (Title == MenuInitializer.StartMenuTitle && menuItem.Title.Contains(MenuInitializer.Board)) ) 
                     {
                         returnCommand = MenuCommandReturnToMain;
                     }
@@ -104,7 +105,7 @@ namespace MenuSystem
 
         private void UpdateLoadingMenu()
         {
-            if (Title == "Select a save to load")
+            if (Title == MenuInitializer.SaveSelectionMenuTitle)
             {
                 MenuItemsDictionary["1"].Title = AvailableSaves.Saves[0];
                 MenuItemsDictionary["2"].Title = AvailableSaves.Saves[1];

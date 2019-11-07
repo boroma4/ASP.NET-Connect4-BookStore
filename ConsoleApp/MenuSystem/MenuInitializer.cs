@@ -6,38 +6,43 @@ namespace MenuSystem
 {
     public static class MenuInitializer
     {
+        const string LoadMenuTitle = "Load game";
+        internal const string SaveSelectionMenuTitle = "Select a save to load";
+        internal const string StartMenuTitle = "Select Board Size";
+        internal const string Board = "board";
+
         public static void Run()
         {
             var startMenu = new Menu(2)
             {
-                Title = "Select Board Size",
+                Title = StartMenuTitle,
                 MenuItemsDictionary = new Dictionary<string, MenuItem>()
                 {
                     {
                         "1", new MenuItem()
                         {
-                            Title = "Small board",
+                            Title = "Small "+Board,
                             CommandToExecute = StartGame.SmallBoard
                         }
                     },
                     {
                         "2", new MenuItem()
                         {
-                            Title = "Medium board",
+                            Title = "Medium "+Board,
                             CommandToExecute = StartGame.MediumBoard
                         }
                     },
                     {
                         "3", new MenuItem()
                         {
-                            Title = "Large board",
+                            Title = "Large "+Board,
                             CommandToExecute = StartGame.LargeBoard
                         }
                     },
                     {
                         "4", new MenuItem()
                         {
-                            Title = "Custom size board",
+                            Title = "Custom size "+Board,
                             CommandToExecute = StartGame.CustomSizeBoard
                         }
                     },
@@ -74,7 +79,7 @@ namespace MenuSystem
             };
             var saveMenu = new Menu(1)
             {
-                Title = "Select a save to load",
+                Title = SaveSelectionMenuTitle,
                 MenuItemsDictionary = new Dictionary<string, MenuItem>()
                 {
                     {
@@ -123,7 +128,7 @@ namespace MenuSystem
                     {
                         "L", new MenuItem()
                         {
-                            Title = "Load game",
+                            Title = LoadMenuTitle,
                             CommandToExecute =saveMenu.Run
                         }
                     }

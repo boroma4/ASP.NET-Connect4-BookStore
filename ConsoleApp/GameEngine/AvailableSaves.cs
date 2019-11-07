@@ -14,8 +14,8 @@ namespace GameEngine
         public static void PreLoadSaves()
         {
             using (var db = new AppDbContext())
-            {
-                var created = db.Database.EnsureCreated();
+            { 
+                db.Database.EnsureCreated();
             }
             var save = new List<GameSettings>(4);
             for ( var i = 0; i < MAXSAVES; i++)
