@@ -9,7 +9,7 @@ namespace DAL
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@"Data Source= D:\C#\ics0016-2019f\ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.0\mydb.db");
+            optionsBuilder.UseSqlite(@"Data Source=mydb.db");
 
         }
 
