@@ -1,11 +1,110 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.0</TargetFramework>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.0.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.0.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
+      <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <ProjectReference Include="..\DAL\DAL.csproj" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\Authors\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Authors\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Authors\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Authors\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Authors\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\BookAuthors\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\BookAuthors\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\BookAuthors\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\BookAuthors\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\BookAuthors\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Books\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Books\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Books\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Books\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Books\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Comments\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Comments\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Comments\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Comments\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Comments\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Languages\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Languages\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Languages\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Languages\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Languages\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Publishers\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Publishers\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Publishers\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Publishers\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Publishers\Index.cshtml" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Pages\Authors\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Authors\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Authors\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Authors\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Authors\Index.cshtml" />
+      <UpToDateCheckInput Remove="Pages\BookAuthors\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\BookAuthors\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\BookAuthors\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\BookAuthors\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\BookAuthors\Index.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Comments\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Comments\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Comments\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Comments\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Comments\Index.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Languages\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Languages\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Languages\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Languages\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Languages\Index.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Authors\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Authors\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Authors\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Authors\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Authors\Index.cshtml" />
+      <UpToDateCheckInput Remove="Pages\BookAuthors\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\BookAuthors\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\BookAuthors\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\BookAuthors\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\BookAuthors\Index.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Books\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Books\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Books\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Books\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Books\Index.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Comments\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Comments\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Comments\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Comments\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Comments\Index.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Languages\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Languages\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Languages\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Languages\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Languages\Index.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Publishers\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Publishers\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Publishers\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Publishers\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Publishers\Index.cshtml" />
     </ItemGroup>
 
 </Project>
