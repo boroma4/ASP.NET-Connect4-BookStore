@@ -9,7 +9,7 @@ namespace Domain
         [MaxLength(1024)]
         public string CommentText { get; set; } = default!;
 
-        public int BookId { get; set; }
+        public int BookId { get; set; } = default!;
         public Book? Book { get; set; }
     }
 }

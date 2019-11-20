@@ -10,7 +10,7 @@ namespace Domain
         [MaxLength(128)] public string FirstName { get; set; } = default!;
         [MaxLength(128)] public string LastName { get; set; } = default!;
 
-        public int YearOfBirth { get; set; }
+        public int YearOfBirth { get; set; } = default!;
 
         public ICollection<BookAuthor>? AuthorBooks { get; set; }
 

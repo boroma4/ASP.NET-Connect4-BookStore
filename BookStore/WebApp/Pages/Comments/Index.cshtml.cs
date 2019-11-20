@@ -21,10 +21,18 @@ namespace WebApp.Pages_Comments
 
         public IList<Comment> Comment { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(int? bookId)
         {
-            Comment = await _context.Comments
+            if(bookId == null){
+                Comment = await _context.Comments
                 .Include(c => c.Book).ToListAsync();
+            }
+            else
+            {
+                Comment = await _context.Comments
+                    .Where(c => c.BookId == bookId)
+                    .Include(c => c.Book).ToListAsync();
+            }
         }
     }
 }

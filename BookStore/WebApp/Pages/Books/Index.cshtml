@@ -10,6 +10,15 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+<form method="get" class="form-inline">
+    <div class="form-group">
+        <input name="search" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Search" class="btn btn-primary"/>
+    </div>
+</form>
+<div style="height: 15px"></div>
 <table class="table">
     <thead>
         <tr>
@@ -36,7 +45,11 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Book[0].BookAuthors)
-                </th>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book[0].Comments)
+            </th>
+           
             <th></th>
         </tr>
     </thead>
@@ -69,6 +82,14 @@
                 {
                     <p> @Html.DisplayFor(modelItem => ba.Author.FirstLastName)</p>
                 }
+            </td>
+            <td>
+                <p>Comments: @item.Comments.Count</p>
+                @foreach (var comment in item.Comments.OrderByDescending(c => c.CommentId).Take(1))
+                {
+                    <p>Last comment: @Html.DisplayFor(modelItem => comment.CommentText)</p>
+                }
+                <a asp-page="/Comments/Index" asp-route-bookId="@item.BookId">Read all</a>
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.BookId">Edit</a> |
