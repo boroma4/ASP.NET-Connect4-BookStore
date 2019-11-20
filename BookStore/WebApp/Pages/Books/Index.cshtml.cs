@@ -20,10 +20,23 @@ namespace WebApp.Pages_Books
         }
 
         public IList<Book> Book { get;set; }
+        public string? Search { get; set; }
 
-        public async Task OnGetAsync(string? search)
+        public async Task OnGetAsync(string? search, string? action)
         {
+            if (action == "Reset")
+            {
+                Search = "";
+            }
+            else
+            {
+                if (!string.IsNullOrWhiteSpace(search))
+                {
+                    Search = search.ToLower().Trim();
+                }
+            }
 
+            search = Search;
             if (string.IsNullOrEmpty(search))
             {
                 Book = await _context.Books
@@ -54,7 +67,7 @@ namespace WebApp.Pages_Books
                     .OrderBy(b=>b.Title)
                     .ToListAsync();
             }
-            
+
         }
     }
 }
