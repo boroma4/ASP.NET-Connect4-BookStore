@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using DAL;
 using Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApp.Pages_Languages
 {
@@ -24,6 +25,8 @@ namespace WebApp.Pages_Languages
             return Page();
         }
 
+        public bool SameFound { get; set; }
+
         [BindProperty]
         public Language Language { get; set; }
 
@@ -36,10 +39,17 @@ namespace WebApp.Pages_Languages
                 return Page();
             }
 
-            _context.Languages.Add(Language);
-            await _context.SaveChangesAsync();
+            SameFound = _context.Languages
+                .Any(l => (l.LanguageName.ToLower()) == (Language.LanguageName.ToLower()));
 
-            return RedirectToPage("./Index");
+            if (!SameFound)
+            {
+                _context.Languages.Add(Language);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
+            }
+            
+            return Page();
         }
     }
 }

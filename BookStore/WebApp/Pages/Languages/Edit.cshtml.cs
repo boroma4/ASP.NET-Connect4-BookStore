@@ -19,6 +19,8 @@ namespace WebApp.Pages_Languages
         {
             _context = context;
         }
+        
+        public bool SameFound { get; set; }
 
         [BindProperty]
         public Language Language { get; set; }
@@ -43,7 +45,13 @@ namespace WebApp.Pages_Languages
         // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            
+            SameFound = _context.Languages
+                .Any(l => l.LanguageId != Language.LanguageId 
+                    && (l.LanguageName.ToLower()) == (Language.LanguageName.ToLower()));
+            
+            
+            if (!ModelState.IsValid || SameFound)
             {
                 return Page();
             }
