@@ -18,6 +18,9 @@ namespace WebApp.Pages_Publishers
         {
             _context = context;
         }
+        
+        public bool SameFound { get; set; }
+
 
         public IActionResult OnGet()
         {
@@ -31,10 +34,14 @@ namespace WebApp.Pages_Publishers
         // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            SameFound = _context.Publishers
+                .Any(p => (p.PublisherName.ToLower()) == (Publisher.PublisherName.ToLower()));
+            
+            if (!ModelState.IsValid || SameFound)
             {
                 return Page();
             }
+            
 
             _context.Publishers.Add(Publisher);
             await _context.SaveChangesAsync();

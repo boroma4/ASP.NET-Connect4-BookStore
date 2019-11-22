@@ -28,6 +28,15 @@
                 <input asp-for="Author.YearOfBirth" class="form-control" />
                 <span asp-validation-for="Author.YearOfBirth" class="text-danger"></span>
             </div>
+            @if (Model.SameFound)
+            {
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Author with this name already exists</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+            }
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

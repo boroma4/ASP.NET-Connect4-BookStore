@@ -23,6 +23,8 @@ namespace WebApp.Pages_Authors
         [BindProperty]
         public Author Author { get; set; }
 
+        public bool SameFound { get; set; }
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -43,7 +45,12 @@ namespace WebApp.Pages_Authors
         // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            SameFound = _context.Authors
+                .Any(a => a.AuthorId != Author.AuthorId 
+                          && ((a.FirstName.ToLower()) == (Author.FirstName.ToLower())
+                              && a.LastName.ToLower() == (Author.LastName.ToLower())));
+            
+            if (!ModelState.IsValid || SameFound)
             {
                 return Page();
             }

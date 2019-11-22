@@ -19,6 +19,9 @@ namespace WebApp.Pages_Publishers
         {
             _context = context;
         }
+        
+        public bool SameFound { get; set; }
+
 
         [BindProperty]
         public Publisher Publisher { get; set; }
@@ -43,7 +46,11 @@ namespace WebApp.Pages_Publishers
         // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            SameFound = _context.Publishers
+                .Any(p => p.PublisherId != Publisher.PublisherId 
+                          && (p.PublisherName.ToLower()) == (Publisher.PublisherName.ToLower()));
+            
+            if (!ModelState.IsValid || SameFound)
             {
                 return Page();
             }

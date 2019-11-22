@@ -24,6 +24,8 @@ namespace WebApp.Pages_Authors
             return Page();
         }
 
+        public bool SameFound { get; set; }
+
         [BindProperty]
         public Author Author { get; set; }
 
@@ -31,7 +33,11 @@ namespace WebApp.Pages_Authors
         // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            SameFound = _context.Authors
+                .Any(a => (a.FirstName.ToLower()) == (Author.FirstName.ToLower())
+                          && (a.LastName.ToLower()) == (Author.LastName.ToLower()));
+            
+            if (!ModelState.IsValid || SameFound)
             {
                 return Page();
             }
