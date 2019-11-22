@@ -21,6 +21,8 @@ namespace WebApp.Pages_Comments
 
         public IList<Comment> Comment { get;set; }
 
+        public int? BookId { get; set; }
+
         public async Task OnGetAsync(int? bookId)
         {
             if(bookId == null){
@@ -29,6 +31,7 @@ namespace WebApp.Pages_Comments
             }
             else
             {
+                BookId = bookId;
                 Comment = await _context.Comments
                     .Where(c => c.BookId == bookId)
                     .Include(c => c.Book).ToListAsync();

@@ -19,9 +19,17 @@ namespace WebApp.Pages_Comments
             _context = context;
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(int? bookId)
         {
-        ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Title");
+            if (bookId != null)
+            {
+                ViewData["BookId"] = new SelectList(_context.Books.Where(b => b.BookId == bookId), "BookId", "Title");
+            }
+            else
+            {
+                ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Title");
+            }
+
             return Page();
         }
 
