@@ -14,7 +14,9 @@ namespace WebApp.Pages_Books
     public class CreateModel : PageModel
     {
         private readonly DAL.AppDbContext _context;
-
+        
+        
+        [BindProperty]
         public int AuthorId { get; set; }
 
         public CreateModel(DAL.AppDbContext context)
@@ -42,24 +44,17 @@ namespace WebApp.Pages_Books
             {
                 return Page();
             }
-
-//            var findAuthor = _context.Authors
-//                .Include(b => b.YearOfBirth)
-//                .Include(b => b.FirstName)
-//                .Include(b => b.LastName)
-//                .Include(b => b.AuthorBooks)
-//                .Where(i => i.AuthorId == AuthorId).ToList();
-//            
-//            
-//            Book.BookAuthors.Add(new BookAuthor()
-//            {
-//                Author = findAuthor[0],
-//                AuthorId = findAuthor[0].AuthorId,
-//                BookId = Book.BookId,
-//                Book = this.Book
-//            });
-//            
+            
             _context.Books.Add(Book);
+            
+            _context.SaveChanges();
+            
+            _context.BookAuthors.Add(new BookAuthor()
+            {
+                BookId = _context.Books.Find(this.Book.BookId).BookId,
+                AuthorId = AuthorId
+                
+            });
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

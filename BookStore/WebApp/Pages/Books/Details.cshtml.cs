@@ -29,6 +29,8 @@ namespace WebApp.Pages_Books
             }
 
             Book = await _context.Books
+                .Include(b=> b.BookAuthors)
+                .ThenInclude(a => a.Author)
                 .Include(b => b.Language)
                 .Include(b => b.Publisher).FirstOrDefaultAsync(m => m.BookId == id);
 

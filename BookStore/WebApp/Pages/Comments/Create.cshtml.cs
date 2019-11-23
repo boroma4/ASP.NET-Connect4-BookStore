@@ -19,15 +19,20 @@ namespace WebApp.Pages_Comments
             _context = context;
         }
 
-        public IActionResult OnGet(int? bookId)
+        public string? BookToComment { get; set; }
+        public int? BookId { get; set; }
+
+        public IActionResult OnGet(int bookId)
         {
-            if (bookId != null)
+            BookId = bookId;
+            try
             {
-                ViewData["BookId"] = new SelectList(_context.Books.Where(b => b.BookId == bookId), "BookId", "Title");
+                BookToComment = _context.Books.Where(b => b.BookId == bookId).ToList()[0].Title;
+
             }
-            else
+            catch (Exception e)
             {
-                ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Title");
+                return NotFound();
             }
 
             return Page();
