@@ -24,17 +24,22 @@ namespace WebApp.Pages_Books
             _context = context;
         }
 
+        public int NumAuthors { get; set; }
+
+        public SelectList AuthorsSelectList { get; set; }
+
         public IActionResult OnGet()
         {
         ViewData["LanguageId"] = new SelectList(_context.Languages, "LanguageId", "LanguageName");
         ViewData["PublisherId"] = new SelectList(_context.Publishers, "PublisherId", "PublisherName");
-        ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "FirstLastName");
-        
+        AuthorsSelectList = new SelectList(_context.Authors, "AuthorId", "FirstLastName");
         return Page();
         }
 
         [BindProperty]
         public Book Book { get; set; }
+
+        public IList<BookAuthor> BookAuthors { get; set; }
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
@@ -59,5 +64,7 @@ namespace WebApp.Pages_Books
 
             return RedirectToPage("./Index");
         }
+
+
     }
 }
