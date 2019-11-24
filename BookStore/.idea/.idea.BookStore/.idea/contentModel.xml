@@ -74,18 +74,6 @@
             <e p="Index.cshtml" t="Include" />
             <e p="Index.cshtml.cs" t="Include" />
           </e>
-          <e p="BookAuthors" t="Include">
-            <e p="Create.cshtml" t="Include" />
-            <e p="Create.cshtml.cs" t="Include" />
-            <e p="Delete.cshtml" t="Include" />
-            <e p="Delete.cshtml.cs" t="Include" />
-            <e p="Details.cshtml" t="Include" />
-            <e p="Details.cshtml.cs" t="Include" />
-            <e p="Edit.cshtml" t="Include" />
-            <e p="Edit.cshtml.cs" t="Include" />
-            <e p="Index.cshtml" t="Include" />
-            <e p="Index.cshtml.cs" t="Include" />
-          </e>
           <e p="Books" t="Include">
             <e p="Create.cshtml" t="Include" />
             <e p="Create.cshtml.cs" t="Include" />

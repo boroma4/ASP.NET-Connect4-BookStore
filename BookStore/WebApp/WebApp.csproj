@@ -105,6 +105,11 @@
       <UpToDateCheckInput Remove="Pages\Publishers\Details.cshtml" />
       <UpToDateCheckInput Remove="Pages\Publishers\Edit.cshtml" />
       <UpToDateCheckInput Remove="Pages\Publishers\Index.cshtml" />
+      <UpToDateCheckInput Remove="Pages\BookAuthors\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\BookAuthors\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\BookAuthors\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\BookAuthors\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\BookAuthors\Index.cshtml" />
     </ItemGroup>
 
 </Project>

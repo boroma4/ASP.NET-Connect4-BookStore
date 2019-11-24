@@ -32,7 +32,12 @@ namespace WebApp.Pages_Books
         public Book Book { get; set; } = new Book();
         
 
+        public SelectList LanguagesSelectList { get; set; }
+        
+        public SelectList PublishersSelectList { get; set; }
+
         public SelectList AuthorsSelectList { get; set; }
+
 
 
 
@@ -40,9 +45,9 @@ namespace WebApp.Pages_Books
 
         public IActionResult OnGet()
         {
-            ViewData["LanguageId"] = new SelectList(_context.Languages, "LanguageId", "LanguageName");
-            ViewData["PublisherId"] = new SelectList(_context.Publishers, "PublisherId", "PublisherName");
-            AuthorsSelectList = new SelectList(_context.Authors, "AuthorId", "FirstLastName");
+            LanguagesSelectList = new SelectList(_context.Languages, nameof(Language.LanguageId), nameof(Language.LanguageName));
+            PublishersSelectList = new SelectList(_context.Publishers, nameof(Publisher.PublisherId), nameof(Publisher.PublisherName));
+            AuthorsSelectList = new SelectList(_context.Authors, nameof(Author.AuthorId), nameof(Author.FirstLastName));
             
             var savedData = _context.UnfinishedForms.Find(UserId);
             if (savedData != null)
@@ -69,7 +74,7 @@ namespace WebApp.Pages_Books
                 {
                     ViewData["LanguageId"] = new SelectList(_context.Languages, "LanguageId", "LanguageName");
                     ViewData["PublisherId"] = new SelectList(_context.Publishers, "PublisherId", "PublisherName");
-                    AuthorsSelectList = new SelectList(_context.Authors, "AuthorId", "FirstLastName");
+                    AuthorsSelectList = new SelectList(_context.Authors, nameof(Author.AuthorId), nameof(Author.FirstLastName));
                     return Page();
                 }
 

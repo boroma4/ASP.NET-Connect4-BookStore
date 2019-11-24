@@ -28,6 +28,11 @@ namespace WebApp.Pages_Books
 
         public SelectList AuthorsSelectList { get; set; }
         
+        public SelectList LanguagesSelectList { get; set; }
+        
+        public SelectList PublishersSelectList { get; set; }
+
+        
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -45,8 +50,8 @@ namespace WebApp.Pages_Books
             {
                 return NotFound();
             }
-            ViewData["LanguageId"] = new SelectList(_context.Languages, "LanguageId", "LanguageName");
-            ViewData["PublisherId"] = new SelectList(_context.Publishers, "PublisherId", "PublisherName");
+            LanguagesSelectList = new SelectList(_context.Languages, nameof(Language.LanguageId), nameof(Language.LanguageName));
+            PublishersSelectList = new SelectList(_context.Publishers, nameof(Publisher.PublisherId), nameof(Publisher.PublisherName));
             AuthorsSelectList = new SelectList(_context.Authors, nameof(Author.AuthorId), nameof(Author.FirstLastName));
             return Page();
         }
