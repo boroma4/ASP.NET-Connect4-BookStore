@@ -59,19 +59,22 @@ namespace WebApp.Pages_Books
             {
                 return Page();
             }
-            
-            _context.BookAuthors.RemoveRange(_context.BookAuthors.Where(b=>b.BookId== Book.BookId));
-            _context.SaveChanges();
-            
-            foreach (var bookAuthorId in BookAuthorIds)
+
+            if (BookAuthorIds.Count != 0)
             {
-                _context.BookAuthors.Add(new BookAuthor()
+                _context.BookAuthors.RemoveRange(_context.BookAuthors.Where(b => b.BookId == Book.BookId));
+                _context.SaveChanges();
+
+                foreach (var bookAuthorId in BookAuthorIds)
                 {
-                    BookId = Book.BookId,
-                    AuthorId = bookAuthorId
-                });
+                    _context.BookAuthors.Add(new BookAuthor()
+                    {
+                        BookId = Book.BookId,
+                        AuthorId = bookAuthorId
+                    });
+                }
             }
-            
+
             // a real hack i am sorry :(
             try
             {
