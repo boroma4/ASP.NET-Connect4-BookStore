@@ -19,9 +19,10 @@ namespace WebApp.Pages_Languages
         {
             _context = context;
         }
-
-        public IActionResult OnGet()
+        public string? Action { get; set; }
+        public IActionResult OnGet(string? action)
         {
+            Action = action;
             return Page();
         }
 
@@ -32,7 +33,7 @@ namespace WebApp.Pages_Languages
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string?action)
         {
             if (!ModelState.IsValid)
             {
@@ -48,6 +49,11 @@ namespace WebApp.Pages_Languages
             {
                 _context.Languages.Add(Language);
                 await _context.SaveChangesAsync();
+                
+                if (action == "CreateAndGoBack")
+                {
+                    return RedirectToPage("/Books/Create");
+                }
                 return RedirectToPage("./Index");
             }
             

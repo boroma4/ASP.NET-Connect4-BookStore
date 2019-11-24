@@ -120,12 +120,17 @@ namespace WebApp.Pages_Books
 
             await _context.SaveChangesAsync();
 
-            if (type == "Author")
+            switch (type)
             {
-                return RedirectToPage("/Authors/Create", new {action = "CreateAndGoBack"});
+                case "Author":
+                    return RedirectToPage("/Authors/Create", new {action = "CreateAndGoBack"});
+                case "Language":
+                    return RedirectToPage("/Languages/Create", new {action = "CreateAndGoBack"});
+                case "Publisher":
+                    return RedirectToPage("/Publishers/Create", new {action = "CreateAndGoBack"});
+                default:
+                    return Page();
             }
-
-            return Page();
         }
         
     }
