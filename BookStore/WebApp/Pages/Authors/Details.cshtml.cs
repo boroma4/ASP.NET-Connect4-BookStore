@@ -20,7 +20,7 @@ namespace WebApp.Pages_Authors
         }
 
         public Author Author { get; set; }
-
+        
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -28,7 +28,10 @@ namespace WebApp.Pages_Authors
                 return NotFound();
             }
 
-            Author = await _context.Authors.FirstOrDefaultAsync(m => m.AuthorId == id);
+            Author = await _context.Authors
+                .Include(b=> b.AuthorBooks)
+                .ThenInclude(a=> a.Book)
+                .FirstOrDefaultAsync(m => m.AuthorId == id);
 
             if (Author == null)
             {
