@@ -29,11 +29,13 @@ namespace WebApp.Pages.Books
         
         public string? Type { get; set; }
 
-        public int Total { get; set; } 
+        public int Total { get; set; }
+        
         
 
         public async Task OnGetAsync(string? search, string? toDoActionReset, string? type)
         {
+            
             if (toDoActionReset == "Reset")
             {
                 Search = "";
