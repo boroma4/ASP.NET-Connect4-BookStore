@@ -41,6 +41,8 @@ namespace WebApp.Pages_Languages
 
             SameFound = _context.Languages
                 .Any(l => (l.LanguageName.ToLower()) == (Language.LanguageName.ToLower()));
+            
+            
 
             if (!SameFound)
             {

@@ -28,6 +28,10 @@ namespace WebApp.Pages_Authors
         }
 
         public bool SameFound { get; set; }
+        
+        public bool InvalidYear { get; set; }
+        
+        public string ErrorMessage { get; set; }
 
         [BindProperty]
         public Author Author { get; set; }
@@ -39,8 +43,19 @@ namespace WebApp.Pages_Authors
             SameFound = _context.Authors
                 .Any(a => (a.FirstName.ToLower()) == (Author.FirstName.ToLower())
                           && (a.LastName.ToLower()) == (Author.LastName.ToLower()));
+            InvalidYear = Author.YearOfBirth > DateTime.Now.Year;
+
+            if (InvalidYear)
+            {
+                ErrorMessage += "We haven't reached that year yet.";
+            }
+
+            if (SameFound)
+            {
+                ErrorMessage += "\nAuthor with the same name is already on the list, maybe try editing.";
+            }
             
-            if (!ModelState.IsValid || SameFound)
+            if (!ModelState.IsValid || SameFound || InvalidYear)
             {
                 return Page();
             }
