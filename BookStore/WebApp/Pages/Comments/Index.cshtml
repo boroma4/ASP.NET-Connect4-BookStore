@@ -25,6 +25,11 @@
 <p>
     <a asp-page="Create" asp-route-bookId="@Model.BookId">Create New</a>
 </p>
+
+<p>
+    <a asp-page="/Books/Details" asp-route-id="@Model.BookId">Back to the book</a>
+    </p>
+
 <table class="table">
     <thead>
         <tr>

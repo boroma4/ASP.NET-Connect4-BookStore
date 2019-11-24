@@ -24,6 +24,7 @@ namespace WebApp.Pages_Comments
         public int? BookId { get; set; }
 
         public Book BookWComments { get; set; }
+        
 
         public async Task OnGetAsync(int? bookId)
         {
