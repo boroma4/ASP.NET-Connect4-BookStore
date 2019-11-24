@@ -8,10 +8,7 @@
 <h1>Create</h1>
 
 <h4>Author</h4>
-@if (Model.Action != null)
-{
-    <p>Pidor</p>
-}
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -32,10 +29,10 @@
                 <input asp-for="Author.YearOfBirth" class="form-control" />
                 <span asp-validation-for="Author.YearOfBirth" class="text-danger"></span>
             </div>
-            @if (Model.SameFound)
+            @if (Model.SameFound || Model.InvalidYear)
             {
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>Author with this name already exists</strong>
+                    <strong>@Model.ErrorMessage</strong>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
@@ -50,6 +47,10 @@
 
 <div>
     <a asp-page="Index">Back to List</a>
+    @if (Model.Action == "CreateAndGoBack")
+    {
+        <a asp-page="/Books/Create">Back to creating a book</a>
+    }
 </div>
 
 @section Scripts {

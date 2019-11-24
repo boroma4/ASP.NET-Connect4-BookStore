@@ -91,7 +91,7 @@ namespace DAL.Migrations
                     b.Property<int>("BookId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("UnsavedFormId")
+                    b.Property<int?>("UnfinishedFormId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("BookAuthorId");
@@ -100,7 +100,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.HasIndex("UnsavedFormId");
+                    b.HasIndex("UnfinishedFormId");
 
                     b.ToTable("BookAuthors");
                 });
@@ -157,19 +157,19 @@ namespace DAL.Migrations
                     b.ToTable("Publishers");
                 });
 
-            modelBuilder.Entity("Domain.UnsavedForm", b =>
+            modelBuilder.Entity("Domain.UnfinishedForm", b =>
                 {
-                    b.Property<int>("UnsavedFormId")
+                    b.Property<int>("UnfinishedFormId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("AuthoredYear")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("Lang")
+                    b.Property<int?>("Language")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("Publ")
+                    b.Property<int?>("Publisher")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("PublishingYear")
@@ -186,9 +186,9 @@ namespace DAL.Migrations
                     b.Property<int?>("WordCount")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("UnsavedFormId");
+                    b.HasKey("UnfinishedFormId");
 
-                    b.ToTable("UnsavedForms");
+                    b.ToTable("UnfinishedForms");
                 });
 
             modelBuilder.Entity("Domain.Book", b =>
@@ -220,9 +220,9 @@ namespace DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.UnsavedForm", null)
+                    b.HasOne("Domain.UnfinishedForm", null)
                         .WithMany("BookAuthors")
-                        .HasForeignKey("UnsavedFormId");
+                        .HasForeignKey("UnfinishedFormId");
                 });
 
             modelBuilder.Entity("Domain.Comment", b =>

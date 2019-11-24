@@ -48,6 +48,25 @@ namespace DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "UnfinishedForms",
+                columns: table => new
+                {
+                    UnfinishedFormId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Title = table.Column<string>(maxLength: 128, nullable: true),
+                    Summary = table.Column<string>(maxLength: 1024, nullable: true),
+                    PublishingYear = table.Column<int>(nullable: true),
+                    AuthoredYear = table.Column<int>(nullable: true),
+                    WordCount = table.Column<int>(nullable: true),
+                    Language = table.Column<int>(nullable: true),
+                    Publisher = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UnfinishedForms", x => x.UnfinishedFormId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Books",
                 columns: table => new
                 {
@@ -85,7 +104,8 @@ namespace DAL.Migrations
                     BookAuthorId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     BookId = table.Column<int>(nullable: false),
-                    AuthorId = table.Column<int>(nullable: false)
+                    AuthorId = table.Column<int>(nullable: false),
+                    UnfinishedFormId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -102,6 +122,12 @@ namespace DAL.Migrations
                         principalTable: "Books",
                         principalColumn: "BookId",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_BookAuthors_UnfinishedForms_UnfinishedFormId",
+                        column: x => x.UnfinishedFormId,
+                        principalTable: "UnfinishedForms",
+                        principalColumn: "UnfinishedFormId",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -135,6 +161,11 @@ namespace DAL.Migrations
                 column: "BookId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_BookAuthors_UnfinishedFormId",
+                table: "BookAuthors",
+                column: "UnfinishedFormId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Books_LanguageId",
                 table: "Books",
                 column: "LanguageId");
@@ -160,6 +191,9 @@ namespace DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "Authors");
+
+            migrationBuilder.DropTable(
+                name: "UnfinishedForms");
 
             migrationBuilder.DropTable(
                 name: "Books");

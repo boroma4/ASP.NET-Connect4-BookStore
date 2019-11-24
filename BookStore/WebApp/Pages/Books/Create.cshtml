@@ -49,9 +49,13 @@
             
             <div class="form-group">
                 <label asp-for="Book.BookAuthors" class="control-label"></label>
-                <select asp-for="AuthorId" class="form-control" asp-items="@Model.AuthorsSelectList" multiple="multiple">
+                <select asp-for="BookAuthorIds" class="form-control" asp-items="@Model.AuthorsSelectList" multiple="multiple">
                 </select>
                 
+                    <button class="btn btn-info"  type="submit" asp-page-handler="Redirect" asp>
+                        Create a new author
+                        </button>
+
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -59,21 +63,11 @@
         </form>
         
     </div>
-    <div class="col-md-4">
-        <a asp-page="/Authors/Create" asp-route-action="CreateAndGoBack" >
-            <button class="btn btn-info">
-                Create a new author
-                </button>
-            </a>
-    </div>
 </div>
 
 <div>
     <a asp-page="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
-}
 

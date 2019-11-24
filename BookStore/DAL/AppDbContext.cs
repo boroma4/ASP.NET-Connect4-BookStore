@@ -12,6 +12,8 @@ namespace DAL
         public DbSet<Comment> Comments { get; set; } = default!;
         public DbSet<Language> Languages { get; set; } = default!;
         public DbSet<Publisher> Publishers { get; set; } = default!;
+        
+        public DbSet<UnfinishedForm> UnfinishedForms { get; set; } = default!;
         public AppDbContext(DbContextOptions options ) : base(options)
         {
             
