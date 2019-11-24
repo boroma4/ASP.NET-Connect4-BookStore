@@ -78,7 +78,7 @@
                             else
                             {
                                 <p class="card-text">
-                                    Summary: @item.Book.Summary.Substring(0, 27)
+                                    <strong>Summary </strong>: @item.Book.Summary.Substring(0, 27)
                                     <a asp-page = "./Details" asp-route-id = "@item.Book.BookId">...</a>
                                 </p>
                             }

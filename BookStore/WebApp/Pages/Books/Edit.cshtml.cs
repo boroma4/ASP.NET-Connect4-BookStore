@@ -23,6 +23,11 @@ namespace WebApp.Pages_Books
         [BindProperty]
         public Book Book { get; set; }
 
+        [BindProperty]
+        public ICollection<int>? BookAuthorIds { get; set; }
+
+        public SelectList AuthorsSelectList { get; set; }
+        
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -32,14 +37,17 @@ namespace WebApp.Pages_Books
 
             Book = await _context.Books
                 .Include(b => b.Language)
+                .Include(b=>b.BookAuthors)
+                .ThenInclude(a=> a.Author)
                 .Include(b => b.Publisher).FirstOrDefaultAsync(m => m.BookId == id);
 
             if (Book == null)
             {
                 return NotFound();
             }
-           ViewData["LanguageId"] = new SelectList(_context.Languages, "LanguageId", "LanguageName");
-           ViewData["PublisherId"] = new SelectList(_context.Publishers, "PublisherId", "PublisherName");
+            ViewData["LanguageId"] = new SelectList(_context.Languages, "LanguageId", "LanguageName");
+            ViewData["PublisherId"] = new SelectList(_context.Publishers, "PublisherId", "PublisherName");
+            AuthorsSelectList = new SelectList(_context.Authors, nameof(Author.AuthorId), nameof(Author.FirstLastName));
             return Page();
         }
 
@@ -51,8 +59,28 @@ namespace WebApp.Pages_Books
             {
                 return Page();
             }
-
-            _context.Attach(Book).State = EntityState.Modified;
+            
+            _context.BookAuthors.RemoveRange(_context.BookAuthors.Where(b=>b.BookId== Book.BookId));
+            _context.SaveChanges();
+            
+            foreach (var bookAuthorId in BookAuthorIds)
+            {
+                _context.BookAuthors.Add(new BookAuthor()
+                {
+                    BookId = Book.BookId,
+                    AuthorId = bookAuthorId
+                });
+            }
+            
+            // a real hack i am sorry :(
+            try
+            {
+                _context.Books.Update(Book);
+            }
+            catch (InvalidOperationException )
+            {
+                return NotFound();
+            }
 
             try
             {
