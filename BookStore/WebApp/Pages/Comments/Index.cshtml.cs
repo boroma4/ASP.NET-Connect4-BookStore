@@ -23,6 +23,8 @@ namespace WebApp.Pages_Comments
 
         public int? BookId { get; set; }
 
+        public Book BookWComments { get; set; }
+
         public async Task OnGetAsync(int? bookId)
         {
             if(bookId == null){
@@ -35,6 +37,7 @@ namespace WebApp.Pages_Comments
                 Comment = await _context.Comments
                     .Where(c => c.BookId == bookId)
                     .Include(c => c.Book).ToListAsync();
+                BookWComments = _context.Books.Find(BookId);
             }
         }
     }

@@ -53,6 +53,7 @@ namespace WebApp.Pages_Books
                 Book.PublishingYear = savedData.PublishingYear ?? 0;
                 Book.LanguageId = savedData.Language ?? 0;
                 Book.PublisherId = savedData.Publisher ?? 0;
+                Book.WordCount = savedData.WordCount ?? 0;
             }
 
             return Page();
@@ -85,7 +86,6 @@ namespace WebApp.Pages_Books
                         AuthorId = bookAuthorId
                     });
                 }
-
                 
                 if (_context.UnfinishedForms.Find(UserId) != null)
                 {
@@ -96,7 +96,7 @@ namespace WebApp.Pages_Books
                 return RedirectToPage("./Index");
             }
 
-        public async Task<IActionResult> OnPostRedirectAsync()
+        public async Task<IActionResult> OnPostRedirectAsync(string? type)
         {
             Console.WriteLine("ModelState is "+ ModelState.IsValid );
 
@@ -113,13 +113,20 @@ namespace WebApp.Pages_Books
                 Summary = Book.Summary,
                 AuthoredYear = Book.AuthoredYear,
                 Language = Book.LanguageId,
-                Publisher = Book.PublisherId
+                Publisher = Book.PublisherId,
+                PublishingYear = Book.PublishingYear,
+                WordCount = Book.WordCount
             });
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("/Authors/Create",new {action = "CreateAndGoBack"});
-       }
+            if (type == "Author")
+            {
+                return RedirectToPage("/Authors/Create", new {action = "CreateAndGoBack"});
+            }
+
+            return Page();
+        }
         
     }
 }

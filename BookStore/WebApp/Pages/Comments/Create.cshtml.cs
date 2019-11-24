@@ -19,7 +19,7 @@ namespace WebApp.Pages_Comments
             _context = context;
         }
 
-        public string? BookToComment { get; set; }
+        public Book? BookToComment { get; set; }
         public int? BookId { get; set; }
 
         public IActionResult OnGet(int bookId)
@@ -27,8 +27,7 @@ namespace WebApp.Pages_Comments
             BookId = bookId;
             try
             {
-                BookToComment = _context.Books.Where(b => b.BookId == bookId).ToList()[0].Title;
-
+                BookToComment = _context.Books.Find(BookId);
             }
             catch (Exception e)
             {
@@ -39,16 +38,18 @@ namespace WebApp.Pages_Comments
         }
 
         [BindProperty]
-        public Comment Comment { get; set; }
+        public Comment Comment { get; set; } = new Comment();
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int bookId)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+
+            Comment.BookId = bookId;
 
             _context.Comments.Add(Comment);
             await _context.SaveChangesAsync();

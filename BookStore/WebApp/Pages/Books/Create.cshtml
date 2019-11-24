@@ -41,6 +41,12 @@
             <div class="form-group">
                 <label asp-for="Book.LanguageId" class="control-label"></label>
                 <select asp-for="Book.LanguageId" class ="form-control" asp-items="ViewBag.LanguageId"></select>
+                <small class="text-muted">
+                    If you can't find your language,
+                    <button type="submit" asp-route-type="Language" asp-page-handler="Redirect" class="btn btn-outline-info btn-sm">
+                        create a new one
+                    </button>
+                </small>
             </div>
             <div class="form-group">
                 <label asp-for="Book.PublisherId" class="control-label"></label>
@@ -50,11 +56,15 @@
             <div class="form-group">
                 <label asp-for="Book.BookAuthors" class="control-label"></label>
                 <select asp-for="BookAuthorIds" class="form-control" asp-items="@Model.AuthorsSelectList" multiple="multiple">
+                    <option disabled="disabled"> No author</option>
                 </select>
-                
-                    <button class="btn btn-info"  type="submit" asp-page-handler="Redirect" asp>
-                        Create a new author
-                        </button>
+                <small class="text-muted">
+                    If you can't find your author,
+                    <button type="submit" asp-route-type="Author" asp-page-handler="Redirect" class="btn btn-outline-info btn-sm">
+                        create a new one
+                    </button>
+                </small>
+
 
             </div>
             <div class="form-group">
