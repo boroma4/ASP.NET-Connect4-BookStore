@@ -54,7 +54,7 @@ namespace WebApp.Pages_Comments
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index",new {bookId = Comment.BookId});
         }
     }
 }

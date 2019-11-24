@@ -23,27 +23,33 @@ namespace WebApp.Pages_Comments
         [BindProperty]
         public Comment Comment { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public int? bookId { get; set; }
+
+        public async Task<IActionResult> OnGetAsync(int? id, int? bookid)
         {
+            
             if (id == null)
             {
                 return NotFound();
             }
+            bookId = bookid;
+
 
             Comment = await _context.Comments
-                .Include(c => c.Book).FirstOrDefaultAsync(m => m.CommentId == id);
+                .Include(c => c.Book).
+                FirstOrDefaultAsync(m => m.CommentId == id);
 
             if (Comment == null)
             {
                 return NotFound();
             }
-           ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Title");
+            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "Title");
             return Page();
         }
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (!ModelState.IsValid)
             {
@@ -68,7 +74,7 @@ namespace WebApp.Pages_Comments
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index",new {bookId = id});
         }
 
         private bool CommentExists(int id)
