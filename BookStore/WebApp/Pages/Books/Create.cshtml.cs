@@ -49,11 +49,11 @@ namespace WebApp.Pages_Books
             {
                 Book.Title = savedData.Title;
                 Book.Summary = savedData.Summary;
-                Book.AuthoredYear = savedData.AuthoredYear ?? 0;
-                Book.PublishingYear = savedData.PublishingYear ?? 0;
+                Book.AuthoredYear = savedData.AuthoredYear;
+                Book.PublishingYear = savedData.PublishingYear;
                 Book.LanguageId = savedData.Language ?? 0;
                 Book.PublisherId = savedData.Publisher ?? 0;
-                Book.WordCount = savedData.WordCount ?? 0;
+                Book.WordCount = savedData.WordCount;
             }
 
             return Page();

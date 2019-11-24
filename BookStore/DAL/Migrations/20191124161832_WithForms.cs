@@ -2,7 +2,7 @@
 
 namespace DAL.Migrations
 {
-    public partial class InitialDbCreation : Migration
+    public partial class WithForms : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,7 +27,7 @@ namespace DAL.Migrations
                 {
                     LanguageId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    LanguageName = table.Column<string>(nullable: false)
+                    LanguageName = table.Column<string>(maxLength: 128, nullable: false)
                 },
                 constraints: table =>
                 {

@@ -46,7 +46,8 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("AuthoredYear")
+                    b.Property<int?>("AuthoredYear")
+                        .IsRequired()
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("LanguageId")
@@ -55,7 +56,8 @@ namespace DAL.Migrations
                     b.Property<int>("PublisherId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("PublishingYear")
+                    b.Property<int?>("PublishingYear")
+                        .IsRequired()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Summary")
@@ -67,7 +69,8 @@ namespace DAL.Migrations
                         .HasColumnType("TEXT")
                         .HasMaxLength(128);
 
-                    b.Property<int>("WordCount")
+                    b.Property<int?>("WordCount")
+                        .IsRequired()
                         .HasColumnType("INTEGER");
 
                     b.HasKey("BookId");
@@ -134,7 +137,8 @@ namespace DAL.Migrations
 
                     b.Property<string>("LanguageName")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(128);
 
                     b.HasKey("LanguageId");
 

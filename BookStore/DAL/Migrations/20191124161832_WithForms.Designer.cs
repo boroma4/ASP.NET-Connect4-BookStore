@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20191123142536_InitialDbCreation")]
-    partial class InitialDbCreation
+    [Migration("20191124161832_WithForms")]
+    partial class WithForms
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,7 +48,8 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("AuthoredYear")
+                    b.Property<int?>("AuthoredYear")
+                        .IsRequired()
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("LanguageId")
@@ -57,7 +58,8 @@ namespace DAL.Migrations
                     b.Property<int>("PublisherId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("PublishingYear")
+                    b.Property<int?>("PublishingYear")
+                        .IsRequired()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Summary")
@@ -69,7 +71,8 @@ namespace DAL.Migrations
                         .HasColumnType("TEXT")
                         .HasMaxLength(128);
 
-                    b.Property<int>("WordCount")
+                    b.Property<int?>("WordCount")
+                        .IsRequired()
                         .HasColumnType("INTEGER");
 
                     b.HasKey("BookId");
@@ -136,7 +139,8 @@ namespace DAL.Migrations
 
                     b.Property<string>("LanguageName")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(128);
 
                     b.HasKey("LanguageId");
 
