@@ -22,28 +22,28 @@ namespace MenuSystem
                         "1", new MenuItem()
                         {
                             Title = "Small "+Board,
-                            CommandToExecute =()=> StartGame.SmallBoard(true,true)
+                            CommandToExecute =()=> StartGame.SmallBoard(BotConfig.BotGoesSecond)
                         }
                     },
                     {
                         "2", new MenuItem()
                         {
                             Title = "Medium "+Board,
-                            CommandToExecute =()=> StartGame.MediumBoard(true,true)
+                            CommandToExecute =()=> StartGame.MediumBoard(BotConfig.BotGoesSecond)
                         }
                     },
                     {
                         "3", new MenuItem()
                         {
                             Title = "Large "+Board,
-                            CommandToExecute =()=> StartGame.LargeBoard(true,true)
+                            CommandToExecute =()=> StartGame.LargeBoard(BotConfig.BotGoesSecond)
                         }
                     },
                     {
                         "4", new MenuItem()
                         {
                             Title = "Custom size "+Board,
-                            CommandToExecute =()=> StartGame.CustomSizeBoard(true,true)
+                            CommandToExecute =()=> StartGame.CustomSizeBoard(BotConfig.BotGoesSecond)
                         }
                     },
                 }
@@ -57,28 +57,28 @@ namespace MenuSystem
                         "1", new MenuItem()
                         {
                             Title = "Small "+Board,
-                            CommandToExecute =()=> StartGame.SmallBoard(true)
+                            CommandToExecute =()=> StartGame.SmallBoard(BotConfig.BotStarts)
                         }
                     },
                     {
                         "2", new MenuItem()
                         {
                             Title = "Medium "+Board,
-                            CommandToExecute =()=> StartGame.MediumBoard(true)
+                            CommandToExecute =()=> StartGame.MediumBoard(BotConfig.BotStarts)
                         }
                     },
                     {
                         "3", new MenuItem()
                         {
                             Title = "Large "+Board,
-                            CommandToExecute =()=> StartGame.LargeBoard(true)
+                            CommandToExecute =()=> StartGame.LargeBoard(BotConfig.BotStarts)
                         }
                     },
                     {
                         "4", new MenuItem()
                         {
                             Title = "Custom size "+Board,
-                            CommandToExecute =()=> StartGame.CustomSizeBoard(true)
+                            CommandToExecute =()=> StartGame.CustomSizeBoard(BotConfig.BotStarts)
                         }
                     },
                 }
@@ -92,28 +92,28 @@ namespace MenuSystem
                         "1", new MenuItem()
                         {
                             Title = "Small "+Board,
-                            CommandToExecute =()=> StartGame.SmallBoard()
+                            CommandToExecute =()=> StartGame.SmallBoard(BotConfig.NoBot)
                         }
                     },
                     {
                         "2", new MenuItem()
                         {
                             Title = "Medium "+Board,
-                            CommandToExecute =()=> StartGame.MediumBoard()
+                            CommandToExecute =()=> StartGame.MediumBoard(BotConfig.NoBot)
                         }
                     },
                     {
                         "3", new MenuItem()
                         {
                             Title = "Large "+Board,
-                            CommandToExecute =()=> StartGame.LargeBoard()
+                            CommandToExecute =()=> StartGame.LargeBoard(BotConfig.NoBot)
                         }
                     },
                     {
                         "4", new MenuItem()
                         {
                             Title = "Custom size "+Board,
-                            CommandToExecute =()=> StartGame.CustomSizeBoard()
+                            CommandToExecute =()=> StartGame.CustomSizeBoard(BotConfig.NoBot)
                         }
                     },
                 }
@@ -127,14 +127,14 @@ namespace MenuSystem
                     {
                         "1", new MenuItem()
                         {
-                            Title = "Computer starts",
+                            Title = "Human starts against Computer",
                             CommandToExecute = startPvCMenuB.Run
                         }
                     },
                     {
                         "2", new MenuItem()
                         {
-                            Title = "Human starts",
+                            Title = "Computer starts against Human",
                             CommandToExecute = startPvCMenuA.Run
                         }
                     },

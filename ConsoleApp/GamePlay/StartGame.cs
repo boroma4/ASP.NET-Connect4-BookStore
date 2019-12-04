@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using Domain;
 using GameEngine;
 
@@ -8,34 +9,34 @@ namespace GamePlay
     {
         public static readonly string EmptySaveName = "Empty N/A";
 
-        public static string SmallBoard(bool vsBot = false, bool botFirst = false)
+        public static string SmallBoard(BotConfig bcfg)
         {
-            var settings = SettingsSetup(4, 5,vsBot,botFirst);
+            var settings = SettingsSetup(4, 5,bcfg);
             PlayGame.PlayTheGame(settings);
             return "";
         }
 
-        public static string MediumBoard(bool vsBot = false, bool botFirst = false)
+        public static string MediumBoard(BotConfig bcfg)
         {
-            var settings = SettingsSetup(7, 8,vsBot,botFirst);
+            var settings = SettingsSetup(7, 8,bcfg);
             PlayGame.PlayTheGame(settings);
             return "";
         }
 
-        public static string LargeBoard(bool vsBot = false, bool botFirst = false)
+        public static string LargeBoard(BotConfig bcfg)
         {
-            var settings = SettingsSetup(7, 10,vsBot,botFirst);
+            var settings = SettingsSetup(7, 10,bcfg);
             PlayGame.PlayTheGame(settings);
             return "";
         }
-        public static string CustomSizeBoard(bool vsBot = false, bool botFirst = false)
+        public static string CustomSizeBoard(BotConfig bcfg)
         {
             Console.Clear();
             var userH =  BoardSideInput();
             Console.Clear();
             var userW = BoardSideInput(false);
             Console.Clear();
-            var settings = SettingsSetup(userH, userW,vsBot,botFirst); 
+            var settings = SettingsSetup(userH, userW,bcfg); 
 
             PlayGame.PlayTheGame(settings);
             return "";
@@ -96,7 +97,7 @@ namespace GamePlay
             return name;
         }
 
-        private static GameSettings SettingsSetup(int height, int width,bool vsBot = false, bool botFirst = false)
+        private static GameSettings SettingsSetup(int height, int width,BotConfig bcfg)
         {
             var settings = new GameSettings
             {
@@ -105,10 +106,23 @@ namespace GamePlay
                 FirstPlayerName = UserName(),
                 Board = new CellState[height, width],
                 YCoordinate = new int[width],
-                VersusBot = vsBot
             };
-            if (!vsBot) settings.SecondPlayerName = UserName(false);
-            if (botFirst) settings.IsPlayerOne = false;
+            switch (bcfg)
+            {
+                case BotConfig.NoBot:
+                    settings.SecondPlayerName = UserName(false);
+                    break;
+                case BotConfig.BotStarts:
+                    settings.VersusBot = true;
+                    settings.IsPlayerOne = false;
+                    break;
+                case BotConfig.BotGoesSecond:
+                    settings.VersusBot = true;
+                    break;
+                default:
+                    throw new InvalidEnumArgumentException("Unknown bot config!");
+            }
+          
             
             
             return settings;

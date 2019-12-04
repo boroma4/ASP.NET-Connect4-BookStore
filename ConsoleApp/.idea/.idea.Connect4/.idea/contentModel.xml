@@ -63,6 +63,7 @@
       <e p="GameEngine" t="IncludeRecursive">
         <e p="AvailableSaves.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="BotConfig.cs" t="Include" />
         <e p="Game.cs" t="Include" />
         <e p="GameAI.cs" t="Include" />
         <e p="GameConfigHandler.cs" t="Include" />
