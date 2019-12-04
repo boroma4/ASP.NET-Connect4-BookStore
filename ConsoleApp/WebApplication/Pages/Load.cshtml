@@ -1,0 +1,20 @@
+﻿@page
+@model WebApplication.Pages.Load
+
+@{ var i = 1; }
+
+<div class="text-center">
+    <h1 class="display-4">Select a save to load friend</h1>
+    
+    @foreach (var game in @Model.Games)
+    {
+        <div>@i 
+            <span>) @Html.DisplayFor(modelItem => game.SaveName)</span> 
+            <span>@Html.DisplayFor(modelItem => game.SaveTime)</span> 
+        </div>
+
+        i++;
+    }
+    <a asp-page="./Index">Back</a>
+    
+</div>

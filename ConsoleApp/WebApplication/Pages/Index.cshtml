@@ -1,0 +1,16 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Connect4</h1>
+    <p>Let's play!</p>
+    <button type="submit" class="btn btn-outline-info btn-bg">
+         <a asp-page="./Start"> @Model.Start</a>
+    </button>
+        <button type="submit" class="btn btn-outline-info btn-bg">
+             <a asp-page="./Load"> @Model.Load</a>
+        </button>
+</div>
