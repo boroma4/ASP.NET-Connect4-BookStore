@@ -13,7 +13,42 @@ namespace MenuSystem
 
         public static void Run()
         {
-            var startPvCMenu = new Menu(2)
+            var startPvCMenuB = new Menu(2)
+            {
+                Title = StartMenuTitle,
+                MenuItemsDictionary = new Dictionary<string, MenuItem>()
+                {
+                    {
+                        "1", new MenuItem()
+                        {
+                            Title = "Small "+Board,
+                            CommandToExecute =()=> StartGame.SmallBoard(true,true)
+                        }
+                    },
+                    {
+                        "2", new MenuItem()
+                        {
+                            Title = "Medium "+Board,
+                            CommandToExecute =()=> StartGame.MediumBoard(true,true)
+                        }
+                    },
+                    {
+                        "3", new MenuItem()
+                        {
+                            Title = "Large "+Board,
+                            CommandToExecute =()=> StartGame.LargeBoard(true,true)
+                        }
+                    },
+                    {
+                        "4", new MenuItem()
+                        {
+                            Title = "Custom size "+Board,
+                            CommandToExecute =()=> StartGame.CustomSizeBoard(true,true)
+                        }
+                    },
+                }
+            };
+            var startPvCMenuA = new Menu(2)
             {
                 Title = StartMenuTitle,
                 MenuItemsDictionary = new Dictionary<string, MenuItem>()
@@ -92,15 +127,15 @@ namespace MenuSystem
                     {
                         "1", new MenuItem()
                         {
-                            Title = "Computer starts(Not available yet)",
-                            CommandToExecute = null
+                            Title = "Computer starts",
+                            CommandToExecute = startPvCMenuB.Run
                         }
                     },
                     {
                         "2", new MenuItem()
                         {
                             Title = "Human starts",
-                            CommandToExecute = startPvCMenu.Run
+                            CommandToExecute = startPvCMenuA.Run
                         }
                     },
                     {

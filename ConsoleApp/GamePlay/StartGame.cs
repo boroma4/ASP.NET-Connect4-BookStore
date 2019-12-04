@@ -8,34 +8,34 @@ namespace GamePlay
     {
         public static readonly string EmptySaveName = "Empty N/A";
 
-        public static string SmallBoard(bool vsBot = false)
+        public static string SmallBoard(bool vsBot = false, bool botFirst = false)
         {
-            var settings = SettingsSetup(4, 5,vsBot);
+            var settings = SettingsSetup(4, 5,vsBot,botFirst);
             PlayGame.PlayTheGame(settings);
             return "";
         }
 
-        public static string MediumBoard(bool vsBot = false)
+        public static string MediumBoard(bool vsBot = false, bool botFirst = false)
         {
-            var settings = SettingsSetup(7, 8,vsBot);
+            var settings = SettingsSetup(7, 8,vsBot,botFirst);
             PlayGame.PlayTheGame(settings);
             return "";
         }
 
-        public static string LargeBoard(bool vsBot = false)
+        public static string LargeBoard(bool vsBot = false, bool botFirst = false)
         {
-            var settings = SettingsSetup(7, 10,vsBot);
+            var settings = SettingsSetup(7, 10,vsBot,botFirst);
             PlayGame.PlayTheGame(settings);
             return "";
         }
-        public static string CustomSizeBoard(bool vsBot = false)
+        public static string CustomSizeBoard(bool vsBot = false, bool botFirst = false)
         {
             Console.Clear();
             var userH =  BoardSideInput();
             Console.Clear();
             var userW = BoardSideInput(false);
             Console.Clear();
-            var settings = SettingsSetup(userH, userW,vsBot); 
+            var settings = SettingsSetup(userH, userW,vsBot,botFirst); 
 
             PlayGame.PlayTheGame(settings);
             return "";
@@ -96,7 +96,7 @@ namespace GamePlay
             return name;
         }
 
-        private static GameSettings SettingsSetup(int height, int width,bool vsBot = false)
+        private static GameSettings SettingsSetup(int height, int width,bool vsBot = false, bool botFirst = false)
         {
             var settings = new GameSettings
             {
@@ -108,6 +108,7 @@ namespace GamePlay
                 VersusBot = vsBot
             };
             if (!vsBot) settings.SecondPlayerName = UserName(false);
+            if (botFirst) settings.IsPlayerOne = false;
             
             
             return settings;
