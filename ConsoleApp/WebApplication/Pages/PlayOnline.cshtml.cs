@@ -17,7 +17,14 @@ namespace WebApplication.Pages
         }
         public void OnGet(int? id)
         {
-            Settings = _context.Settings.Find(id);
+            if (id != null)
+            {
+                Settings = _context.Settings.Find(id);
+            }
+            else
+            {
+                Settings = _context.Settings.Find(0);
+            }
         }
     }
 }

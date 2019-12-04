@@ -135,6 +135,8 @@
             <e p="_Layout.cshtml" t="Include" />
             <e p="_ValidationScriptsPartial.cshtml" t="Include" />
           </e>
+          <e p="StartNew.cshtml" t="Include" />
+          <e p="StartNew.cshtml.cs" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">

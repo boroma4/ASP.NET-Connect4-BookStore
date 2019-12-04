@@ -7,10 +7,16 @@
 <div class="text-center">
     <h1 class="display-4">Connect4</h1>
     <p>Let's play!</p>
-    <button type="submit" class="btn btn-outline-info btn-lg">
-         <a asp-page="./PlayOnline"> @Model.Start</a>
-    </button>
+    <div>
         <button type="submit" class="btn btn-outline-info btn-lg">
-             <a asp-page="./Load"> @Model.Load</a>
+            <a asp-page="./StartNew" asp-route-bot="0">Start PVP</a>
         </button>
+        <button type="submit" class="btn btn-outline-info btn-lg">
+            <a asp-page="./StartNew" asp-route-bot="1"> Start VS Bot</a>
+        </button>
+        <button type="submit" class="btn btn-outline-info btn-lg">
+            <a asp-page="./Load">Load game</a>
+        </button>
+    </div>
 </div>
+

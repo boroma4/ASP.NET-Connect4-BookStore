@@ -11,10 +11,6 @@ namespace WebApplication.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-
-        public  string Start { get; }= "Start game";
-        public  string Load { get; } = "Load game";
-
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
