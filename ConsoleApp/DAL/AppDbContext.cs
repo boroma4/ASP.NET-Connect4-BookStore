@@ -7,11 +7,15 @@ namespace DAL
     {
         public DbSet<GameSettings> Settings { get; set; } = default!;
         
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//        {
+//            optionsBuilder.UseSqlite(@"Data Source=C:\Users\bohda\Documents\Databases\connect4.db");
+//
+//        }
+        public AppDbContext(DbContextOptions options): base(options)
         {
-            optionsBuilder.UseSqlite(@"Data Source=C:\Users\bohda\Documents\Databases\connect4.db");
-
         }
+        
 
     }
 

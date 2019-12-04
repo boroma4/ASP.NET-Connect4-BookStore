@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using DAL;
 using Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace GameEngine
 {
@@ -13,11 +14,13 @@ namespace GameEngine
 
         public static void PreLoadSaves()
         {
-            using (var db = new AppDbContext())
-            { 
-                db.Database.EnsureCreated();
-            }
-            var save = new List<GameSettings>(4);
+            var dbOption = new DbContextOptionsBuilder<AppDbContext>()
+                .UseSqlite(@"Data Source=C:\Users\bohda\Documents\Databases\connect4.db").Options;
+            var ctx = new AppDbContext(dbOption);
+            
+            ctx.Database.EnsureCreated();
+            
+                var save = new List<GameSettings>(4);
             for ( var i = 0; i < MAXSAVES; i++)
             {
                  save.Add(GameConfigHandler.LoadConfig(i));
