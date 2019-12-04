@@ -15,9 +15,9 @@ namespace WebApplication.Pages
         {
             _context = context;
         }
-        public void OnGet()
+        public void OnGet(int? id)
         {
-            Settings = _context.Settings.Find(0);
+            Settings = _context.Settings.Find(id);
         }
     }
 }

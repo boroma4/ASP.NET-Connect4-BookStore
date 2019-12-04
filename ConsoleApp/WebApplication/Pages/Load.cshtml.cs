@@ -32,9 +32,10 @@ namespace WebApplication.Pages
             }
         }
 
-//        public IActionResult OnPost(int id?)
-//        {
-//            
-//        }
+        public IActionResult OnPost(int? id)
+        {
+            id -= 1;
+            return RedirectToPage("./PlayOnline",new {id});
+        }
     }
 }

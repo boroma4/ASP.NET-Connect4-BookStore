@@ -15,9 +15,20 @@
             </th>
             <td>
                 <form method="post">
-                    <button type="submit" asp-route-id="@i" class="btn btn-outline-primary btn-sm"> 
-                        Load game
-                    </button>
+                    @{
+                        if (game == "Empty N/A")
+                        {
+                            <button type="submit" asp-route-id="@i" class="btn btn-secondary btn-sm" disabled="disabled">
+                                Load game
+                            </button>
+                        }
+                        else
+                        {
+                            <button type="submit" asp-route-id="@i" class="btn btn-outline-primary btn-sm">
+                                Load game
+                            </button>
+                        }
+                    }
                 </form>
             </td>
         </tr>
