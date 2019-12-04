@@ -11,7 +11,9 @@ namespace Domain
         public string SaveName { get; set; } = "Empty";
         public string SaveTime { get; set; } = "N/A";
         public string FirstPlayerName { get; set; } = default!;
-        public string SecondPlayerName { get; set; } = "Bot";
+        public string SecondPlayerName { get; set; } = "Bot Ricardo";
+
+        public bool VersusBot { get; set; } = false;
         public int BoardHeight { get; set; } = default!;
         public int BoardWidth { get; set; } = default!;
         public bool IsPlayerOne { get; set; } = true;

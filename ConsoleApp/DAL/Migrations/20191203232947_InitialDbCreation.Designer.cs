@@ -8,14 +8,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20191104073702_InitialDbCreation")]
+    [Migration("20191203232947_InitialDbCreation")]
     partial class InitialDbCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.0.0");
+                .HasAnnotation("ProductVersion", "3.1.0");
 
             modelBuilder.Entity("Domain.GameSettings", b =>
                 {
@@ -48,6 +48,9 @@ namespace DAL.Migrations
 
                     b.Property<string>("SecondPlayerName")
                         .HasColumnType("TEXT");
+
+                    b.Property<bool>("VersusBot")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("YCoordinateString")
                         .HasColumnType("TEXT");

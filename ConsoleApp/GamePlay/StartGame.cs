@@ -8,39 +8,39 @@ namespace GamePlay
     {
         public static readonly string EmptySaveName = "Empty N/A";
 
-        public static string SmallBoard()
+        public static string SmallBoard(bool vsBot = false)
         {
-            var settings = SettingsSetup(4, 5);
+            var settings = SettingsSetup(4, 5,vsBot);
             PlayGame.PlayTheGame(settings);
             return "";
         }
 
-        public static string MediumBoard()
+        public static string MediumBoard(bool vsBot = false)
         {
-            var settings = SettingsSetup(7, 8);
+            var settings = SettingsSetup(7, 8,vsBot);
             PlayGame.PlayTheGame(settings);
             return "";
         }
 
-        public static string LargeBoard()
+        public static string LargeBoard(bool vsBot = false)
         {
-            var settings = SettingsSetup(7, 10);
+            var settings = SettingsSetup(7, 10,vsBot);
             PlayGame.PlayTheGame(settings);
             return "";
         }
-        public static string CustomSizeBoard()
+        public static string CustomSizeBoard(bool vsBot = false)
         {
             Console.Clear();
             var userH =  BoardSideInput();
             Console.Clear();
             var userW = BoardSideInput(false);
             Console.Clear();
-            var settings = SettingsSetup(userH, userW); 
+            var settings = SettingsSetup(userH, userW,vsBot); 
 
             PlayGame.PlayTheGame(settings);
             return "";
         }
-        public static string StartFromSave (int slot )
+        public static string StartFromSave (int slot)
         {
             if (AvailableSaves.Saves[slot] != EmptySaveName)
             {
@@ -96,17 +96,19 @@ namespace GamePlay
             return name;
         }
 
-        private static GameSettings SettingsSetup(int height, int width)
+        private static GameSettings SettingsSetup(int height, int width,bool vsBot = false)
         {
             var settings = new GameSettings
             {
                 BoardHeight = height,
                 BoardWidth = width,
                 FirstPlayerName = UserName(),
-                SecondPlayerName = UserName(false),
                 Board = new CellState[height, width],
-                YCoordinate = new int[width]
+                YCoordinate = new int[width],
+                VersusBot = vsBot
             };
+            if (!vsBot) settings.SecondPlayerName = UserName(false);
+            
             
             return settings;
         }

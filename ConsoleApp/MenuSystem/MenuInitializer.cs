@@ -13,7 +13,7 @@ namespace MenuSystem
 
         public static void Run()
         {
-            var startMenu = new Menu(2)
+            var startPvCMenu = new Menu(2)
             {
                 Title = StartMenuTitle,
                 MenuItemsDictionary = new Dictionary<string, MenuItem>()
@@ -22,28 +22,63 @@ namespace MenuSystem
                         "1", new MenuItem()
                         {
                             Title = "Small "+Board,
-                            CommandToExecute = StartGame.SmallBoard
+                            CommandToExecute =()=> StartGame.SmallBoard(true)
                         }
                     },
                     {
                         "2", new MenuItem()
                         {
                             Title = "Medium "+Board,
-                            CommandToExecute = StartGame.MediumBoard
+                            CommandToExecute =()=> StartGame.MediumBoard(true)
                         }
                     },
                     {
                         "3", new MenuItem()
                         {
                             Title = "Large "+Board,
-                            CommandToExecute = StartGame.LargeBoard
+                            CommandToExecute =()=> StartGame.LargeBoard(true)
                         }
                     },
                     {
                         "4", new MenuItem()
                         {
                             Title = "Custom size "+Board,
-                            CommandToExecute = StartGame.CustomSizeBoard
+                            CommandToExecute =()=> StartGame.CustomSizeBoard(true)
+                        }
+                    },
+                }
+            };
+            var startPvPMenu = new Menu(2)
+            {
+                Title = StartMenuTitle,
+                MenuItemsDictionary = new Dictionary<string, MenuItem>()
+                {
+                    {
+                        "1", new MenuItem()
+                        {
+                            Title = "Small "+Board,
+                            CommandToExecute =()=> StartGame.SmallBoard()
+                        }
+                    },
+                    {
+                        "2", new MenuItem()
+                        {
+                            Title = "Medium "+Board,
+                            CommandToExecute =()=> StartGame.MediumBoard()
+                        }
+                    },
+                    {
+                        "3", new MenuItem()
+                        {
+                            Title = "Large "+Board,
+                            CommandToExecute =()=> StartGame.LargeBoard()
+                        }
+                    },
+                    {
+                        "4", new MenuItem()
+                        {
+                            Title = "Custom size "+Board,
+                            CommandToExecute =()=> StartGame.CustomSizeBoard()
                         }
                     },
                 }
@@ -64,15 +99,15 @@ namespace MenuSystem
                     {
                         "2", new MenuItem()
                         {
-                            Title = "Human starts(Not available yet)",
-                            CommandToExecute = null
+                            Title = "Human starts",
+                            CommandToExecute = startPvCMenu.Run
                         }
                     },
                     {
                         "3", new MenuItem()
                         {
                             Title = "Human against Human",
-                            CommandToExecute = startMenu.Run
+                            CommandToExecute = startPvPMenu.Run
                         }
                     },
                 }

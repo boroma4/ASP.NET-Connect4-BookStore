@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\6430u\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\6430u\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Connect4.1078022191.00" t="ExcludeRecursive" />
-    <e p="D:\C#\ics0016-2019f\ConsoleApp" t="IncludeFlat">
+    <e p="C:\Users\bohda\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\bohda\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Connect4.-1428325489.00" t="ExcludeRecursive" />
+    <e p="C:\Users\bohda\Documents\repos\ics0016-2019f\ConsoleApp" t="IncludeFlat">
       <e p=".gitignore" t="Include" />
       <e p="Connect4.sln" t="IncludeFlat" />
       <e p="ConsoleApp" t="IncludeRecursive">
@@ -11,7 +11,7 @@
         <e p="ConsoleApp.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
-            <e p="netcoreapp3.0" t="Include">
+            <e p="netcoreapp3.1" t="Include">
               <e p="ConsoleApp.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
@@ -35,8 +35,8 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="DAL.csproj" t="IncludeRecursive" />
         <e p="Migrations" t="Include">
-          <e p="20191104073702_InitialDbCreation.cs" t="Include" />
-          <e p="20191104073702_InitialDbCreation.Designer.cs" t="Include" />
+          <e p="20191203232947_InitialDbCreation.cs" t="Include" />
+          <e p="20191203232947_InitialDbCreation.Designer.cs" t="Include" />
           <e p="AppDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -64,6 +64,7 @@
         <e p="AvailableSaves.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Game.cs" t="Include" />
+        <e p="GameAI.cs" t="Include" />
         <e p="GameConfigHandler.cs" t="Include" />
         <e p="GameEngine.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">

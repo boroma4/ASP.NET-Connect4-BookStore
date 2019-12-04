@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using ConsoleUI;
 using Domain;
 using GameEngine;
@@ -28,35 +29,46 @@ namespace GamePlay
                 GameUI.PrintBoard(game);
                 var userXint = -1;
                 var usedLetter = false;
-                
-                do
+                if (!settings.VersusBot || (settings.VersusBot && settings.IsPlayerOne))
                 {
-                    Console.WriteLine("Press X to go back to main menu. Press S to save the game");
-                    Console.WriteLine ("Enter column number, " 
-                                       + (settings.IsPlayerOne ? $"{settings.FirstPlayerName}" : $"{settings.SecondPlayerName}" ));
-                    Console.Write(">");
-                    var userInput = Console.ReadLine()?.Trim() ?? "null";
-                    if (userInput.ToUpper() == "S")
+                    do
                     {
-                        Saver.SaveGame(settings,false);
-                        GameUI.PrintBoard(game);
-                        usedLetter = true;
-                    }
-                    else if (userInput.ToUpper() == "X")
-                    {
-                        return ;
-                    }
+                        Console.WriteLine("Press X to go back to main menu. Press S to save the game");
+                        Console.WriteLine("Enter column number, "
+                                          + (settings.IsPlayerOne
+                                              ? $"{settings.FirstPlayerName}"
+                                              : $"{settings.SecondPlayerName}"));
+                        Console.Write(">");
+                        var userInput = Console.ReadLine()?.Trim() ?? "null";
+                        if (userInput.ToUpper() == "S")
+                        {
+                            Saver.SaveGame(settings, false);
+                            GameUI.PrintBoard(game);
+                            usedLetter = true;
+                        }
+                        else if (userInput.ToUpper() == "X")
+                        {
+                            return;
+                        }
 
-                    if (!int.TryParse(userInput, out userXint) && !usedLetter)
-                    {
-                        Console.WriteLine($"{userInput} is not a number!");
-                        userXint = -1;
-                    }
-                    else if (userXint > settings.BoardWidth) userXint = -1;
-                    usedLetter = false;
-                    
-                } while (userXint < 1 || settings.YCoordinate[userXint-1] < 0);
+                        if (!int.TryParse(userInput, out userXint) && !usedLetter)
+                        {
+                            Console.WriteLine($"{userInput} is not a number!");
+                            userXint = -1;
+                        }
+                        else if (userXint > settings.BoardWidth) userXint = -1;
 
+                        usedLetter = false;
+
+                    } while (userXint < 1 || settings.YCoordinate[userXint - 1] < 0);
+                }
+                else if(settings.VersusBot)
+                {
+                    Console.WriteLine("Bot is thinking...");
+                    Thread.Sleep(2000);
+                    userXint = GameAI.MakeMove(settings);
+
+                }
                 playerWon = EndGame.GameOver(userXint, settings);
                 
                 if (game.Move(settings.YCoordinate[userXint-1], userXint-1,settings) == "Ok")

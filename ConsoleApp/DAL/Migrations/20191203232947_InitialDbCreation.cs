@@ -15,6 +15,7 @@ namespace DAL.Migrations
                     SaveTime = table.Column<string>(nullable: true),
                     FirstPlayerName = table.Column<string>(nullable: true),
                     SecondPlayerName = table.Column<string>(nullable: true),
+                    VersusBot = table.Column<bool>(nullable: false),
                     BoardHeight = table.Column<int>(nullable: false),
                     BoardWidth = table.Column<int>(nullable: false),
                     IsPlayerOne = table.Column<bool>(nullable: false),

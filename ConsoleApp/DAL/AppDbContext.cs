@@ -9,7 +9,7 @@ namespace DAL
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@"Data Source=mydb.db");
+            optionsBuilder.UseSqlite(@"Data Source=C:\Users\bohda\Documents\Databases\connect4.db");
 
         }
 
