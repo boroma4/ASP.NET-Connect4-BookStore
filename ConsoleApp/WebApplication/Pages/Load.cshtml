@@ -5,16 +5,29 @@
 
 <div class="text-center">
     <h1 class="display-4">Select a save to load friend</h1>
+    <table >
     
     @foreach (var game in @Model.Games)
     {
-        <div>@i 
-            <span>) @Html.DisplayFor(modelItem => game.SaveName)</span> 
-            <span>@Html.DisplayFor(modelItem => game.SaveTime)</span> 
-        </div>
-
+        <tr >
+            <th style="text-align: left;padding: 5px">@i
+                <span>) @Html.DisplayFor(modelItem => game)</span>
+            </th>
+            <td>
+                <form method="post">
+                    <button type="submit" asp-route-id="@i" class="btn btn-outline-primary btn-sm"> 
+                        Load game
+                    </button>
+                </form>
+            </td>
+        </tr>
         i++;
     }
-    <a asp-page="./Index">Back</a>
+    <th style="text-align: left;padding: 5px">
+        <a asp-page="./Index">Back</a>
+    </th>
+    
+    </table>
+    
     
 </div>

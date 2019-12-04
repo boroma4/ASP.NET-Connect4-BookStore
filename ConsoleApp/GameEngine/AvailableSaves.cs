@@ -7,7 +7,7 @@ namespace GameEngine
 {
     public static class AvailableSaves
     {
-        private static readonly int MAXSAVES = 4;
+        public static readonly int MAXSAVES = 4;
         public static string[] Saves { get; set; }= new string[4];
         
 
@@ -15,7 +15,7 @@ namespace GameEngine
         public static void PreLoadSaves()
         {
             var dbOption = new DbContextOptionsBuilder<AppDbContext>()
-                .UseSqlite(@"Data Source=C:\Users\bohda\Documents\Databases\connect4.db").Options;
+                .UseSqlite(@"Data Source=D:\Databases\connect4.db").Options;
             var ctx = new AppDbContext(dbOption);
             
             ctx.Database.EnsureCreated();

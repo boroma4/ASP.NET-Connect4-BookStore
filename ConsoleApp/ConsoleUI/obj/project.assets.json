@@ -1305,11 +1305,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bohda\\Documents\\repos\\ics0016-2019f\\ConsoleApp\\ConsoleUI\\ConsoleUI.csproj",
+      "projectUniqueName": "D:\\repos\\ics0016-2019f\\ConsoleApp\\ConsoleUI\\ConsoleUI.csproj",
       "projectName": "ConsoleUI",
-      "projectPath": "C:\\Users\\bohda\\Documents\\repos\\ics0016-2019f\\ConsoleApp\\ConsoleUI\\ConsoleUI.csproj",
+      "projectPath": "D:\\repos\\ics0016-2019f\\ConsoleApp\\ConsoleUI\\ConsoleUI.csproj",
       "packagesPath": "C:\\Users\\bohda\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bohda\\Documents\\repos\\ics0016-2019f\\ConsoleApp\\ConsoleUI\\obj\\",
+      "outputPath": "D:\\repos\\ics0016-2019f\\ConsoleApp\\ConsoleUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bohda\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1323,8 +1323,8 @@
       "frameworks": {
         "netstandard2.1": {
           "projectReferences": {
-            "C:\\Users\\bohda\\Documents\\repos\\ics0016-2019f\\ConsoleApp\\GameEngine\\GameEngine.csproj": {
-              "projectPath": "C:\\Users\\bohda\\Documents\\repos\\ics0016-2019f\\ConsoleApp\\GameEngine\\GameEngine.csproj"
+            "D:\\repos\\ics0016-2019f\\ConsoleApp\\GameEngine\\GameEngine.csproj": {
+              "projectPath": "D:\\repos\\ics0016-2019f\\ConsoleApp\\GameEngine\\GameEngine.csproj"
             }
           }
         }

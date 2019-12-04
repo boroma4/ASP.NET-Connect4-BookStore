@@ -24,3 +24,16 @@ C:\Users\bohda\Documents\repos\ics0016-2019f\ConsoleApp\GameEngine\obj\Debug\net
 C:\Users\bohda\Documents\repos\ics0016-2019f\ConsoleApp\GameEngine\obj\Debug\netstandard2.1\GameEngine.csproj.CopyComplete
 C:\Users\bohda\Documents\repos\ics0016-2019f\ConsoleApp\GameEngine\obj\Debug\netstandard2.1\GameEngine.dll
 C:\Users\bohda\Documents\repos\ics0016-2019f\ConsoleApp\GameEngine\obj\Debug\netstandard2.1\GameEngine.pdb
+D:\repos\ics0016-2019f\ConsoleApp\GameEngine\bin\Debug\netstandard2.1\GameEngine.deps.json
+D:\repos\ics0016-2019f\ConsoleApp\GameEngine\bin\Debug\netstandard2.1\GameEngine.dll
+D:\repos\ics0016-2019f\ConsoleApp\GameEngine\bin\Debug\netstandard2.1\GameEngine.pdb
+D:\repos\ics0016-2019f\ConsoleApp\GameEngine\bin\Debug\netstandard2.1\DAL.dll
+D:\repos\ics0016-2019f\ConsoleApp\GameEngine\bin\Debug\netstandard2.1\Domain.dll
+D:\repos\ics0016-2019f\ConsoleApp\GameEngine\bin\Debug\netstandard2.1\DAL.pdb
+D:\repos\ics0016-2019f\ConsoleApp\GameEngine\bin\Debug\netstandard2.1\Domain.pdb
+D:\repos\ics0016-2019f\ConsoleApp\GameEngine\obj\Debug\netstandard2.1\GameEngine.csprojAssemblyReference.cache
+D:\repos\ics0016-2019f\ConsoleApp\GameEngine\obj\Debug\netstandard2.1\GameEngine.AssemblyInfoInputs.cache
+D:\repos\ics0016-2019f\ConsoleApp\GameEngine\obj\Debug\netstandard2.1\GameEngine.AssemblyInfo.cs
+D:\repos\ics0016-2019f\ConsoleApp\GameEngine\obj\Debug\netstandard2.1\GameEngine.csproj.CopyComplete
+D:\repos\ics0016-2019f\ConsoleApp\GameEngine\obj\Debug\netstandard2.1\GameEngine.dll
+D:\repos\ics0016-2019f\ConsoleApp\GameEngine\obj\Debug\netstandard2.1\GameEngine.pdb

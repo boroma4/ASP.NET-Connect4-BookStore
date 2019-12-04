@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\bohda\\Documents\\repos\\ics0016-2019f\\ConsoleApp\\GameEngine\\GameEngine.csproj",
+    "projectUniqueName": "D:\\repos\\ics0016-2019f\\ConsoleApp\\GameEngine\\GameEngine.csproj",
     "projectName": "GameEngine",
-    "projectPath": "C:\\Users\\bohda\\Documents\\repos\\ics0016-2019f\\ConsoleApp\\GameEngine\\GameEngine.csproj",
-    "outputPath": "C:\\Users\\bohda\\Documents\\repos\\ics0016-2019f\\ConsoleApp\\GameEngine\\obj\\",
+    "projectPath": "D:\\repos\\ics0016-2019f\\ConsoleApp\\GameEngine\\GameEngine.csproj",
+    "outputPath": "D:\\repos\\ics0016-2019f\\ConsoleApp\\GameEngine\\obj\\",
     "projectStyle": "PackageReference",
     "originalTargetFrameworks": [
       "netstandard2.1"
@@ -15,11 +15,11 @@
     "frameworks": {
       "netstandard2.1": {
         "projectReferences": {
-          "C:\\Users\\bohda\\Documents\\repos\\ics0016-2019f\\ConsoleApp\\DAL\\DAL.csproj": {
-            "projectPath": "C:\\Users\\bohda\\Documents\\repos\\ics0016-2019f\\ConsoleApp\\DAL\\DAL.csproj"
+          "D:\\repos\\ics0016-2019f\\ConsoleApp\\DAL\\DAL.csproj": {
+            "projectPath": "D:\\repos\\ics0016-2019f\\ConsoleApp\\DAL\\DAL.csproj"
           },
-          "C:\\Users\\bohda\\Documents\\repos\\ics0016-2019f\\ConsoleApp\\Domain\\Domain.csproj": {
-            "projectPath": "C:\\Users\\bohda\\Documents\\repos\\ics0016-2019f\\ConsoleApp\\Domain\\Domain.csproj"
+          "D:\\repos\\ics0016-2019f\\ConsoleApp\\Domain\\Domain.csproj": {
+            "projectPath": "D:\\repos\\ics0016-2019f\\ConsoleApp\\Domain\\Domain.csproj"
           }
         }
       }

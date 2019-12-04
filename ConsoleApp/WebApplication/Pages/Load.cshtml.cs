@@ -4,8 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using DAL;
 using Domain;
+using GameEngine;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace WebApplication.Pages
 {
@@ -18,12 +21,20 @@ namespace WebApplication.Pages
             _context = context;
         }
 
-        public IList<GameSettings> Games { get; set; } = default!;
+        public List<string> Games { get; set; } = new List<string>();
 
-        public async Task OnGetAsync()
+        public  void OnGet()
         {
-            Games =  await _context.Settings
-                .ToListAsync();
+            for (var i = 0; i < AvailableSaves.MAXSAVES; i++)
+            {
+                var res = _context.Settings.Find(i) ?? new GameSettings();;
+                Games.Add(res.ToString());
+            }
         }
+
+//        public IActionResult OnPost(int id?)
+//        {
+//            
+//        }
     }
 }

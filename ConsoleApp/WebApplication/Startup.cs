@@ -27,7 +27,7 @@ namespace WebApplication
         {
             services.AddRazorPages();
             services.AddDbContext<AppDbContext>(
-                options => options.UseSqlite(@"Data Source=C:\Users\bohda\Documents\Databases\connect4.db"));
+                options => options.UseSqlite(@"Data Source=D:\Databases\connect4.db"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

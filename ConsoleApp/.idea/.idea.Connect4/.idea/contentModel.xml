@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\bohda\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\bohda\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Connect4.-1428325489.00" t="ExcludeRecursive" />
-    <e p="C:\Users\bohda\Documents\repos\ics0016-2019f\ConsoleApp" t="IncludeFlat">
+    <e p="C:\Users\bohda\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Connect4.-1297646582.00" t="ExcludeRecursive" />
+    <e p="D:\repos\ics0016-2019f\ConsoleApp" t="IncludeFlat">
       <e p=".gitignore" t="Include" />
       <e p="Connect4.sln" t="IncludeFlat" />
       <e p="ConsoleApp" t="IncludeRecursive">
@@ -127,14 +127,14 @@
           <e p="Index.cshtml.cs" t="Include" />
           <e p="Load.cshtml" t="Include" />
           <e p="Load.cshtml.cs" t="Include" />
+          <e p="PlayOnline.cshtml" t="Include" />
+          <e p="PlayOnline.cshtml.cs" t="Include" />
           <e p="Privacy.cshtml" t="Include" />
           <e p="Privacy.cshtml.cs" t="Include" />
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />
             <e p="_ValidationScriptsPartial.cshtml" t="Include" />
           </e>
-          <e p="Start.cshtml" t="Include" />
-          <e p="Start.cshtml.cs" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">

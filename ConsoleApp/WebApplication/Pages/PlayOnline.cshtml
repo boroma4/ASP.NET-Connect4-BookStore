@@ -1,0 +1,68 @@
+﻿@page
+@model WebApplication.Pages.Start
+
+
+<div class="text-center">
+    <h1 class="display-4">Let the battle begin!!</h1>
+    <table style="width:100%">
+        @for (var i = 0; i < Model.Settings.BoardHeight; i++)
+        {
+            <tr>
+                @for(var j = 0; j < Model.Settings.BoardWidth; j++)
+                {
+                    <td>
+                        @{
+                            if (Model.Settings.IsPlayerOne)
+                            {
+                                <div class="playerOne"></div>
+                            }
+                            else
+                            {
+                                <div class="playerTwo"></div>
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            
+        }
+         <tr>
+         @for (var i = 0; i < Model.Settings.BoardWidth; i++)
+         {
+             <td>
+                     <form method="post">
+                         @{ var col = i + 1;}
+                         <button type="submit" class="btn btn-primary " asp-route-id="@col" style="width: 100%">
+                             Here
+                         </button>
+                     </form>
+                 </td>
+         }
+          </tr>
+    </table>
+</div>
+
+
+
+
+
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    
+    .playerOne {
+      height: 70px;
+      width: 70px;
+      background-color: yellow;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .playerTwo{
+          height: 25px;
+          width: 25px;
+          background-color: red;
+          border-radius: 50%;
+          display: inline-block;
+        }
+</style>
