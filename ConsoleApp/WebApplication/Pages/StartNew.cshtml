@@ -5,14 +5,14 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post">
+        <form method="post" asp-route-bot="@Model.VsBot">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Settings.FirstPlayerName" class="control-label"></label>
                 <input asp-for="Settings.FirstPlayerName" class="form-control" />
                 <span asp-validation-for="Settings.FirstPlayerName" class="text-danger"></span>
             </div>
-            @if (!Model.Settings.VersusBot)
+            @if (!Model.VsBot)
             {
                 Model.Settings.SecondPlayerName = "";
                 <div class="form-group">

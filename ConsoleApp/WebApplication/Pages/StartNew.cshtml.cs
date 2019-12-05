@@ -31,14 +31,16 @@ namespace WebApplication.Pages
 
         [BindProperty]
         public string SelectedBoardType { get; set; } = default;
+
+        public bool VsBot { get; set; }
         
         
         public void OnGet(int bot)
         {
-            Settings.VersusBot = bot == 1;
+            VsBot = bot == 1;
         }
 
-        public IActionResult OnPostAsync()
+        public IActionResult OnPostAsync(bool bot)
         {
             
             switch (SelectedBoardType)
@@ -58,6 +60,8 @@ namespace WebApplication.Pages
                default:
                    throw new InvalidOperationException("No such board size!");
             }
+
+            Settings.VersusBot = bot;
             Settings.Board = new CellState[Settings.BoardHeight,Settings.BoardWidth];
             Settings.YCoordinate = new int[Settings.BoardWidth];
             Saver.SaveGame(Settings,true);

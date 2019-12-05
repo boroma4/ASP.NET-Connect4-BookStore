@@ -15,6 +15,8 @@ namespace WebApplication.Pages
 
         public GameSettings Settings { get; set; } = default!;
 
+        public bool GameOver { get; set; } = false;
+
         public Start(AppDbContext context)
         {
             _context = context;
@@ -35,14 +37,32 @@ namespace WebApplication.Pages
         public IActionResult OnPost(int userXint)
         {
             Settings = Helper.GameSettings;
+
+            if (MakeATurn(userXint) == "reload")
+            {
+                return Page();
+            }
+
+            Settings = Helper.GameSettings;
+
+            if (Settings.VersusBot && !Settings.IsPlayerOne)
+            {
+                MakeATurn(GameAI.MakeMove(Settings));
+            }
+            return Page();
+        }
+
+        public string MakeATurn( int userXint)
+        {
             Saver.SaveGame(Settings,true);
             /*
              * MESS
              */
-            //1. IF cell is taken (wtf?) reload
-            if (Settings.Board[Settings.YCoordinate[userXint-1], userXint -1] != CellState.Empty)
+            //1. IF reached the top
+            if (Settings.YCoordinate[userXint-1] < 0)
             {
-                return Page();
+                //SOME ERROR
+                return "reload";
             }
             //Change the cell
             Settings.Board[Settings.YCoordinate[userXint-1], userXint -1] = Settings.IsPlayerOne ? CellState.X : CellState.O ;
@@ -50,14 +70,15 @@ namespace WebApplication.Pages
             //IF win codition was fulfilled
             if (EndGame.GameOver(userXint, Settings))
             {
-                return RedirectToPage("StartNew");
+                GameOver = true;
+                return "reload";
             }
             // IF not change player, save state and let's continue
             Settings.YCoordinate[userXint - 1]--;
             Settings.IsPlayerOne = !Settings.IsPlayerOne;
             
             Helper.GameSettings = Settings;
-            return Page();
+            return "OK";
         }
     }
 }

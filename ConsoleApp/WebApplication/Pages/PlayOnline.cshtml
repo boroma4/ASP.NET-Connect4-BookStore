@@ -32,18 +32,29 @@
             
         }
          <tr>
-         @for (var i = 0; i < Model.Settings.BoardWidth; i++)
-         {
-             <td>
-                     <form method="post">
-                         @{ var col = i + 1;}
-                         <button type="submit" class="btn btn-primary" asp-route-userXint="@col" asp-route-settings="@Model.Settings" style="width: 100%">
-                             Here
-                         </button>
-                     </form>
-                 </td>
+         @{
+             if (!Model.GameOver)
+             {
+                 for (var i = 0; i < Model.Settings.BoardWidth; i++)
+                 {
+                     <td>
+                         <form method="post">
+                             @{ var col = i + 1; }
+                             <button type="submit" class="btn btn-primary" asp-route-userXint="@col" style="width: 100%">
+                                 Here
+                             </button>
+                         </form>
+                     </td>
+                 }
+             }
+             else
+             {
+                     <strong>
+                         SOmeone WON!
+                     </strong>
+             }
          }
-          </tr>
+         </tr>
     </table>
 </div>
 
