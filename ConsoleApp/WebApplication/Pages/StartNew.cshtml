@@ -12,7 +12,7 @@
                 <input asp-for="Settings.FirstPlayerName" class="form-control" />
                 <span asp-validation-for="Settings.FirstPlayerName" class="text-danger"></span>
             </div>
-            @if (!Model.B_VersusBot)
+            @if (!Model.Settings.VersusBot)
             {
                 Model.Settings.SecondPlayerName = "";
                 <div class="form-group">
@@ -26,7 +26,7 @@
                 <select asp-for="@Model.SelectedBoardType" class ="form-control" asp-items="@Model.Boards"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Begin" class="btn btn-primary" />
+                <input type="submit" value="Begin" class="btn btn-primary"/>
             </div>
         </form>
         

@@ -10,7 +10,14 @@ namespace Domain
         public int Id { get; set; } = 0;
         public string SaveName { get; set; } = "Empty";
         public string SaveTime { get; set; } = "N/A";
+        
+        [Required]
+        [MinLength(2)]
+        [MaxLength(30)]
         public string FirstPlayerName { get; set; } = default!;
+        
+        [MinLength(2)]
+        [MaxLength(30)]
         public string SecondPlayerName { get; set; } = "Bot Ricardo";
 
         public bool VersusBot { get; set; } = false;

@@ -1,4 +1,5 @@
 ﻿@page
+@using Domain
 @model WebApplication.Pages.Start
 
 
@@ -12,13 +13,17 @@
                 {
                     <td>
                         @{
-                            if (Model.Settings.IsPlayerOne)
+                            if (Model.Settings.Board[i,j] == CellState.X)
                             {
                                 <div class="playerOne"></div>
                             }
-                            else
+                            else if (Model.Settings.Board[i,j]== CellState.O)
                             {
                                 <div class="playerTwo"></div>
+                            }
+                            else
+                            {
+                                <div class="blank"></div>
                             }
                         }
                     </td>
@@ -32,7 +37,7 @@
              <td>
                      <form method="post">
                          @{ var col = i + 1;}
-                         <button type="submit" class="btn btn-primary " asp-route-id="@col" style="width: 100%">
+                         <button type="submit" class="btn btn-primary" asp-route-userXint="@col" asp-route-settings="@Model.Settings" style="width: 100%">
                              Here
                          </button>
                      </form>
@@ -56,13 +61,23 @@
       width: 70px;
       background-color: yellow;
       border-radius: 50%;
+      border:1px solid black;    
       display: inline-block;
     }
     .playerTwo{
-          height: 25px;
-          width: 25px;
+          height: 70px;
+          width: 70px;
           background-color: red;
           border-radius: 50%;
+          border:1px solid black;    
           display: inline-block;
+        }
+    .blank{
+         height: 70px;
+         width: 70px;
+         background-color: white;
+         border-radius: 50%;
+         border:1px solid black;    
+         display: inline-block;
         }
 </style>

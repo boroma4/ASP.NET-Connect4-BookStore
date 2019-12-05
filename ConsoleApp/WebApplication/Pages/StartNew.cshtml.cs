@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using DAL;
 using Domain;
+using GameEngine;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -30,18 +31,16 @@ namespace WebApplication.Pages
 
         [BindProperty]
         public string SelectedBoardType { get; set; } = default;
-
-        public bool B_VersusBot { get; set; }
+        
         
         public void OnGet(int bot)
         {
-            B_VersusBot = bot == 1;
+            Settings.VersusBot = bot == 1;
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPostAsync()
         {
-
-            Settings.Id = 0;
+            
             switch (SelectedBoardType)
             {
                case "Small":
@@ -58,13 +57,12 @@ namespace WebApplication.Pages
                    break;
                default:
                    throw new InvalidOperationException("No such board size!");
-
             }
-            
-            _context.Settings.Update(Settings);
-            await _context.SaveChangesAsync();
-            
-            return RedirectToPage("PlayOnline");
+            Settings.Board = new CellState[Settings.BoardHeight,Settings.BoardWidth];
+            Settings.YCoordinate = new int[Settings.BoardWidth];
+            Saver.SaveGame(Settings,true);
+
+             return RedirectToPage("PlayOnline");
         }
     }
 }

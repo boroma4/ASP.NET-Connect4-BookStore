@@ -4,19 +4,36 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
+<div class="text-center container">
     <h1 class="display-4">Connect4</h1>
     <p>Let's play!</p>
-    <div>
+
+    <a asp-page="./StartNew" asp-route-bot="0" class="box">
         <button type="submit" class="btn btn-outline-info btn-lg">
-            <a asp-page="./StartNew" asp-route-bot="0">Start PVP</a>
+            Start PVP
         </button>
-        <button type="submit" class="btn btn-outline-info btn-lg">
-            <a asp-page="./StartNew" asp-route-bot="1"> Start VS Bot</a>
-        </button>
-        <button type="submit" class="btn btn-outline-info btn-lg">
-            <a asp-page="./Load">Load game</a>
-        </button>
-    </div>
+    </a>
+    
+    <a asp-page="./StartNew" asp-route-bot="1" class="box">
+            <button type="submit" class="btn btn-outline-info btn-lg">
+            Start VS Bot
+            </button>
+        </a>
+
+        <a asp-page="./Load" class="box">
+            <button type="submit" class="btn btn-outline-info btn-lg">
+            Load game
+            </button>
+        </a>
 </div>
 
+<style>
+    .box {
+        display: block;
+            margin-top: 1%;
+            }
+    
+    .container > div {
+        float: left;
+    }
+</style>
