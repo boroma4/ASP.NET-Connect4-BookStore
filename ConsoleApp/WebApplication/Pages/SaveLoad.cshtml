@@ -2,7 +2,7 @@
 @using Domain
 @model WebApplication.Pages.Load
 
-@{ var i = 1; }
+@{ var i = 0; }
 
 <div class="text-center">
     @{
@@ -19,27 +19,46 @@
 
     <div class="row">
 
-        @foreach (var item in Model.Games)
+        @foreach (var save in Model.Games)
         {
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <div class="card" style="height: max-content">
 
                     <div class="card-header">
-                        <strong> @Html.DisplayFor(modelItem => item.Item1)</strong>
+                        <strong> @Html.DisplayFor(modelItem => save.name)</strong>
                     </div>
                     <div class="card-body">
-                        Time: @Html.DisplayFor(modelItem => item.Item2)
+                        Time: @Html.DisplayFor(modelItem => save.time)
                         <form method="post">
                             @{
                                 if (Model.RuntimeSave)
                                 {
-                                    <button type="submit" asp-route-id="@i" class="btn btn-outline-primary btn-sm"  asp-page-handler="Save">
-                                        Save game
-                                    </button>
+                                    if (i == 0)
+                                    {
+                                        <button type="submit" asp-route-id="@i" class="btn btn-outline-secondary btn-sm" disabled="disabled"  asp-page-handler="Save">
+                                            Save game
+                                        </button>
+                                    }
+                                    else if (save.name.Equals("Empty"))
+                                    {
+                                        <button type="submit" asp-route-id="@i" class="btn btn-outline-primary btn-sm"  asp-page-handler="Save">
+                                            Save game
+                                        </button>
+                                    }
+                                    else
+                                    {
+                                        <button type="submit" asp-route-id="@i" class="btn btn-outline-warning btn-sm"  asp-page-handler="Save">
+                                            Save game
+                                        </button>
+                                        <div>                                        
+                                            <small>Choosing this option will overwrite current progress.</small>
+
+                                            </div>
+                                    }
                                 }
                                 else
                                 {
-                                    if (item.Item1 == "Empty")
+                                    if (save.name == "Empty")
                                     {
                                         <button type="submit" asp-route-id="@i" class="btn btn-secondary btn-sm" disabled="disabled">
                                             Load game

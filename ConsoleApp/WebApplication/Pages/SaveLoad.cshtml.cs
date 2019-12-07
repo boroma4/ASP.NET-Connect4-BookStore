@@ -22,7 +22,7 @@ namespace WebApplication.Pages
             _context = context;
         }
 
-        public List<(string,string)> Games { get; } = new List<(string,string)>();
+        public List<(string name,string time)> Games { get; } = new List<(string name,string time)>();
 
         public bool RuntimeSave { get; set; }
 
@@ -48,7 +48,6 @@ namespace WebApplication.Pages
             var name = settings.FirstPlayerName + "-" + settings.SecondPlayerName;
             settings.SaveName = name;
             settings.SaveTime = DateTime.Now.ToString("MM/dd/yyyy H:mm:ss");
-            id -= 1;
             GameConfigHandler.SaveConfig(settings, id);
             return RedirectToPage("./PlayOnline",new {id});
         }
