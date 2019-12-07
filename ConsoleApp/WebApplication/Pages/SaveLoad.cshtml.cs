@@ -21,11 +21,11 @@ namespace WebApplication.Pages
         {
             _context = context;
         }
+        public List<(string name,string time)> Games { get; set; } = new List<(string name,string time)>();
 
-        public List<(string name,string time)> Games { get; } = new List<(string name,string time)>();
 
         public bool RuntimeSave { get; set; }
-
+        
         public  void OnGet(bool save)
         {
             for (var i = 0; i < AvailableSaves.MAXSAVES; i++)
@@ -33,23 +33,32 @@ namespace WebApplication.Pages
                 var res = _context.Settings.Find(i) ?? new GameSettings();
                 Games.Add(res.WebStrings());
             }
-
+            RuntimeData.GamesExternal = Games;
+           
             RuntimeSave = save;
         }
 
         public IActionResult OnPost(int id)
         {
-            id -= 1;
             return RedirectToPage("./PlayOnline",new {id});
         }
         public IActionResult OnPostSave(int id)
         {
-            var settings = Helper.GameSettings;
+            var settings = RuntimeData.GameSettings;
             var name = settings.FirstPlayerName + "-" + settings.SecondPlayerName;
             settings.SaveName = name;
             settings.SaveTime = DateTime.Now.ToString("MM/dd/yyyy H:mm:ss");
             GameConfigHandler.SaveConfig(settings, id);
             return RedirectToPage("./PlayOnline",new {id});
         }
-    }
+        public async Task<IActionResult> OnPostDeleteAsync(int id)
+        {
+            var GameToDelete =  _context.Settings.Find(id);
+            _context.Settings.Remove(GameToDelete);
+            await _context.SaveChangesAsync();
+            RuntimeData.GamesExternal[id] = ("Empty", "N/A");
+            Games = RuntimeData.GamesExternal;
+            return Page();
+        }
+    } 
 }

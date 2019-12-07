@@ -52,8 +52,7 @@
                                         </button>
                                         <div>                                        
                                             <small>Choosing this option will overwrite current progress.</small>
-
-                                            </div>
+                                        </div>
                                     }
                                 }
                                 else
@@ -71,6 +70,19 @@
                                         </button>
                                     }
                                 }
+                                
+                                if (save.name.Equals("Empty"))
+                                {
+                                    <button type="submit" asp-route-id="@i" class="btn btn-secondary btn-sm" disabled="disabled"  asp-page-handler="Delete">
+                                        Delete game
+                                    </button>
+                                }
+                                else
+                                {
+                                    <button type="submit" asp-route-id="@i" class="btn btn-outline-danger btn-sm"  asp-page-handler="Delete">
+                                        Delete game
+                                    </button>
+                                }
                             }
                         </form>
                     </div>
@@ -80,8 +92,16 @@
         }
 
     </div>
+    @if (Model.RuntimeSave)
+        {
+            <h4 style="margin-top: 5%">
+                <a asp-page="PlayOnline" asp-route-id="0">Back to the game</a>
+            </h4>
+        }
     <h4 style="margin-top: 5%">
-        <a asp-page="./Index">Back</a>
+        <a asp-page="Index">Main menu</a>
     </h4>
+    
+    
 
 </div>

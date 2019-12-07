@@ -34,12 +34,12 @@ namespace WebApplication.Pages
             {
                 MakeATurn(Bot.MakeMove(Settings));
             }
-            Helper.GameSettings = Settings;
+            RuntimeData.GameSettings = Settings;
         }
 
         public IActionResult OnPost(int? userXint)
         {
-            Settings = Helper.GameSettings;
+            Settings = RuntimeData.GameSettings;
             Saver.SaveGame(Settings,true);
 
 
@@ -49,15 +49,18 @@ namespace WebApplication.Pages
                 {
                     return Page();
                 }
-
-
+                
                 if (Settings.VersusBot && !Settings.IsPlayerOne)
                 {
                     MakeATurn(Bot.MakeMove(Settings));
                 }
 
             }
-            Settings = Helper.GameSettings;
+            Settings = RuntimeData.GameSettings;
+            Saver.SaveGame(Settings,true);
+            //Really strange hack
+            Settings = RuntimeData.GameSettings;
+
 
 
             return Page();
@@ -87,7 +90,7 @@ namespace WebApplication.Pages
             Settings.YCoordinate[userXint - 1]--;
             Settings.IsPlayerOne = !Settings.IsPlayerOne;
             
-            Helper.GameSettings = Settings;
+            RuntimeData.GameSettings = Settings;
             return "OK";
         }
     }
