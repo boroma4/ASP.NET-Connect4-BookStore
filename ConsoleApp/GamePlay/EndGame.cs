@@ -119,6 +119,7 @@ namespace GamePlay
             if (inLine >= 4) return true;
 
             inLine = 1;
+            count = 0;
             xCoordinate = x; //one square to the right 
 
             if (xCoordinate < settings.BoardWidth) 

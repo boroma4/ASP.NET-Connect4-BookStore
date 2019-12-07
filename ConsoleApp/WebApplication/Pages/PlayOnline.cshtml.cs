@@ -35,6 +35,8 @@ namespace WebApplication.Pages
         public IActionResult OnPost(int? userXint)
         {
             Settings = Helper.GameSettings;
+            Saver.SaveGame(Settings,true);
+
 
             if (userXint != null)
             {
@@ -71,7 +73,6 @@ namespace WebApplication.Pages
                 //SOME ERROR
                 return "reload";
             }
-            //Change the cell
             Settings.Board[Settings.YCoordinate[userXint-1], userXint -1] = Settings.IsPlayerOne ? CellState.X : CellState.O ;
             Settings.NumTurns++;
             //IF win condition was fulfilled
@@ -81,10 +82,10 @@ namespace WebApplication.Pages
                 return "reload";
             }
             // IF not change player, save state and let's continue
+            
             Settings.YCoordinate[userXint - 1]--;
             Settings.IsPlayerOne = !Settings.IsPlayerOne;
             
-            Saver.SaveGame(Settings,true);
             Helper.GameSettings = Settings;
             return "OK";
         }
