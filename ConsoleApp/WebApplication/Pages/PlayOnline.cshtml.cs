@@ -34,21 +34,29 @@ namespace WebApplication.Pages
             Helper.GameSettings = Settings;
         }
 
-        public IActionResult OnPost(int userXint)
+        public IActionResult OnPost(int? userXint)
         {
             Settings = Helper.GameSettings;
 
-            if (MakeATurn(userXint) == "reload")
+            if (userXint != null)
             {
-                return Page();
+                if (MakeATurn(userXint.Value) == "reload")
+                {
+                    return Page();
+                }
+
+                Settings = Helper.GameSettings;
+
+                if (Settings.VersusBot && !Settings.IsPlayerOne)
+                {
+                    MakeATurn(GameAI.MakeMove(Settings));
+                }
+            }
+            else
+            {
+                
             }
 
-            Settings = Helper.GameSettings;
-
-            if (Settings.VersusBot && !Settings.IsPlayerOne)
-            {
-                MakeATurn(GameAI.MakeMove(Settings));
-            }
             return Page();
         }
 
@@ -67,7 +75,7 @@ namespace WebApplication.Pages
             //Change the cell
             Settings.Board[Settings.YCoordinate[userXint-1], userXint -1] = Settings.IsPlayerOne ? CellState.X : CellState.O ;
             Settings.NumTurns++;
-            //IF win codition was fulfilled
+            //IF win condition was fulfilled
             if (EndGame.GameOver(userXint, Settings))
             {
                 GameOver = true;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using DAL;
 using Domain;
 using GameEngine;
@@ -32,12 +33,14 @@ namespace WebApplication.Pages
         [BindProperty]
         public string SelectedBoardType { get; set; } = default;
 
+        public bool IsCustomBoard { get; set; } = default!;
+
         public bool VsBot { get; set; }
         
         
-        public void OnGet(int bot)
+        public void OnGet(bool bot)
         {
-            VsBot = bot == 1;
+            VsBot = bot;
         }
 
         public IActionResult OnPostAsync(bool bot)
@@ -56,6 +59,14 @@ namespace WebApplication.Pages
                case "Large":
                    Settings.BoardHeight = 7;
                    Settings.BoardWidth = 10;
+                   break;
+               case "Custom":
+                   if (Settings.BoardWidth < 4 && Settings.BoardHeight < 4)
+                   {
+                       VsBot = bot;
+                       IsCustomBoard = true;
+                       return Page();
+                   }
                    break;
                default:
                    throw new InvalidOperationException("No such board size!");

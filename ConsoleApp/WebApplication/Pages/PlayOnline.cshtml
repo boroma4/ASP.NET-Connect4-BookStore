@@ -4,20 +4,46 @@
 
 
 <div class="text-center">
-    <h1 class="display-4">Let the battle begin!!</h1>
+    <div class="text-left"> 
+      
+        @{
+                if (Model.Settings.IsPlayerOne)
+                {
+                    <h5>
+                        Current player: @Model.Settings.FirstPlayerName
+                    </h5>
+                }
+                else
+                {
+                    <h5 >
+                        Current player: @Model.Settings.SecondPlayerName
+                    </h5>
+                }
+        }
+        <form method="post" class="form-inline">
+            <a asp-page="Index">
+                Back to main menu
+            </a>
+            <button type="submit" class="btn btn-info btn-sm" style="margin: 1%">
+                Save the game
+            </button>
+
+        </form>
+    </div>
+  
     <table style="width:100%">
         @for (var i = 0; i < Model.Settings.BoardHeight; i++)
         {
             <tr>
-                @for(var j = 0; j < Model.Settings.BoardWidth; j++)
+                @for (var j = 0; j < Model.Settings.BoardWidth; j++)
                 {
                     <td>
                         @{
-                            if (Model.Settings.Board[i,j] == CellState.X)
+                            if (Model.Settings.Board[i, j] == CellState.X)
                             {
                                 <div class="playerOne"></div>
                             }
-                            else if (Model.Settings.Board[i,j]== CellState.O)
+                            else if (Model.Settings.Board[i, j] == CellState.O)
                             {
                                 <div class="playerTwo"></div>
                             }
@@ -29,32 +55,40 @@
                     </td>
                 }
             </tr>
-            
+
         }
-         <tr>
-         @{
-             if (!Model.GameOver)
-             {
-                 for (var i = 0; i < Model.Settings.BoardWidth; i++)
-                 {
-                     <td>
-                         <form method="post">
-                             @{ var col = i + 1; }
-                             <button type="submit" class="btn btn-primary" asp-route-userXint="@col" style="width: 100%">
-                                 Here
-                             </button>
-                         </form>
-                     </td>
-                 }
-             }
-             else
-             {
-                     <strong>
-                         SOmeone WON!
-                     </strong>
-             }
-         }
-         </tr>
+        <tr>
+            @{
+                if (!Model.GameOver)
+                {
+                    for (var i = 0; i < Model.Settings.BoardWidth; i++)
+                    {
+                        <td>
+                            <form method="post">
+                                @{ var col = i + 1; }
+                                <button type="submit" class="btn btn-primary" asp-route-userXint="@col" style="width: 100%">
+                                    Here
+                                </button>
+                            </form>
+                        </td>
+                    }
+                }
+                else
+                {
+                    if (Model.Settings.IsPlayerOne)
+                    {
+                        <h6> @Model.Settings.FirstPlayerName
+                            has won!</h6>
+                    }
+                    else
+                    {
+                        <h6> @Model.Settings.SecondPlayerName
+                            has won!</h6>
+                    }
+
+                }
+            }
+        </tr>
     </table>
 </div>
 
@@ -88,7 +122,6 @@
          width: 70px;
          background-color: white;
          border-radius: 50%;
-         border:1px solid black;    
          display: inline-block;
         }
 </style>

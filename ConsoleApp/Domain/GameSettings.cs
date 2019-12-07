@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Configuration;
 
 namespace Domain
 {
@@ -21,6 +22,7 @@ namespace Domain
         public string SecondPlayerName { get; set; } = "Bot Ricardo";
 
         public bool VersusBot { get; set; } = false;
+        
         public int BoardHeight { get; set; } = default!;
         public int BoardWidth { get; set; } = default!;
         public bool IsPlayerOne { get; set; } = true;
