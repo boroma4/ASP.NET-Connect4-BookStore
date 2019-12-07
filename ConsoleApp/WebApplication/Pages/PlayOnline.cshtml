@@ -20,12 +20,14 @@
                     </h5>
                 }
         }
-        <form method="post" class="form-inline">
-            <button type="submit" class="btn btn-info btn-sm" style="margin: 1%" asp-route-userXint="">
-                Save the game
-            </button>
-
-        </form>
+        @if (!Model.GameOver)
+        {
+            <a asp-page="SaveLoad" asp-route-save="true">
+                <button type="submit" class="btn btn-info btn-sm" style="margin: 1%" asp-route-userXint="">
+                    Save the game
+                </button>
+            </a>
+        }
     </div>
   
     <table style="width:100%">

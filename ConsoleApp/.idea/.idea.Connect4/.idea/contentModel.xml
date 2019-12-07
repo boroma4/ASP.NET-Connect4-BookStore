@@ -126,12 +126,12 @@
           <e p="Error.cshtml.cs" t="Include" />
           <e p="Index.cshtml" t="Include" />
           <e p="Index.cshtml.cs" t="Include" />
-          <e p="Load.cshtml" t="Include" />
-          <e p="Load.cshtml.cs" t="Include" />
           <e p="PlayOnline.cshtml" t="Include" />
           <e p="PlayOnline.cshtml.cs" t="Include" />
           <e p="Privacy.cshtml" t="Include" />
           <e p="Privacy.cshtml.cs" t="Include" />
+          <e p="SaveLoad.cshtml" t="Include" />
+          <e p="SaveLoad.cshtml.cs" t="Include" />
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />
             <e p="_ValidationScriptsPartial.cshtml" t="Include" />

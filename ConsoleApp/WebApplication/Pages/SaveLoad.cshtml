@@ -1,0 +1,68 @@
+﻿@page
+@using Domain
+@model WebApplication.Pages.Load
+
+@{ var i = 1; }
+
+<div class="text-center">
+    @{
+        if (Model.RuntimeSave)
+        {
+            <h3 class="display-4">Select a slot for your save</h3>
+        }
+        else
+        {
+            <h3 class="display-4">Select a save to load</h3>
+        }
+    }
+
+
+    <div class="row">
+
+        @foreach (var item in Model.Games)
+        {
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="card" style="height: max-content">
+
+                    <div class="card-header">
+                        <strong> @Html.DisplayFor(modelItem => item.Item1)</strong>
+                    </div>
+                    <div class="card-body">
+                        Time: @Html.DisplayFor(modelItem => item.Item2)
+                        <form method="post">
+                            @{
+                                if (Model.RuntimeSave)
+                                {
+                                    <button type="submit" asp-route-id="@i" class="btn btn-outline-primary btn-sm"  asp-page-handler="Save">
+                                        Save game
+                                    </button>
+                                }
+                                else
+                                {
+                                    if (item.Item1 == "Empty")
+                                    {
+                                        <button type="submit" asp-route-id="@i" class="btn btn-secondary btn-sm" disabled="disabled">
+                                            Load game
+                                        </button>
+                                    }
+                                    else
+                                    {
+                                        <button type="submit" asp-route-id="@i" class="btn btn-outline-primary btn-sm">
+                                            Load game
+                                        </button>
+                                    }
+                                }
+                            }
+                        </form>
+                    </div>
+                    @{ i++; }
+                </div>
+            </div>
+        }
+
+    </div>
+    <h4 style="margin-top: 5%">
+        <a asp-page="./Index">Back</a>
+    </h4>
+
+</div>

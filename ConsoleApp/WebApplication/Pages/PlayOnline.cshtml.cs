@@ -57,10 +57,6 @@ namespace WebApplication.Pages
                 }
 
             }
-            else
-            {
-               //Saver.SaveGame(Settings,false);
-            }
             Settings = Helper.GameSettings;
 
 
