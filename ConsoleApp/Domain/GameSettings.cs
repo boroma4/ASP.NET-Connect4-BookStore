@@ -44,5 +44,10 @@ namespace Domain
         {
             return SaveName + " " +SaveTime;
         }
+
+        public (string name,string time) WebStrings()
+        {
+            return (SaveName,SaveTime);
+        }
     }
 }

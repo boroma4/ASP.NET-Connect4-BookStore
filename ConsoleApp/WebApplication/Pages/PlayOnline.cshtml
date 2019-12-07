@@ -21,10 +21,7 @@
                 }
         }
         <form method="post" class="form-inline">
-            <a asp-page="Index">
-                Back to main menu
-            </a>
-            <button type="submit" class="btn btn-info btn-sm" style="margin: 1%">
+            <button type="submit" class="btn btn-info btn-sm" style="margin: 1%" asp-route-userXint="">
                 Save the game
             </button>
 
@@ -90,6 +87,9 @@
             }
         </tr>
     </table>
+    <a asp-page="Index">
+        Back to main menu
+    </a>
 </div>
 
 
@@ -102,24 +102,24 @@
     }
     
     .playerOne {
-      height: 70px;
-      width: 70px;
+      height: 60px;
+      width: 60px;
       background-color: yellow;
       border-radius: 50%;
       border:1px solid black;    
       display: inline-block;
     }
     .playerTwo{
-          height: 70px;
-          width: 70px;
+          height: 60px;
+          width: 60px;
           background-color: red;
           border-radius: 50%;
           border:1px solid black;    
           display: inline-block;
         }
     .blank{
-         height: 70px;
-         width: 70px;
+         height: 60px;
+         width: 60px;
          background-color: white;
          border-radius: 50%;
          display: inline-block;

@@ -13,14 +13,14 @@
                 <span asp-validation-for="Settings.FirstPlayerName" class="text-danger"></span>
             </div>
             @if (!Model.VsBot)
-            {
-                Model.Settings.SecondPlayerName = "";
-                <div class="form-group">
-                    <label asp-for="Settings.SecondPlayerName" class="control-label"></label>
-                    <input asp-for="Settings.SecondPlayerName" class="form-control" />
-                    <span asp-validation-for="Settings.SecondPlayerName" class="text-danger"></span>
-                </div>
-            }
+                {
+                    Model.Settings.SecondPlayerName = "";
+                    <div class="form-group">
+                        <label asp-for="Settings.SecondPlayerName" class="control-label"></label>
+                        <input asp-for="Settings.SecondPlayerName" class="form-control"/>
+                        <span asp-validation-for="Settings.SecondPlayerName" class="text-danger"></span>
+                    </div>
+                }
             <div class="form-group">
                 <label asp-for="@Model.SelectedBoardType" class="control-label"></label>
                 <select asp-for="@Model.SelectedBoardType" class ="form-control" asp-items="@Model.Boards"></select>
@@ -29,13 +29,24 @@
             {
                 <div class="form-group">
                     <label class="control-label"> Board heigth</label>
-                    <input asp-for="Settings.BoardHeight" class="form-control" />
+                    <input asp-for="Settings.BoardHeight" class="custom-checkbox" />
                     <span asp-validation-for="Settings.BoardHeight" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label class="control-label"> Board width</label>
                     <input asp-for="Settings.BoardWidth" class="form-control" />
                     <span asp-validation-for="Settings.BoardWidth" class="text-danger"></span>
+                </div>
+            }
+            @if (Model.VsBot)
+            {
+                <div class="form-check" style="margin-bottom: 2%">
+                    
+                    <input asp-for="BotIsFirst" class="form-check-input"/>
+                    <label class="form-check-label">
+                        Bot is starting
+                    </label>
+                    <span asp-validation-for="BotIsFirst" class="text-danger"></span>
                 </div>
             }
             <div class="form-group">

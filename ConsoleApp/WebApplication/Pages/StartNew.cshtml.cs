@@ -37,6 +37,10 @@ namespace WebApplication.Pages
 
         public bool VsBot { get; set; }
         
+        [BindProperty]
+
+        public bool BotIsFirst { get; set; }
+        
         
         public void OnGet(bool bot)
         {
@@ -72,6 +76,7 @@ namespace WebApplication.Pages
                    throw new InvalidOperationException("No such board size!");
             }
 
+            Settings.IsPlayerOne = !BotIsFirst;
             Settings.VersusBot = bot;
             Settings.Board = new CellState[Settings.BoardHeight,Settings.BoardWidth];
             Settings.YCoordinate = new int[Settings.BoardWidth];

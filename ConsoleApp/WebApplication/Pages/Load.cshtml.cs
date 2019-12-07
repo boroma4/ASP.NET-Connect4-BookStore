@@ -21,14 +21,14 @@ namespace WebApplication.Pages
             _context = context;
         }
 
-        public List<string> Games { get; } = new List<string>();
+        public List<(string,string)> Games { get; } = new List<(string,string)>();
 
         public  void OnGet()
         {
             for (var i = 0; i < AvailableSaves.MAXSAVES; i++)
             {
                 var res = _context.Settings.Find(i) ?? new GameSettings();
-                Games.Add(res.ToString());
+                Games.Add(res.WebStrings());
             }
         }
 

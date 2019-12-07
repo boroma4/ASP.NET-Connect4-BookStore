@@ -29,6 +29,11 @@ namespace WebApplication.Pages
                     Settings.YCoordinate[i] = Settings.BoardHeight - 1;
                 }
             }
+
+            if (!Settings.IsPlayerOne)
+            {
+                MakeATurn(Bot.MakeMove(Settings));
+            }
             Helper.GameSettings = Settings;
         }
 
@@ -54,7 +59,7 @@ namespace WebApplication.Pages
             }
             else
             {
-                
+               //Saver.SaveGame(Settings,false);
             }
             Settings = Helper.GameSettings;
 
@@ -62,7 +67,7 @@ namespace WebApplication.Pages
             return Page();
         }
 
-        public string MakeATurn( int userXint)
+        private string MakeATurn( int userXint)
         {
             /*
              * MESS
