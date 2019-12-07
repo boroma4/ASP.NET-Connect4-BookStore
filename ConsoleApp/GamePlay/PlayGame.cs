@@ -65,8 +65,7 @@ namespace GamePlay
                 else if(settings.VersusBot)
                 {
                     Console.WriteLine("Bot is thinking...");
-                    Thread.Sleep(2000);
-                    userXint = GameAI.MakeMove(settings);
+                    userXint = Bot.MakeMove(settings);
 
                 }
                 playerWon = EndGame.GameOver(userXint, settings);

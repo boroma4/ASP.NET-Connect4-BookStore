@@ -1,6 +1,4 @@
-﻿using System.Reflection.PortableExecutable;
-using System.Threading.Tasks;
-using DAL;
+﻿using DAL;
 using Domain;
 using GameEngine;
 using GamePlay;
@@ -45,24 +43,25 @@ namespace WebApplication.Pages
                     return Page();
                 }
 
-                Settings = Helper.GameSettings;
 
                 if (Settings.VersusBot && !Settings.IsPlayerOne)
                 {
-                    MakeATurn(GameAI.MakeMove(Settings));
+                    MakeATurn(Bot.MakeMove(Settings));
                 }
+
             }
             else
             {
                 
             }
+            Settings = Helper.GameSettings;
+
 
             return Page();
         }
 
         public string MakeATurn( int userXint)
         {
-            Saver.SaveGame(Settings,true);
             /*
              * MESS
              */
@@ -85,6 +84,7 @@ namespace WebApplication.Pages
             Settings.YCoordinate[userXint - 1]--;
             Settings.IsPlayerOne = !Settings.IsPlayerOne;
             
+            Saver.SaveGame(Settings,true);
             Helper.GameSettings = Settings;
             return "OK";
         }
