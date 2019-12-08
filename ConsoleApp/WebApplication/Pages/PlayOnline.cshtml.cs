@@ -54,10 +54,13 @@ namespace WebApplication.Pages
                 {
                     MakeATurn(Bot.MakeMove(Settings));
                 }
-
             }
-            Settings = RuntimeData.GameSettings;
-            Saver.SaveGame(Settings,true);
+
+            if (!GameOver && !FullBoard)
+            {
+                Settings = RuntimeData.GameSettings;
+                Saver.SaveGame(Settings,true);
+            }
             //Really strange hack
             Settings = RuntimeData.GameSettings;
             
