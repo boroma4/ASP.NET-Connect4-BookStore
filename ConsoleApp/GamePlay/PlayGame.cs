@@ -65,6 +65,7 @@ namespace GamePlay
                 else if(settings.VersusBot)
                 {
                     Console.WriteLine("Bot is thinking...");
+                    Thread.Sleep(1000);
                     userXint = Bot.MakeMove(settings);
 
                 }

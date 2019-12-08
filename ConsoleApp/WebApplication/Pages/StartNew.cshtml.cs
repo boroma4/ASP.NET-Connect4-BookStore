@@ -31,7 +31,7 @@ namespace WebApplication.Pages
         public SelectList Boards { get; set; } = new SelectList(Types);
 
         [BindProperty]
-        public string SelectedBoardType { get; set; } = default;
+        public string SelectedBoardType { get; set; } = default!;
 
         public bool IsCustomBoard { get; set; } = default!;
 
