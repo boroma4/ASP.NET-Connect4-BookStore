@@ -64,10 +64,28 @@
                     {
                         <td>
                             <form method="post">
-                                @{ var col = i + 1; }
-                                <button type="submit" class="btn btn-primary" asp-route-userXint="@col" style="width: 100%">
-                                    Here
-                                </button>
+                                @{ var col = i + 1;
+                                    if (Model.Settings.BoardWidth == 10)
+                                    {
+                                        <button type="submit" class="btn btn-primary button-turn-big" asp-route-userXint="@col">
+                                            hi
+                                        </button>
+                                    }
+                                    else if ( Model.Settings.BoardWidth >5 && Model.Settings.BoardWidth < 10)
+                                    {
+                                        <button type="submit" class="btn btn-primary button-turn-med" asp-route-userXint="@col">
+                                            hi
+                                        </button>
+                                    }
+                                    else
+                                    {
+                                        <button type="submit" class="btn btn-primary button-turn-small" asp-route-userXint="@col">
+                                            hi
+                                        </button>
+                                    }
+
+                                }
+                                
                             </form>
                         </td>
                     }
@@ -126,5 +144,49 @@
          border-radius: 50%;
          display: inline-block;
         }
+     .button-turn-small,.button-turn-med,.button-turn-big{
+     width: 100%;
+     }
+       @@media only screen and (max-device-width: 480px) {
+       table{
+       width:  70vw;
+       padding:0;
+       margin:0;
+       border-spacing: 0;
+      }
+      .button-turn-small{ 
+      width: 18vw;
+      }
+     .button-turn-med{ 
+           width: 11vw;
+           }   
+     .button-turn-big{ 
+           width: 8.5vw;
+           }
+      td{
+      width: 1px;
+      white-space: nowrap;
 
+      }
+      .blank{
+                height: 25px;
+                width: 25px;
+               }
+      .playerOne{
+                 height: 25px;
+                 width: 25px;
+                 }
+      .playerTwo{
+                      height: 25px;
+                      width: 25px;
+                      }
+                      
+       html, body{
+           height:100%;
+           width:100%;
+           padding:0;
+           margin:0;
+       }
+    }
+    
 </style>

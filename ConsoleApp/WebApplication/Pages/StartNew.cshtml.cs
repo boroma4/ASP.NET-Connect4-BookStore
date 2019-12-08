@@ -38,7 +38,6 @@ namespace WebApplication.Pages
         public bool VsBot { get; set; }
         
         [BindProperty]
-
         public bool BotIsFirst { get; set; }
         
         
@@ -49,7 +48,6 @@ namespace WebApplication.Pages
 
         public IActionResult OnPostAsync(bool bot)
         {
-            
             switch (SelectedBoardType)
             {
                case "Small":
@@ -65,7 +63,7 @@ namespace WebApplication.Pages
                    Settings.BoardWidth = 10;
                    break;
                case "Custom":
-                   if (Settings.BoardWidth < 4 && Settings.BoardHeight < 4)
+                   if ((Settings.BoardWidth < 4 || Settings.BoardWidth > 10) && (Settings.BoardHeight < 4 || Settings.BoardHeight > 10))
                    {
                        VsBot = bot;
                        IsCustomBoard = true;
