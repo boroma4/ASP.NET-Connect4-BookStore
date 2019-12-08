@@ -15,6 +15,8 @@ namespace WebApplication.Pages
 
         public bool GameOver { get; set; } = false;
 
+        public bool FullBoard { get; set; }
+
         public Start(AppDbContext context)
         {
             _context = context;
@@ -40,8 +42,6 @@ namespace WebApplication.Pages
         public IActionResult OnPost(int? userXint)
         {
             Settings = RuntimeData.GameSettings;
-            Saver.SaveGame(Settings,true);
-
 
             if (userXint != null)
             {
@@ -60,9 +60,7 @@ namespace WebApplication.Pages
             Saver.SaveGame(Settings,true);
             //Really strange hack
             Settings = RuntimeData.GameSettings;
-
-
-
+            
             return Page();
         }
 
@@ -84,6 +82,12 @@ namespace WebApplication.Pages
             {
                 GameOver = true;
                 return "reload";
+            }
+            //IF board is full
+            if (Settings.NumTurns == Settings.BoardHeight * Settings.BoardWidth)
+            {
+                 FullBoard = true; 
+                 return "reload";
             }
             // IF not change player, save state and let's continue
             

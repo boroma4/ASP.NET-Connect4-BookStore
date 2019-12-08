@@ -81,8 +81,7 @@ namespace WebApplication.Pages
             Settings.Board = new CellState[Settings.BoardHeight,Settings.BoardWidth];
             Settings.YCoordinate = new int[Settings.BoardWidth];
             Saver.SaveGame(Settings,true);
-
-             return RedirectToPage("PlayOnline");
+            return RedirectToPage("PlayOnline");
         }
     }
 }

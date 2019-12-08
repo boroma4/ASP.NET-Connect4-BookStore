@@ -6,7 +6,7 @@ namespace GameEngine
     public static class Saver
     {
         private const int BackCommand = 44;
-        public static  void SaveGame(GameSettings settings,bool autoSave)
+        public static  void SaveGame(GameSettings settings,bool autoSave,int slot = 0,bool web = false)
         {
             if (autoSave)
             {
@@ -15,14 +15,17 @@ namespace GameEngine
                 settings.SaveTime = DateTime.Now.ToString("MM/dd/yyyy H:mm:ss");
                 if (settings.NumTurns != (settings.BoardHeight * settings.BoardWidth ))
                 {
-                    AvailableSaves.Saves[0] = settings.SaveName + " " +settings.SaveTime;
+                    AvailableSaves.Saves[slot] = settings.SaveName + " " +settings.SaveTime;
                     GameConfigHandler.SaveConfig(settings);
                 }
             }
             else
             {
-                var slot = SlotSelector();
-                if (slot == BackCommand) return;
+                if (!web)
+                {
+                     slot = SlotSelector();
+                    if (slot == BackCommand) return; 
+                }
                 var name = settings.FirstPlayerName + "-" + settings.SecondPlayerName;
                 settings.SaveName = name;
                 settings.SaveTime = DateTime.Now.ToString("MM/dd/yyyy H:mm:ss");

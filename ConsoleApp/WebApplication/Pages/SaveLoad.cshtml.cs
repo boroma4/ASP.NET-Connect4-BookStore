@@ -45,10 +45,7 @@ namespace WebApplication.Pages
         public IActionResult OnPostSave(int id)
         {
             var settings = RuntimeData.GameSettings;
-            var name = settings.FirstPlayerName + "-" + settings.SecondPlayerName;
-            settings.SaveName = name;
-            settings.SaveTime = DateTime.Now.ToString("MM/dd/yyyy H:mm:ss");
-            GameConfigHandler.SaveConfig(settings, id);
+            Saver.SaveGame(settings,false,id,true);
             return RedirectToPage("./PlayOnline",new {id});
         }
         public async Task<IActionResult> OnPostDeleteAsync(int id)
