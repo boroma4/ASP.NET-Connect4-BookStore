@@ -68,19 +68,19 @@
                                     if (Model.Settings.BoardWidth == 10)
                                     {
                                         <button type="submit" class="btn btn-primary button-turn-big" asp-route-userXint="@col">
-                                            hi
+                                            @col
                                         </button>
                                     }
                                     else if ( Model.Settings.BoardWidth >5 && Model.Settings.BoardWidth < 10)
                                     {
                                         <button type="submit" class="btn btn-primary button-turn-med" asp-route-userXint="@col">
-                                            hi
+                                            @col
                                         </button>
                                     }
                                     else
                                     {
                                         <button type="submit" class="btn btn-primary button-turn-small" asp-route-userXint="@col">
-                                            hi
+                                            @col
                                         </button>
                                     }
 
@@ -110,7 +110,7 @@
             }
         </tr>
     </table>
-    <a asp-page="Index">
+    <a asp-page="Index" style="margin-top: 2%">
         Back to main menu
     </a>
 </div>
@@ -146,6 +146,7 @@
         }
      .button-turn-small,.button-turn-med,.button-turn-big{
      width: 100%;
+     color: transparent;
      }
        @@media only screen and (max-device-width: 480px) {
        table{

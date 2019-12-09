@@ -35,6 +35,8 @@ namespace WebApplication.Pages
 
         public bool IsCustomBoard { get; set; } = default!;
 
+        public bool InvalidSize { get; set; }
+
         public bool VsBot { get; set; }
         
         [BindProperty]
@@ -63,10 +65,11 @@ namespace WebApplication.Pages
                    Settings.BoardWidth = 10;
                    break;
                case "Custom":
-                   if ((Settings.BoardWidth < 4 || Settings.BoardWidth > 10) && (Settings.BoardHeight < 4 || Settings.BoardHeight > 10))
+                   if ((Settings.BoardWidth < 4 || Settings.BoardWidth > 10) || (Settings.BoardHeight < 4 || Settings.BoardHeight > 10))
                    {
                        VsBot = bot;
-                       IsCustomBoard = true;
+                       IsCustomBoard = true; 
+                       InvalidSize = true;
                        return Page();
                    }
                    break;

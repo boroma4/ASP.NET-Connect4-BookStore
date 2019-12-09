@@ -70,9 +70,9 @@ namespace GamePlay
                     Console.WriteLine("Side length has to be at least 4!");
                     userInput = -1;
                 }
-                else if (userInput > 30)
+                else if (userInput > 10)
                 {
-                    Console.WriteLine("Side length can't' be bigger than 30!");
+                    Console.WriteLine("Side length can't' be bigger than 10!");
                     userInput = -1;
                 }
             } while (userInput < 0);

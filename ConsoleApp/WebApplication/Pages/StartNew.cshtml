@@ -37,6 +37,15 @@
                     <input asp-for="Settings.BoardWidth" class="form-control" />
                     <span asp-validation-for="Settings.BoardWidth" class="text-danger"></span>
                 </div>
+                if (Model.InvalidSize)
+                {
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                       Dimensions should be in range 4-10
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                }
             }
             @if (Model.VsBot)
             {

@@ -11,11 +11,11 @@ namespace WebApplication.Pages
     {
         private readonly AppDbContext _context;
 
-        public GameSettings Settings { get; set; } = default!;
+        public GameSettings Settings { get; private set; } = default!;
 
-        public bool GameOver { get; set; } = false;
+        public bool GameOver { get; private set; } = false;
 
-        public bool FullBoard { get; set; }
+        public bool FullBoard { get; private set; }
 
         public Start(AppDbContext context)
         {
@@ -69,13 +69,11 @@ namespace WebApplication.Pages
 
         private string MakeATurn( int userXint)
         {
-            /*
-             * MESS
-             */
+          
             //1. IF reached the top
             if (Settings.YCoordinate[userXint-1] < 0)
             {
-                //SOME ERROR
+                //The column is full
                 return "reload";
             }
             Settings.Board[Settings.YCoordinate[userXint-1], userXint -1] = Settings.IsPlayerOne ? CellState.X : CellState.O ;
