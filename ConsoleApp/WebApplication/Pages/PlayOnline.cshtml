@@ -9,21 +9,27 @@
         @{
                 if (Model.Settings.IsPlayerOne)
                 {
+                    
                     <h5>
-                        Current player: @Model.Settings.FirstPlayerName
+                        Current player: @Model.Settings.FirstPlayerName (yellow)
                     </h5>
                 }
                 else
                 {
                     <h5 >
-                        Current player: @Model.Settings.SecondPlayerName
+                        Current player: @Model.Settings.SecondPlayerName (red)
                     </h5>
                 }
         }
+        <a asp-page="Index">
+                <button type="button" class="btn btn-info btn-sm" style="margin: 1%">
+                   Back to main menu
+                    </button>
+            </a>
         @if (!Model.GameOver && !Model.FullBoard)
         {
             <a asp-page="SaveLoad" asp-route-save="true">
-                <button type="submit" class="btn btn-info btn-sm" style="margin: 1%" asp-route-userXint="">
+                <button type="button" class="btn btn-info btn-sm" style="margin: 1%" asp-route-userXint="">
                     Save the game
                 </button>
             </a>
@@ -110,9 +116,6 @@
             }
         </tr>
     </table>
-    <a asp-page="Index" style="margin-top: 2%">
-        Back to main menu
-    </a>
 </div>
 
 

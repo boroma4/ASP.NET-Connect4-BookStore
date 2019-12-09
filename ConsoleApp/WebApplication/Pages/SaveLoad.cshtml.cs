@@ -50,9 +50,10 @@ namespace WebApplication.Pages
         }
         public async Task<IActionResult> OnPostDeleteAsync(int id)
         {
-            var GameToDelete =  _context.Settings.Find(id);
-            _context.Settings.Remove(GameToDelete);
+            var gameToDelete =  _context.Settings.Find(id);
+            _context.Settings.Remove(gameToDelete);
             await _context.SaveChangesAsync();
+            
             RuntimeData.GamesExternal[id] = ("Empty", "N/A");
             Games = RuntimeData.GamesExternal;
             return Page();

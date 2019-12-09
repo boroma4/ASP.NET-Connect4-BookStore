@@ -23,14 +23,13 @@ namespace GamePlay
             bool done,playerWon;
             do
             {
-                
-                Saver.SaveGame(settings,true);
                 Console.Clear();
                 GameUI.PrintBoard(game);
                 var userXint = -1;
                 var usedLetter = false;
                 if (!settings.VersusBot || (settings.VersusBot && settings.IsPlayerOne))
                 {
+                    Saver.SaveGame(settings,true);
                     do
                     {
                         Console.WriteLine("Press X to go back to main menu. Press S to save the game");
@@ -67,7 +66,6 @@ namespace GamePlay
                     Console.WriteLine("Bot is thinking...");
                     Thread.Sleep(1000);
                     userXint = Bot.MakeMove(settings);
-
                 }
                 playerWon = EndGame.GameOver(userXint, settings);
                 

@@ -122,8 +122,6 @@ namespace GamePlay
                 default:
                     throw new InvalidEnumArgumentException("Unknown bot config!");
             }
-          
-            
             
             return settings;
         }
