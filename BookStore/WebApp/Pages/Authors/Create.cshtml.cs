@@ -30,11 +30,10 @@ namespace WebApp.Pages_Authors
         public bool SameFound { get; set; }
         
         public bool InvalidYear { get; set; }
-        
-        public string ErrorMessage { get; set; }
 
-        [BindProperty]
-        public Author Author { get; set; }
+        public string ErrorMessage { get; set; } = default!;
+
+        [BindProperty] public Author Author { get; set; } = default!;
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.

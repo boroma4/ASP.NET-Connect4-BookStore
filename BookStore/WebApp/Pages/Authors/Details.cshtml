@@ -34,10 +34,10 @@
             @Html.DisplayNameFor(model => model.Author.AuthorBooks)
         </dt>
         <dd class="col-sm-10">
-            @foreach (var bookAuthor in Model.Author.AuthorBooks)
+            @foreach (var bookAuthor in Model.Author.AuthorBooks!)
             {
                 <span>
-                    @Html.DisplayFor(modelItem => bookAuthor.Book.Title)
+                    @Html.DisplayFor(modelItem => bookAuthor.Book!.Title)
                     @{
                         count++;
                         if (count != Model.Author.AuthorBooks.Count)

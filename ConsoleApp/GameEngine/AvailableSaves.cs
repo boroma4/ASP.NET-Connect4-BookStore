@@ -20,7 +20,7 @@ namespace GameEngine
             
             ctx.Database.EnsureCreated();
             
-                var save = new List<GameSettings>(4);
+            var save = new List<GameSettings>(4);
             for ( var i = 0; i < MAXSAVES; i++)
             {
                  save.Add(GameConfigHandler.LoadConfig(i));

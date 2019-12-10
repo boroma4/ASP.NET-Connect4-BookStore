@@ -53,6 +53,7 @@ namespace WebApp.Pages.Books
                 .Include(b => b.Publisher)
                 .Include(b => b.BookAuthors)
                 .ThenInclude(a => a.Author)
+                //subqueries not working with current SQLite driver in EFCore
                 //.Include(b => b.Comments)
                 .Select(a => new BookIndexDto()
                 {

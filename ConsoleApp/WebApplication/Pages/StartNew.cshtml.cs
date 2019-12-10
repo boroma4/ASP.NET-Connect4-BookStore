@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 using DAL;
 using Domain;
 using GameEngine;
