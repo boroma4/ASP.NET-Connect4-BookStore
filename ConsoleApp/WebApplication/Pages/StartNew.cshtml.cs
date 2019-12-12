@@ -6,6 +6,7 @@ using GameEngine;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using WebApplication.Helper;
 
 namespace WebApplication.Pages
 {
@@ -74,7 +75,7 @@ namespace WebApplication.Pages
                    throw new InvalidOperationException("No such board size!");
             }
 
-            Settings.IsPlayerOne = !BotIsFirst;
+            RuntimeData.WasPlayerFirst = Settings.IsPlayerOne = !BotIsFirst;
             Settings.VersusBot = bot;
             Settings.Board = new CellState[Settings.BoardHeight,Settings.BoardWidth];
             Settings.YCoordinate = new int[Settings.BoardWidth];

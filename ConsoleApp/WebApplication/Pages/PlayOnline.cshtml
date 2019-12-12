@@ -26,13 +26,23 @@
                    Back to main menu
                     </button>
             </a>
-        @if (!Model.GameOver && !Model.FullBoard)
-        {
-            <a asp-page="SaveLoad" asp-route-save="true">
-                <button type="button" class="btn btn-info btn-sm" style="margin: 1%" asp-route-userXint="">
-                    Save the game
-                </button>
-            </a>
+        @{
+            if (!Model.GameOver && !Model.FullBoard)
+             {
+                 <a asp-page="SaveLoad" asp-route-save="true">
+                     <button type="button" class="btn btn-info btn-sm" style="margin: 1%" asp-route-userXint="">
+                         Save the game
+                     </button>
+                     </a>
+             }
+            else
+            {
+                <a asp-page="PlayOnline" asp-route-restart="true">
+                    <button type="button" class="btn btn-info btn-sm" style="margin: 1%">
+                        Restart
+                    </button>
+                </a>
+            }
         }
     </div>
   

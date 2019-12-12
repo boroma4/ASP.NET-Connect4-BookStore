@@ -10,6 +10,7 @@ namespace GameEngine
     {
         private static readonly DbContextOptions _options = new DbContextOptionsBuilder<AppDbContext>()
             .UseSqlite(@"Data Source=D:\Databases\connect4.db").Options;
+        
         public static void SaveConfig(GameSettings settings, int id = 0)
         {
                 settings.Id = id;

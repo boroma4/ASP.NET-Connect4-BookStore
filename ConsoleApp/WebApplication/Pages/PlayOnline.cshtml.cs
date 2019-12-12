@@ -2,9 +2,9 @@
 using Domain;
 using GameEngine;
 using GamePlay;
-using Microsoft.AspNetCore.Components.RenderTree;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using WebApplication.Helper;
 
 namespace WebApplication.Pages
 {
@@ -22,9 +22,24 @@ namespace WebApplication.Pages
         {
             _context = context;
         }
-        public void OnGet(int? id)
+        public void OnGet(int? id, bool? restart)
         {
-            Settings = id != null ? GameConfigHandler.LoadConfig(id.Value) : GameConfigHandler.LoadConfig();
+            if (restart != null)
+            {
+                RuntimeData.GameSettings.Board = new CellState[RuntimeData.GameSettings.BoardHeight,RuntimeData.GameSettings.BoardWidth];
+                RuntimeData.GameSettings.NumTurns = 0;
+                RuntimeData.GameSettings.YCoordinate = new int [RuntimeData.GameSettings.BoardWidth];
+                if (RuntimeData.GameSettings.VersusBot)
+                {
+                    RuntimeData.GameSettings.IsPlayerOne = RuntimeData.WasPlayerFirst;
+                }
+                Settings = RuntimeData.GameSettings;
+            }
+            else
+            {
+                Settings = id != null ? GameConfigHandler.LoadConfig(id.Value) : GameConfigHandler.LoadConfig();
+            }
+            
             if (id == null)
             {
                 for (var i = 0; i < Settings.BoardWidth; i++)
@@ -32,7 +47,7 @@ namespace WebApplication.Pages
                     Settings.YCoordinate[i] = Settings.BoardHeight - 1;
                 }
             }
-
+            
             if (!Settings.IsPlayerOne)
             {
                 MakeATurn(Bot.MakeMove(Settings));
