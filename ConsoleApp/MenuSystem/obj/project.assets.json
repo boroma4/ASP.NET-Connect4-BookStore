@@ -1342,11 +1342,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\repos\\ics0016-2019f\\ConsoleApp\\MenuSystem\\MenuSystem.csproj",
+      "projectUniqueName": "D:\\repos\\github\\ics0016-2019f\\ConsoleApp\\MenuSystem\\MenuSystem.csproj",
       "projectName": "MenuSystem",
-      "projectPath": "D:\\repos\\ics0016-2019f\\ConsoleApp\\MenuSystem\\MenuSystem.csproj",
+      "projectPath": "D:\\repos\\github\\ics0016-2019f\\ConsoleApp\\MenuSystem\\MenuSystem.csproj",
       "packagesPath": "C:\\Users\\bohda\\.nuget\\packages\\",
-      "outputPath": "D:\\repos\\ics0016-2019f\\ConsoleApp\\MenuSystem\\obj\\",
+      "outputPath": "D:\\repos\\github\\ics0016-2019f\\ConsoleApp\\MenuSystem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bohda\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1360,11 +1360,11 @@
       "frameworks": {
         "netstandard2.1": {
           "projectReferences": {
-            "D:\\repos\\ics0016-2019f\\ConsoleApp\\GameEngine\\GameEngine.csproj": {
-              "projectPath": "D:\\repos\\ics0016-2019f\\ConsoleApp\\GameEngine\\GameEngine.csproj"
+            "D:\\repos\\github\\ics0016-2019f\\ConsoleApp\\GameEngine\\GameEngine.csproj": {
+              "projectPath": "D:\\repos\\github\\ics0016-2019f\\ConsoleApp\\GameEngine\\GameEngine.csproj"
             },
-            "D:\\repos\\ics0016-2019f\\ConsoleApp\\GamePlay\\GamePlay.csproj": {
-              "projectPath": "D:\\repos\\ics0016-2019f\\ConsoleApp\\GamePlay\\GamePlay.csproj"
+            "D:\\repos\\github\\ics0016-2019f\\ConsoleApp\\GamePlay\\GamePlay.csproj": {
+              "projectPath": "D:\\repos\\github\\ics0016-2019f\\ConsoleApp\\GamePlay\\GamePlay.csproj"
             }
           }
         }

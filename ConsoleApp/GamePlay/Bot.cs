@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Domain;
 
 namespace GamePlay
@@ -26,10 +28,40 @@ namespace GamePlay
                 }
                 else
                 {
-                    do 
-                    { 
-                        botX = random.Next(1, settings.BoardWidth);
-                    } while (settings.YCoordinate[botX-1] < 1);
+                    var canHelpHumanWin = false;
+                    var timeout = 0;
+                    var colsWithSpace = new List<int>();
+
+                    for (var i = 0; i < settings.BoardWidth; i++)
+                    {
+                        if (settings.YCoordinate[i] >= 0)
+                        {
+                            colsWithSpace.Add(i + 1);
+                        }
+                    }
+                    do
+                    {
+                        do 
+                        {
+                            // don't random among columns that have no space
+                            var randColIndex = random.Next(colsWithSpace.Count);
+                            botX = colsWithSpace[randColIndex];
+
+                        } while (settings.YCoordinate[botX-1] < 0);
+
+                        // fake a turn with selected coordinate
+                        settings.Board[settings.YCoordinate[botX-1], botX-1] = CellState.O;
+                        settings.YCoordinate[botX-1]--;
+            
+                        canHelpHumanWin = CheckIfCanWin(false, settings).Item1;
+                        
+                        // restore the board to what it was
+                        settings.YCoordinate[botX-1]++;
+                        settings.Board[settings.YCoordinate[botX-1], botX-1] = CellState.Empty;
+                   
+                        timeout ++ ;
+
+                    } while (canHelpHumanWin && timeout < 1000);
                 }
             }
             return botX;
@@ -61,5 +93,6 @@ namespace GamePlay
                 settings.IsPlayerOne = !settings.IsPlayerOne;
             }
         }
+        
     }
 }

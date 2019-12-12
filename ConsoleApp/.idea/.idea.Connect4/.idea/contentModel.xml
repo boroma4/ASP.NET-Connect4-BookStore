@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\bohda\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\bohda\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Connect4.-1297646582.00" t="ExcludeRecursive" />
-    <e p="D:\repos\ics0016-2019f\ConsoleApp" t="IncludeFlat">
+    <e p="C:\Users\bohda\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Connect4.-640027987.00" t="ExcludeRecursive" />
+    <e p="D:\repos\github\ics0016-2019f\ConsoleApp" t="IncludeFlat">
       <e p=".gitignore" t="Include" />
       <e p="Connect4.sln" t="IncludeFlat" />
       <e p="ConsoleApp" t="IncludeRecursive">
